@@ -4,6 +4,191 @@ class DCLogic extends Component {
   constructor(props) { super(props); if (!this.state) this.state = {}; }
   render() { return this.tpl(this.renderVals() || {}); }
 }
+class Definicao extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+Definicao.defaultProps = {};
+Definicao.prototype.tpl = function (v) { return html`
+<div style="width: 100%; box-sizing: border-box; background: #F7F7F7; color: #3E3E3E; font-family: Figtree, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif; -webkit-font-smoothing: antialiased; padding: 120px 40px">
+  <section style="width: 100%; max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 48px">
+
+    <${C.TituloSecao} numero="04" etapa="Definição" titulo="Priorizando o que entraria no projeto" subtitulo="Com as causas mapeadas, construí uma matriz MoSCoW junto com Produto e Engenharia." />
+
+    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px">
+      <span style="margin-right: 4px; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #717171">Critérios</span>
+      <span style="padding: 7px 14px; background: #FFFFFF; border: 1px solid #EBEBEB; border-radius: 999px; font-size: 14px; font-weight: 600; color: #3E3E3E">Impacto na experiência</span><span style="padding: 7px 14px; background: #FFFFFF; border: 1px solid #EBEBEB; border-radius: 999px; font-size: 14px; font-weight: 600; color: #3E3E3E">Necessidade da mudança</span><span style="padding: 7px 14px; background: #FFFFFF; border: 1px solid #EBEBEB; border-radius: 999px; font-size: 14px; font-weight: 600; color: #3E3E3E">Esforço de implementação</span>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 16px">
+      <div style="display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 16px">
+        <div style="display: flex; flex-direction: column; gap: 22px; padding: 40px; background: #EA1D2C;  border-radius: 20px">
+          <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px">
+            <p style="margin: 0; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #FFFFFF">Must have</p>
+            <span style="font-size: 14px; font-weight: 500; color: rgba(255, 255, 255, 0.75)">Precisa ter</span>
+          </div>
+          <p style="margin: -6px 0 0; font-size: 30px; font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; color: #FFFFFF">Escopo principal do projeto</p>
+          <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px">
+            <li style="display: flex; align-items: baseline; gap: 12px; font-size: 20px; font-weight: 600; line-height: 1.4; color: #FFFFFF"><span aria-hidden="true" style="flex: 0 0 7px; width: 7px; height: 7px; border-radius: 50%; background: #FFFFFF; transform: translateY(-2px)"></span><span>Validação do novo card design</span></li>
+            <li style="display: flex; align-items: baseline; gap: 12px; font-size: 20px; font-weight: 600; line-height: 1.4; color: #FFFFFF"><span aria-hidden="true" style="flex: 0 0 7px; width: 7px; height: 7px; border-radius: 50%; background: #FFFFFF; transform: translateY(-2px)"></span><span>Refazer toda a experiência de ativação de cartões</span></li>
+            <li style="display: flex; align-items: baseline; gap: 12px; font-size: 20px; font-weight: 600; line-height: 1.4; color: #FFFFFF"><span aria-hidden="true" style="flex: 0 0 7px; width: 7px; height: 7px; border-radius: 50%; background: #FFFFFF; transform: translateY(-2px)"></span><span>Melhorar o bloqueio e desbloqueio do cartão físico</span></li>
+            <li style="display: flex; align-items: baseline; gap: 12px; font-size: 20px; font-weight: 600; line-height: 1.4; color: #FFFFFF"><span aria-hidden="true" style="flex: 0 0 7px; width: 7px; height: 7px; border-radius: 50%; background: #FFFFFF; transform: translateY(-2px)"></span><span>Refazer a experiência de criação de cartões virtuais</span></li>
+            <li style="display: flex; align-items: baseline; gap: 12px; font-size: 20px; font-weight: 600; line-height: 1.4; color: #FFFFFF"><span aria-hidden="true" style="flex: 0 0 7px; width: 7px; height: 7px; border-radius: 50%; background: #FFFFFF; transform: translateY(-2px)"></span><span>Melhorar o bloqueio e desbloqueio dos cartões virtuais</span></li>
+            <li style="display: flex; align-items: baseline; gap: 12px; font-size: 20px; font-weight: 600; line-height: 1.4; color: #FFFFFF"><span aria-hidden="true" style="flex: 0 0 7px; width: 7px; height: 7px; border-radius: 50%; background: #FFFFFF; transform: translateY(-2px)"></span><span>Melhorar a alteração de senha de transação</span></li>
+          </ul>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 22px; padding: 40px; background: #FFFFFF; border: 2px solid #EA1D2C; border-radius: 20px">
+          <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px">
+            <p style="margin: 0; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #EA1D2C">Should have</p>
+            <span style="font-size: 14px; font-weight: 500; color: #717171">Deveria ter</span>
+          </div>
+          <p style="margin: -6px 0 0; font-size: 30px; font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; color: #1A1A1A">Complementos da jornada</p>
+          <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px">
+            <li style="display: flex; align-items: baseline; gap: 12px; font-size: 20px; font-weight: 600; line-height: 1.4; color: #1A1A1A"><span aria-hidden="true" style="flex: 0 0 7px; width: 7px; height: 7px; border-radius: 50%; background: #EA1D2C; transform: translateY(-2px)"></span><span>Criar experiência de rastreio do cartão no app</span></li>
+            <li style="display: flex; align-items: baseline; gap: 12px; font-size: 20px; font-weight: 600; line-height: 1.4; color: #1A1A1A"><span aria-hidden="true" style="flex: 0 0 7px; width: 7px; height: 7px; border-radius: 50%; background: #EA1D2C; transform: translateY(-2px)"></span><span>Validação da nova carta berço</span></li>
+            <li style="display: flex; align-items: baseline; gap: 12px; font-size: 20px; font-weight: 600; line-height: 1.4; color: #1A1A1A"><span aria-hidden="true" style="flex: 0 0 7px; width: 7px; height: 7px; border-radius: 50%; background: #EA1D2C; transform: translateY(-2px)"></span><span>Modais sobre o cartão panless e o código de ativação</span></li>
+          </ul>
+        </div>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px">
+        <div style="display: flex; flex-direction: column; gap: 22px; padding: 28px; background: #FFFFFF; border: 1px solid #EBEBEB; border-radius: 20px">
+          <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px">
+            <p style="margin: 0; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #A6A6A6">Could have</p>
+            <span style="font-size: 14px; font-weight: 500; color: #B5B5B5">Poderia ter</span>
+          </div>
+          <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px">
+            <li style="display: flex; align-items: baseline; gap: 12px; font-size: 16px; font-weight: 500; line-height: 1.4; color: #A6A6A6"><span aria-hidden="true" style="flex: 0 0 7px; width: 7px; height: 7px; border-radius: 50%; background: #CFCFCF; transform: translateY(-2px)"></span><span>Trazer as informações do cartão para o SponsorApp</span></li>
+            <li style="display: flex; align-items: baseline; gap: 12px; font-size: 16px; font-weight: 500; line-height: 1.4; color: #A6A6A6"><span aria-hidden="true" style="flex: 0 0 7px; width: 7px; height: 7px; border-radius: 50%; background: #CFCFCF; transform: translateY(-2px)"></span><span>Melhorias no Admin para identificar informações dos colaboradores</span></li>
+            <li style="display: flex; align-items: baseline; gap: 12px; font-size: 16px; font-weight: 500; line-height: 1.4; color: #A6A6A6"><span aria-hidden="true" style="flex: 0 0 7px; width: 7px; height: 7px; border-radius: 50%; background: #CFCFCF; transform: translateY(-2px)"></span><span>Comunicações sobre o novo arranjo e o novo cartão</span></li>
+          </ul>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 22px; padding: 28px; background: #FFFFFF; border: 1px solid #EBEBEB; border-radius: 20px">
+          <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px">
+            <p style="margin: 0; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #A6A6A6">Won't have</p>
+            <span style="font-size: 14px; font-weight: 500; color: #B5B5B5">Não terá agora</span>
+          </div>
+          <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px">
+            <li style="display: flex; align-items: baseline; gap: 12px; font-size: 16px; font-weight: 500; line-height: 1.4; color: #A6A6A6"><span aria-hidden="true" style="flex: 0 0 7px; width: 7px; height: 7px; border-radius: 50%; background: #CFCFCF; transform: translateY(-2px)"></span><span>Programa de engajamento para a função voucher</span></li>
+            <li style="display: flex; align-items: baseline; gap: 12px; font-size: 16px; font-weight: 500; line-height: 1.4; color: #A6A6A6"><span aria-hidden="true" style="flex: 0 0 7px; width: 7px; height: 7px; border-radius: 50%; background: #CFCFCF; transform: translateY(-2px)"></span><span>Workshops com empresas sobre o novo arranjo e o cartão panless</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </section>
+</div>
+`; };
+C.Definicao = Definicao;
+
+class Contexto extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+Contexto.defaultProps = {};
+Contexto.prototype.tpl = function (v) { return html`
+<div style="width: 100%; min-height: 960px; box-sizing: border-box; background: #FFFFFF; color: #3E3E3E; font-family: Figtree, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif; -webkit-font-smoothing: antialiased; padding: 120px 40px">
+  <section style="width: 100%; max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 56px">
+
+    <${C.TituloSecao} numero="01" etapa="Contexto" titulo="Por que o projeto começou?" subtitulo="Uma mudança regulatória obrigou a Caju a repensar seus cartões, e abriu espaço para olhar além dela." />
+
+    <div style="display: flex; flex-wrap: wrap; align-items: stretch; gap: 16px">
+
+      <div style="flex: 1 1 240px; min-width: 0; display: flex; flex-direction: column; gap: 14px">
+        <p style="margin: 0; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #717171">O ponto de partida</p>
+        <div style="flex: 1; display: flex; flex-direction: column; gap: 20px; padding: 28px; background: #FFFFFF; border: 1px solid #EBEBEB; border-radius: 16px">
+          <span style="align-self: flex-start; padding: 6px 12px; background: #1A1A1A; color: #FFFFFF; border-radius: 8px; font-size: 13px; font-weight: 600">Regulamentação · 2022</span>
+          <h3 style="margin: 0; font-size: 26px; font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; color: #1A1A1A">Nova regulamentação do Banco Central</h3>
+          <p style="margin: 0; font-size: 16px; line-height: 1.55; color: #717171">Em 2022, a Caju começou a se preparar para mudanças importantes na operação dos seus cartões.</p>
+        </div>
+      </div>
+
+      <div aria-hidden="true" style="flex: 0 0 24px; display: flex; align-items: center; justify-content: center; padding-top: 30px">
+        <svg width="24" height="16" viewBox="0 0 24 16" fill="none"><path d="M0 8h21M15 2l6 6-6 6" stroke="#B5B5B5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      </div>
+
+      <div style="flex: 1 1 240px; min-width: 0; display: flex; flex-direction: column; gap: 14px">
+        <p style="margin: 0; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #717171">Que previa</p>
+        <div style="flex: 1; display: flex; flex-direction: column; gap: 20px; padding: 28px; background: #F7F7F7; border-radius: 16px">
+          <p style="margin: 0; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #A6A6A6">Cartão</p>
+          <h3 style="margin: 0; font-size: 26px; font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; color: #1A1A1A">Substituição por um modelo panless</h3>
+          <p style="margin: 0; font-size: 16px; line-height: 1.55; color: #717171">Sem informações sensíveis impressas no cartão físico.</p>
+          <div style="margin-top: auto; display: flex; justify-content: center; padding-top: 8px">
+            <img src="/assets/b0ea6a8a37e0cb10c004df70a3bf54a4.svg" alt="Novo cartão Caju panless, na vertical, sem número, validade ou código impressos." style="display: block; width: 120px; height: auto; aspect-ratio: 251 / 353; filter: drop-shadow(0 12px 20px rgba(232, 5, 55, 0.25))" />
+          </div>
+        </div>
+      </div>
+
+      <div aria-hidden="true" style="flex: 0 0 24px; display: flex; align-items: center; justify-content: center; padding-top: 30px">
+        <svg width="24" height="16" viewBox="0 0 24 16" fill="none"><path d="M0 8h21M15 2l6 6-6 6" stroke="#B5B5B5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      </div>
+
+      <div style="flex: 1 1 260px; min-width: 0; display: flex; flex-direction: column; gap: 14px">
+        <p style="margin: 0; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #717171">Que exigiria adaptar</p>
+        <div style="flex: 1; display: flex; flex-direction: column; gap: 20px; padding: 28px; background: #FFFFFF; border: 1px solid #EBEBEB; border-radius: 16px">
+          <h3 style="margin: 0; font-size: 26px; font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; color: #1A1A1A">Jornadas de ativação e gestão de cartões no app</h3>
+          <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px">
+            <li style="padding: 11px 14px; background: #F7F7F7; border-radius: 10px; font-size: 15px; font-weight: 500; color: #3E3E3E">Ativação do cartão físico</li>
+            <li style="padding: 11px 14px; background: #F7F7F7; border-radius: 10px; font-size: 15px; font-weight: 500; color: #3E3E3E">Criação dos cartões virtuais</li>
+            <li style="padding: 11px 14px; background: #F7F7F7; border-radius: 10px; font-size: 15px; font-weight: 500; color: #3E3E3E">Bloqueio e desbloqueio do físico</li>
+            <li style="padding: 11px 14px; background: #F7F7F7; border-radius: 10px; font-size: 15px; font-weight: 500; color: #3E3E3E">Bloqueio e desbloqueio dos virtuais</li>
+            <li style="padding: 11px 14px; background: #F7F7F7; border-radius: 10px; font-size: 15px; font-weight: 500; color: #3E3E3E">Alteração de senha</li>
+          </ul>
+        </div>
+      </div>
+
+      <div aria-hidden="true" style="flex: 0 0 24px; display: flex; align-items: center; justify-content: center; padding-top: 30px">
+        <svg width="24" height="16" viewBox="0 0 24 16" fill="none"><path d="M0 8h21M15 2l6 6-6 6" stroke="#EA1D2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      </div>
+
+      <div style="flex: 1 1 220px; min-width: 0; display: flex; flex-direction: column; gap: 14px">
+        <p style="margin: 0; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #EA1D2C">E abriu espaço para</p>
+        <div style="flex: 1; display: flex; flex-direction: column; gap: 20px; padding: 28px; background: #EA1D2C; border-radius: 16px">
+          <p style="margin: 0; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #FFFFFF; opacity: 0.8">Oportunidade</p>
+          <h3 style="margin: 0; font-size: 30px; font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; color: #FFFFFF">Investigar problemas que já existiam</h3>
+          <p style="margin: auto 0 0; font-size: 16px; line-height: 1.55; color: #FFFFFF; opacity: 0.9">Ir além da adaptação obrigatória e atacar as fricções da gestão de cartões.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</div>
+`; };
+C.Contexto = Contexto;
+
+class Agradecimento extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+Agradecimento.defaultProps = {};
+Agradecimento.prototype.tpl = function (v) { return html`
+<footer style="width: 100%; min-height: 860px; box-sizing: border-box; display: flex; flex-direction: column; background: #1A1A1A; color: #FFFFFF; font-family: Figtree, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif; -webkit-font-smoothing: antialiased; padding: 96px 40px 80px">
+  <div style="flex: 1 1 auto; width: 100%; max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column">
+
+    <div style="flex: 1 1 auto; display: flex; flex-direction: column; justify-content: center; gap: 24px; padding: 64px 0">
+      <h2 style="margin: 0; font-size: 152px; font-weight: 800; line-height: 0.95; letter-spacing: -0.05em; color: #FFFFFF">Muito obrigado!</h2>
+      <p style="margin: 0; font-size: 28px; font-weight: 500; line-height: 1.3; color: rgba(255, 255, 255, 0.88)">Ficou alguma dúvida?</p>
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; padding-top: 40px; border-top: 1px solid rgba(255, 255, 255, 0.2)">
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <p style="margin: 0; font-size: 26px; font-weight: 700; letter-spacing: -0.01em; color: #FFFFFF">Arthur Magalhães</p>
+        <p style="margin: 0; font-size: 17px; color: rgba(255, 255, 255, 0.8)">Product Designer</p>
+      </div>
+      <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px">
+        <li><a class="contato" href="https://www.linkedin.com/in/arthuramagalhaes/" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border: 1px solid rgba(255, 255, 255, 0.85); border-radius: 999px; color: #FFFFFF; font-size: 15px; font-weight: 500; text-decoration: none">linkedin.com/in/arthuramagalhaes/</a></li>
+        <li><a class="contato" href="mailto:arthurmagalhaes84@gmail.com" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border: 1px solid rgba(255, 255, 255, 0.85); border-radius: 999px; color: #FFFFFF; font-size: 15px; font-weight: 500; text-decoration: none">arthurmagalhaes84@gmail.com</a></li>
+        <li><a class="contato" href="tel:+5534991534072" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border: 1px solid rgba(255, 255, 255, 0.85); border-radius: 999px; color: #FFFFFF; font-size: 15px; font-weight: 500; text-decoration: none">+55 (34) 99153-4072</a></li>
+      </ul>
+    </div>
+
+  </div>
+</footer>
+`; };
+C.Agradecimento = Agradecimento;
+
 class Testes extends DCLogic {
   renderVals() {
     const base = 'position: relative; display: flex; flex-direction: column; gap: 40px; min-height: 240px; box-sizing: border-box; padding: 28px; border-radius: 20px; ';
@@ -139,400 +324,117 @@ Desafio.prototype.tpl = function (v) { return html`
 `; };
 C.Desafio = Desafio;
 
-class InvestigacaoHorizontal extends DCLogic {
+class PrototipoSenha extends DCLogic {
   constructor(props) {
     super(props);
-    this.state = { ativa: 0 };
+    this.state = { tela: 'acoes', origem: 'vazio' };
   }
   renderVals() {
-    const ativa = this.state.ativa;
-    const base = 'position: relative; display: flex; flex-direction: column; ';
-    const op = (i) => 'opacity: ' + (i === ativa ? 1 : 0.2) + '; transition: opacity 400ms ease;';
-    const etapa = (i) => base + 'flex: 0 0 1200px; width: 1200px; padding-top: 104px; gap: 14px;';
-    const marca = (i) => 'position: absolute; left: 0; top: 0; z-index: 1; display: flex; align-items: center; justify-content: center; width: 56px; height: 56px; box-sizing: border-box; background: #FFFFFF; border-radius: 50%; font-size: 18px; font-weight: 700; font-variant-numeric: tabular-nums; transition: border-color 400ms ease, color 400ms ease; ' + (i === ativa ? 'border: 2px solid #EA1D2C; color: #EA1D2C;' : 'border: 2px solid #F8C9CE; color: #F4A3AA;');
-    const conteudo = (i) => 'display: flex; flex-direction: column; gap: 40px; ' + op(i);
-    const aoRolar = (e) => {
-      const el = (e && (e.currentTarget || e.target)) || document.querySelector('[data-trilha-inv]');
-      if (!el || !el.querySelectorAll) return;
-      const paradas = Array.from(el.querySelectorAll('.parada'));
-      if (!paradas.length) return;
-      const x0 = paradas[0].offsetLeft;
-      let idx = 0;
-      if (el.scrollLeft >= el.scrollWidth - el.clientWidth - 4) idx = paradas.length - 1;
-      else {
-        let melhor = Infinity;
-        paradas.forEach((p, i) => { const d = Math.abs(p.offsetLeft - x0 - el.scrollLeft); if (d < melhor) { melhor = d; idx = i; } });
-      }
-      if (idx !== this.state.ativa) this.setState({ ativa: idx });
-    };
-    const rolar = (dir) => () => {
-      const el = document.querySelector('[data-trilha-inv]');
-      if (!el) return;
-      const paradas = Array.from(el.querySelectorAll('.parada'));
-      const pos = paradas.map((p) => p.offsetLeft - paradas[0].offsetLeft);
-      const atual = el.scrollLeft;
-      let alvo;
-      if (dir > 0) alvo = pos.find((x) => x > atual + 8);
-      else alvo = pos.slice().reverse().find((x) => x < atual - 8);
-      if (alvo === undefined) alvo = dir > 0 ? el.scrollWidth : 0;
-      el.scrollTo({ left: Math.max(0, alvo) });
-    };
-    return {
-      anterior: rolar(-1), proxima: rolar(1), aoRolar,
-      parada1: etapa(0), parada2: etapa(1), parada3: etapa(2), parada4: etapa(3),
-      parada5: base + 'flex: 0 0 560px; width: 560px; align-items: flex-start; gap: 48px;',
-      marca1: marca(0), marca2: marca(1), marca3: marca(2), marca4: marca(3),
-      conteudo1: conteudo(0), conteudo2: conteudo(1), conteudo3: conteudo(2), conteudo4: conteudo(3),
-      pilula: 'position: relative; z-index: 1; display: inline-flex; align-items: center; gap: 4px; height: 56px; padding-right: 24px; border-radius: 999px; font-size: 16px; font-weight: 700; color: #FFFFFF; white-space: nowrap; transition: background-color 400ms ease, box-shadow 400ms ease; ' + (ativa === 4 ? 'background: #EA1D2C; box-shadow: 0 10px 24px rgba(234, 29, 44, 0.25);' : 'background: #F8C9CE; box-shadow: none;'),
-      textoFinal: 'margin: 0; font-size: 28px; font-weight: 600; line-height: 1.4; letter-spacing: -0.015em; color: #1A1A1A; ' + op(4),
-    };
-  }
-}
-InvestigacaoHorizontal.defaultProps = {};
-InvestigacaoHorizontal.prototype.tpl = function (v) { return html`
-<div style="width: 100%; box-sizing: border-box; background: #FFFFFF; color: #3E3E3E; font-family: Figtree, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif; -webkit-font-smoothing: antialiased; padding: 120px 0; overflow: hidden">
-  <section style="width: 100%; max-width: 1200px; box-sizing: content-box; padding: 0 40px; margin: 0 auto; display: flex; flex-direction: column; gap: 56px">
-
-    <${C.TituloSecao} numero="03" etapa="Investigação" titulo="Do mapeamento à causa de cada fricção" subtitulo="Cada etapa da investigação dependeu da anterior. Este é o caminho que percorri, parada por parada." />
-
-    <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px">
-      <p style="margin: 0; display: inline-flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 600; color: #A6A6A6"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>Role para o lado para seguir o caminho</p>
-      <div style="display: flex; gap: 8px">
-        <button type="button" class="seta-inv" aria-label="Parada anterior" onClick=${v.anterior} style="display: flex; align-items: center; justify-content: center; width: 48px; height: 48px; padding: 0; border: 1px solid #E2E2E2; border-radius: 50%; background: #FFFFFF; color: #1A1A1A; cursor: pointer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"></path></svg></button>
-        <button type="button" class="seta-inv" aria-label="Próxima parada" onClick=${v.proxima} style="display: flex; align-items: center; justify-content: center; width: 48px; height: 48px; padding: 0; border: 1px solid #E2E2E2; border-radius: 50%; background: #FFFFFF; color: #1A1A1A; cursor: pointer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button>
-      </div>
-    </div>
-  </section>
-
-  <div class="trilha-inv" data-trilha-inv tabindex="0" onScroll=${v.aoRolar} role="region" aria-label="Caminho da investigação, com rolagem horizontal" style="width: 100%; overflow-x: auto; overflow-y: hidden; margin-top: 40px">
-    <div style="position: relative; display: flex; align-items: flex-start; gap: 160px; width: max-content; box-sizing: border-box; padding: 0 var(--p) 32px">
-      <span aria-hidden="true" style="position: absolute; left: calc(var(--p) + 28px); right: calc(var(--p) + 560px - 28px); top: 27px; border-top: 2px dashed #F4A3AA"></span>
-
-      <div class="parada" style=${v.parada1}>
-        <span aria-hidden="true" style=${v.marca1}>01</span>
-        <div style=${v.conteudo1}>
-      <div style="display: flex; flex-direction: column; gap: 10px">
-        <h3 style="margin: 0; font-size: 28px; font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; color: #1A1A1A">Mapeamento da experiência atual</h3>
-        <p style="margin: 0; max-width: 640px; font-size: 18px; line-height: 1.5; color: #717171">Mapeei os principais fluxos relacionados à gestão de cartões dentro do aplicativo.</p>
-      </div>
-
-      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 48px">
-        <div style="flex: 1 1 680px; min-width: 0">
-          <div style="position: relative; width: 680px; height: 488px">
-          <svg aria-hidden="true" width="40" height="8" viewBox="0 0 40 8" preserveAspectRatio="none" style="position: absolute; left: 236px; top: 240px; width: 40px; height: 8px; overflow: visible; fill: none; stroke: #D6D6D6; stroke-width: 2; stroke-linecap: round"><path d="M 0 4 L 40 4"></path></svg>
-          <svg aria-hidden="true" width="8" height="384" viewBox="0 0 8 384" preserveAspectRatio="none" style="position: absolute; left: 272px; top: 52px; width: 8px; height: 384px; overflow: visible; fill: none; stroke: #D6D6D6; stroke-width: 2; stroke-linecap: round"><path d="M 4 0 L 4 384"></path></svg>
-          <svg role="img" aria-label="De Gestão de cartões para Ativação do cartão físico" width="39" height="8" viewBox="0 0 39 8" preserveAspectRatio="none" style="position: absolute; left: 276px; top: 48px; width: 39px; height: 8px; overflow: visible; fill: none; stroke: #D6D6D6; stroke-width: 2; stroke-linecap: round"><path d="M 0 4 L 39 4"></path></svg>
-          <svg role="img" aria-label="De Gestão de cartões para Criação dos cartões virtuais" width="39" height="8" viewBox="0 0 39 8" preserveAspectRatio="none" style="position: absolute; left: 276px; top: 144px; width: 39px; height: 8px; overflow: visible; fill: none; stroke: #D6D6D6; stroke-width: 2; stroke-linecap: round"><path d="M 0 4 L 39 4"></path></svg>
-          <svg role="img" aria-label="De Gestão de cartões para Bloqueio/desbloqueio do cartão físico" width="39" height="8" viewBox="0 0 39 8" preserveAspectRatio="none" style="position: absolute; left: 276px; top: 240px; width: 39px; height: 8px; overflow: visible; fill: none; stroke: #D6D6D6; stroke-width: 2; stroke-linecap: round"><path d="M 0 4 L 39 4"></path></svg>
-          <svg role="img" aria-label="De Gestão de cartões para Bloqueio/desbloqueio dos cartões virtuais" width="39" height="8" viewBox="0 0 39 8" preserveAspectRatio="none" style="position: absolute; left: 276px; top: 336px; width: 39px; height: 8px; overflow: visible; fill: none; stroke: #D6D6D6; stroke-width: 2; stroke-linecap: round"><path d="M 0 4 L 39 4"></path></svg>
-          <svg role="img" aria-label="De Gestão de cartões para Alteração de senha de transação" width="39" height="8" viewBox="0 0 39 8" preserveAspectRatio="none" style="position: absolute; left: 276px; top: 432px; width: 39px; height: 8px; overflow: visible; fill: none; stroke: #D6D6D6; stroke-width: 2; stroke-linecap: round"><path d="M 0 4 L 39 4"></path></svg>
-          <div style="position: absolute; left: 0px; top: 216px; width: 236px; height: 56px; box-sizing: border-box; padding: 0 20px; display: flex; align-items: center; justify-content: center; background: #1A1A1A; color: #FFFFFF; border-radius: 999px; font-size: 18px; font-weight: 700; box-shadow: 0 12px 28px rgba(26, 26, 26, 0.18)">Gestão de cartões</div>
-          <div style="position: absolute; left: 316px; top: 24px; width: 364px; height: 56px; box-sizing: border-box; padding: 0 22px; display: flex; align-items: center; gap: 12px; background: #FFFFFF; border: 1px solid #EBEBEB; border-radius: 999px; font-size: 17px; font-weight: 500; color: #1A1A1A; box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06)"><span style="font-size: 13px; font-weight: 700; color: #EA1D2C; font-variant-numeric: tabular-nums">01</span><span>Ativação do cartão físico</span></div>
-          <div style="position: absolute; left: 316px; top: 120px; width: 364px; height: 56px; box-sizing: border-box; padding: 0 22px; display: flex; align-items: center; gap: 12px; background: #FFFFFF; border: 1px solid #EBEBEB; border-radius: 999px; font-size: 17px; font-weight: 500; color: #1A1A1A; box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06)"><span style="font-size: 13px; font-weight: 700; color: #EA1D2C; font-variant-numeric: tabular-nums">02</span><span>Criação dos cartões virtuais</span></div>
-          <div style="position: absolute; left: 316px; top: 216px; width: 364px; height: 56px; box-sizing: border-box; padding: 0 22px; display: flex; align-items: center; gap: 12px; background: #FFFFFF; border: 1px solid #EBEBEB; border-radius: 999px; font-size: 17px; font-weight: 500; color: #1A1A1A; box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06)"><span style="font-size: 13px; font-weight: 700; color: #EA1D2C; font-variant-numeric: tabular-nums">03</span><span>Bloqueio/desbloqueio do cartão físico</span></div>
-          <div style="position: absolute; left: 316px; top: 312px; width: 364px; height: 56px; box-sizing: border-box; padding: 0 22px; display: flex; align-items: center; gap: 12px; background: #FFFFFF; border: 1px solid #EBEBEB; border-radius: 999px; font-size: 17px; font-weight: 500; color: #1A1A1A; box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06)"><span style="font-size: 13px; font-weight: 700; color: #EA1D2C; font-variant-numeric: tabular-nums">04</span><span>Bloqueio/desbloqueio dos cartões virtuais</span></div>
-          <div style="position: absolute; left: 316px; top: 408px; width: 364px; height: 56px; box-sizing: border-box; padding: 0 22px; display: flex; align-items: center; gap: 12px; background: #FFFFFF; border: 1px solid #EBEBEB; border-radius: 999px; font-size: 17px; font-weight: 500; color: #1A1A1A; box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06)"><span style="font-size: 13px; font-weight: 700; color: #EA1D2C; font-variant-numeric: tabular-nums">05</span><span>Alteração de senha de transação</span></div>
-          </div>
-        </div>
-
-        <div style="flex: 1 1 280px; min-width: 0; display: flex; flex-direction: column; gap: 24px; padding: 32px; background: #F7F7F7; border-radius: 20px">
-          <p style="margin: 0; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #EA1D2C">Resultado do mapeamento</p>
-          <div style="display: flex; align-items: baseline; gap: 14px">
-            <span style="font-size: 112px; font-weight: 700; line-height: 0.9; letter-spacing: -0.05em; color: #EA1D2C">5</span>
-            <span style="font-size: 22px; font-weight: 700; color: #1A1A1A">fluxos mapeados</span>
-          </div>
-          <span aria-hidden="true" style="display: block; height: 1px; background: #E2E2E2"></span>
-          <p style="margin: 0; font-size: 24px; font-weight: 700; line-height: 1.3; letter-spacing: -0.015em; color: #1A1A1A; text-wrap: pretty">A mudança não afetaria uma única tela, mas um conjunto de jornadas conectadas dentro do app.</p>
-        </div>
-      </div>
-    </div>
-      </div>
-
-      <div class="parada" style=${v.parada2}>
-        <span aria-hidden="true" style=${v.marca2}>02</span>
-        <div style=${v.conteudo2}>
-      <div style="display: flex; flex-direction: column; gap: 10px">
-        <h3 style="margin: 0; font-size: 28px; font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; color: #1A1A1A">Entrevistas com CX</h3>
-        <p style="margin: 0; max-width: 640px; font-size: 18px; line-height: 1.5; color: #717171">Entrevistei pontos focais do time de CX para entender quais fluxos concentravam mais dúvidas, reclamações e dificuldades.</p>
-      </div>
-
-      <div style="display: flex; flex-direction: column; gap: 8px">
-        <p style="margin: 0; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #717171">Perguntas que nortearam as entrevistas</p>
-        <ol style="margin: 0; padding: 0; list-style: none; max-width: 900px">
-          <li style="display: flex; align-items: baseline; gap: 20px; padding: 20px 0">
-            <span style="flex: 0 0 auto; font-size: 14px; font-weight: 700; letter-spacing: 0.06em; font-variant-numeric: tabular-nums; color: #EA1D2C">01</span>
-            <span style="font-size: 20px; line-height: 1.45; color: #1A1A1A">Quais fluxos relacionados à gestão de cartões mais geram dúvidas, reclamações ou problemas entre as pessoas usuárias?</span>
-          </li>
-          <li style="border-top: 1px solid #EBEBEB; display: flex; align-items: baseline; gap: 20px; padding: 20px 0">
-            <span style="flex: 0 0 auto; font-size: 14px; font-weight: 700; letter-spacing: 0.06em; font-variant-numeric: tabular-nums; color: #EA1D2C">02</span>
-            <span style="font-size: 20px; line-height: 1.45; color: #1A1A1A">Quais são as principais queixas das pessoas usuárias?</span>
-          </li>
-          <li style="border-top: 1px solid #EBEBEB; display: flex; align-items: baseline; gap: 20px; padding: 20px 0">
-            <span style="flex: 0 0 auto; font-size: 14px; font-weight: 700; letter-spacing: 0.06em; font-variant-numeric: tabular-nums; color: #EA1D2C">03</span>
-            <span style="font-size: 20px; line-height: 1.45; color: #1A1A1A">Quais informações ou ações poderiam estar mais claras no app para reduzir essas dúvidas e contatos com o CX?</span>
-          </li>
-        </ol>
-      </div>
-
-      <div style="display: flex; flex-direction: column; gap: 20px">
-        <p style="margin: 0; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #717171">O que descobrimos</p>
-        <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px">
-          <div style="display: flex; flex-direction: column; gap: 16px; padding: 32px; background: #F7F7F7; border-radius: 20px">
-            <h4 style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #ea1d2c">Fluxos críticos</h4>
-            <p style="margin: 0; font-size: 18px; font-weight: 700; line-height: 1.5; color: #3E3E3E; text-wrap: pretty">Ativação, bloqueio/desbloqueio e cartão virtual concentravam a maior parte dos contatos.</p>
-          </div>
-          <div style="display: flex; flex-direction: column; gap: 16px; padding: 32px; background: #F7F7F7; border-radius: 20px">
-            <h4 style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #ea1d2c">Principais queixas</h4>
-            <p style="margin: 0; font-size: 18px; font-weight: 700; line-height: 1.5; color: #3E3E3E; text-wrap: pretty">Não encontrar o número do cartão, não saber se o bloqueio funcionou e não achar os cartões virtuais.</p>
-          </div>
-          <div style="display: flex; flex-direction: column; gap: 16px; padding: 32px; background: #F7F7F7; border-radius: 20px">
-            <h4 style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #ea1d2c">Oportunidades no app</h4>
-            <p style="margin: 0; font-size: 18px; font-weight: 700; line-height: 1.5; color: #3E3E3E; text-wrap: pretty">Orientar onde encontrar as informações do cartão e confirmar o resultado de cada ação.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-      </div>
-
-      <div class="parada" style=${v.parada3}>
-        <span aria-hidden="true" style=${v.marca3}>03</span>
-        <div style=${v.conteudo3}>
-      <div style="display: flex; flex-direction: column; gap: 10px">
-        <h3 style="margin: 0; font-size: 28px; font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; color: #1A1A1A">Dimensionando o problema com dados</h3>
-        <p style="margin: 0; max-width: 640px; font-size: 18px; line-height: 1.5; color: #717171">Cruzei o volume de atendimentos com o funil de ativação para entender o tamanho de cada fricção.</p>
-      </div>
-
-      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px">
-
-        <div style="display: flex; flex-direction: column; gap: 28px; padding: 40px; background: #F7F7F7; border-radius: 20px">
-          <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px">
-            <p style="margin: 0; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #717171">Tickets de atendimento</p>
-            <span style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; background: #FFFFFF; border: 1px solid #EBEBEB; border-radius: 999px; font-size: 13px; font-weight: 600; color: #3E3E3E"><img src="/assets/67096d9bed4b70251ca2f7858f85df1e.svg" alt="" style="display: block; width: 14px; height: 14px; object-fit: contain" />Zendesk</span>
-          </div>
-          <div style="display: flex; align-items: flex-end; gap: 20px">
-            <span style="font-size: 96px; font-weight: 700; line-height: 0.9; letter-spacing: -0.05em; font-variant-numeric: tabular-nums; color: #EA1D2C">17%</span>
-            <p style="margin: 0 0 6px; max-width: 260px; font-size: 18px; font-weight: 600; line-height: 1.35; color: #1A1A1A">dos atendimentos eram sobre gestão de cartões</p>
-          </div>
-          <div style="display: flex; flex-direction: column; gap: 14px">
-            <div role="img" aria-label="Barra de proporção: 17% de cerca de 22 mil atendimentos eram sobre gestão de cartões" style="display: flex; height: 16px; border-radius: 999px; overflow: hidden; background: #E2E2E2">
-              <span style="display: block; width: 17%; background: #EA1D2C"></span>
-            </div>
-            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; font-size: 15px; color: #3E3E3E">
-              <span style="display: inline-flex; align-items: center; gap: 8px"><span aria-hidden="true" style="width: 10px; height: 10px; border-radius: 50%; background: #EA1D2C"></span><strong style="color: #1A1A1A; font-variant-numeric: tabular-nums">~3.700</strong> sobre gestão de cartões</span>
-              <span style="display: inline-flex; align-items: center; gap: 8px"><span aria-hidden="true" style="width: 10px; height: 10px; border-radius: 50%; background: #CFCFCF"></span><strong style="color: #1A1A1A; font-variant-numeric: tabular-nums">~22 mil</strong> no total, em 3 meses</span>
-            </div>
-          </div>
-        </div>
-
-        <div style="display: flex; flex-direction: column; gap: 28px; padding: 40px; background: #F7F7F7; border-radius: 20px">
-          <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px">
-            <p style="margin: 0; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #717171">Funil de ativação de cartão</p>
-            <span style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; background: #FFFFFF; border: 1px solid #EBEBEB; border-radius: 999px; font-size: 13px; font-weight: 600; color: #3E3E3E"><img src="/assets/e21b5a5e8d9a9ed4048a94db3ae5c354.png" alt="" style="display: block; width: 14px; height: 14px; object-fit: contain" />Google Analytics</span>
-          </div>
-          <div style="display: flex; align-items: flex-end; gap: 20px">
-            <span style="font-size: 96px; font-weight: 700; line-height: 0.9; letter-spacing: -0.05em; font-variant-numeric: tabular-nums; color: #EA1D2C">12%</span>
-            <p style="margin: 0 0 6px; max-width: 260px; font-size: 18px; font-weight: 600; line-height: 1.35; color: #1A1A1A">abandonavam o fluxo de ativação de cartão</p>
-          </div>
-          <div style="display: flex; flex-direction: column; gap: 16px">
-            <div style="display: flex; flex-direction: column; gap: 8px">
-              <div style="display: flex; justify-content: space-between; font-size: 15px; color: #3E3E3E"><span>Iniciaram a ativação</span><strong style="color: #1A1A1A; font-variant-numeric: tabular-nums">100%</strong></div>
-              <div role="img" aria-label="100% das pessoas iniciavam a ativação" style="height: 16px; border-radius: 999px; background: #1A1A1A"></div>
-            </div>
-            <div style="display: flex; flex-direction: column; gap: 8px">
-              <div style="display: flex; justify-content: space-between; font-size: 15px; color: #3E3E3E"><span>Concluíram a ativação</span><span><strong style="color: #1A1A1A; font-variant-numeric: tabular-nums">88%</strong> <span style="color: #EA1D2C; font-weight: 700">· 12% abandonavam</span></span></div>
-              <div role="img" aria-label="88% concluíam a ativação e 12% abandonavam" style="display: flex; gap: 3px; height: 16px">
-                <span style="display: block; width: 88%; border-radius: 999px; background: #1A1A1A"></span>
-                <span style="display: block; flex: 1; border-radius: 999px; background: repeating-linear-gradient(135deg, #EA1D2C 0 4px, #FDE8EA 4px 8px)"></span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-      </div>
-
-      <div class="parada" style=${v.parada4}>
-        <span aria-hidden="true" style=${v.marca4}>04</span>
-        <div style=${v.conteudo4}>
-      <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px">
-        <div style="display: flex; flex-direction: column; gap: 10px">
-          <h3 style="margin: 0; font-size: 28px; font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; color: #1A1A1A">Analisando o comportamento por trás dos números</h3>
-          <p style="margin: 0; max-width: 640px; font-size: 18px; line-height: 1.5; color: #717171">Analisei 30 gravações de sessão de cada fluxo para identificar padrões de comportamento e pontos de fricção.</p>
-        </div>
-        <span style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; background: #FFFFFF; border: 1px solid #EBEBEB; border-radius: 999px; font-size: 13px; font-weight: 600; color: #3E3E3E"><img src="/assets/b536dcf5e0b40486746d7a3dcc757582.png" alt="" style="display: block; width: 14px; height: 14px; object-fit: contain" />Microsoft Clarity</span>
-      </div>
-
-      <div style="display: flex; flex-direction: column; gap: 20px">
-        <p style="margin: 0; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #717171">Sinais observados</p>
-        <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px">
-          <div style="display: flex; flex-direction: column; gap: 16px; padding: 28px; background: #F7F7F7; border-radius: 20px">
-            <div style="display: flex; align-items: center; justify-content: center; height: 216px; background: #FFFFFF; border-radius: 14px"><svg viewBox="0 0 260 224" width="100%" height="200" role="img" aria-label="Ilustração de hesitação: cursor parado e indo e voltando sobre o campo do número do cartão" style="display: block"><rect x="70" y="14" width="120" height="196" rx="22" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="3"></rect><rect x="112" y="24" width="36" height="8" rx="4" fill="#1A1A1A"></rect>
-<rect x="86" y="50" width="56" height="7" rx="3.5" fill="#E2E2E2"></rect><rect x="86" y="64" width="80" height="6" rx="3" fill="#EFEFEF"></rect>
-<rect x="86" y="88" width="88" height="30" rx="8" fill="#FFFFFF" stroke="#CFCFCF" stroke-width="2"></rect><rect x="94" y="100" width="44" height="6" rx="3" fill="#E2E2E2"></rect>
-<path d="M118 150 C 96 136, 150 128, 132 112 C 120 102, 156 98, 146 120" fill="none" stroke="#EA1D2C" stroke-width="2" stroke-dasharray="4 5" stroke-linecap="round"></path>
-<path d="M146 120 l0 22 l6 -6 l5 10 l5 -2 l-5 -10 l8 0 z" fill="#1A1A1A"></path>
-<rect x="86" y="178" width="88" height="20" rx="8" fill="#E2E2E2"></rect>
-<g transform="translate(196 54)"><circle r="26" fill="#EA1D2C"></circle><circle r="13" fill="none" stroke="#FFFFFF" stroke-width="2.5"></circle><path d="M0 -6 V0 L5 3" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"></path></g>
-</svg></div>
-            <h4 style="margin: 8px 0 0; font-size: 22px; font-weight: 700; line-height: 1.2; letter-spacing: -0.015em; color: #1A1A1A">Hesitação</h4>
-            <p style="margin: 0; font-size: 16px; line-height: 1.5; color: #717171">Pausas longas e cursor indo e voltando antes de agir.</p>
-          </div>
-          <div style="display: flex; flex-direction: column; gap: 16px; padding: 28px; background: #F7F7F7; border-radius: 20px">
-            <div style="display: flex; align-items: center; justify-content: center; height: 216px; background: #FFFFFF; border-radius: 14px"><svg viewBox="0 0 260 224" width="100%" height="200" role="img" aria-label="Ilustração de repetição de ações: o mesmo botão de bloquear tocado várias vezes" style="display: block"><rect x="70" y="14" width="120" height="196" rx="22" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="3"></rect><rect x="112" y="24" width="36" height="8" rx="4" fill="#1A1A1A"></rect>
-<rect x="86" y="50" width="56" height="7" rx="3.5" fill="#E2E2E2"></rect><rect x="86" y="64" width="80" height="6" rx="3" fill="#EFEFEF"></rect>
-<rect x="86" y="86" width="88" height="54" rx="10" fill="#F7F7F7"></rect>
-<rect x="96" y="104" width="40" height="18" rx="9" fill="#CFCFCF"></rect><circle cx="106" cy="113" r="7" fill="#FFFFFF"></circle>
-<circle cx="150" cy="113" r="9" fill="#EA1D2C" fill-opacity="0.18"></circle><circle cx="150" cy="113" r="18" fill="none" stroke="#EA1D2C" stroke-opacity="0.45" stroke-width="2"></circle><circle cx="150" cy="113" r="27" fill="none" stroke="#EA1D2C" stroke-opacity="0.25" stroke-width="2"></circle><circle cx="150" cy="113" r="5" fill="#EA1D2C"></circle>
-<rect x="86" y="178" width="88" height="20" rx="8" fill="#E2E2E2"></rect>
-<g font-family="Figtree, Arial, sans-serif" font-size="13" font-weight="700" fill="#FFFFFF"><g transform="translate(206 70)"><circle r="15" fill="#EA1D2C"></circle><text x="0" y="4.5" text-anchor="middle">1x</text></g><g transform="translate(222 108)"><circle r="15" fill="#EA1D2C"></circle><text x="0" y="4.5" text-anchor="middle">2x</text></g><g transform="translate(206 146)"><circle r="15" fill="#EA1D2C"></circle><text x="0" y="4.5" text-anchor="middle">3x</text></g></g>
-</svg></div>
-            <h4 style="margin: 8px 0 0; font-size: 22px; font-weight: 700; line-height: 1.2; letter-spacing: -0.015em; color: #1A1A1A">Repetição de ações</h4>
-            <p style="margin: 0; font-size: 16px; line-height: 1.5; color: #717171">O mesmo toque feito várias vezes, por falta de resposta.</p>
-          </div>
-          <div style="display: flex; flex-direction: column; gap: 16px; padding: 28px; background: #F7F7F7; border-radius: 20px">
-            <div style="display: flex; align-items: center; justify-content: center; height: 216px; background: #FFFFFF; border-radius: 14px"><svg viewBox="0 0 260 224" width="100%" height="200" role="img" aria-label="Ilustração de abandono: fluxo interrompido na metade, com a pessoa saindo do app" style="display: block"><rect x="70" y="14" width="120" height="196" rx="22" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="3"></rect><rect x="112" y="24" width="36" height="8" rx="4" fill="#1A1A1A"></rect>
-<g><circle cx="94" cy="54" r="6" fill="#1A1A1A"></circle><rect x="100" y="52" width="12" height="4" fill="#1A1A1A"></rect><circle cx="118" cy="54" r="6" fill="#1A1A1A"></circle><rect x="124" y="52" width="12" height="4" fill="#E2E2E2"></rect><circle cx="142" cy="54" r="6" fill="#FFFFFF" stroke="#CFCFCF" stroke-width="2"></circle><rect x="148" y="52" width="12" height="4" fill="#E2E2E2"></rect><circle cx="166" cy="54" r="6" fill="#FFFFFF" stroke="#CFCFCF" stroke-width="2"></circle></g>
-<rect x="86" y="78" width="70" height="7" rx="3.5" fill="#E2E2E2"></rect><rect x="86" y="94" width="88" height="30" rx="8" fill="#FFFFFF" stroke="#CFCFCF" stroke-width="2"></rect>
-<rect x="86" y="178" width="88" height="20" rx="8" fill="#E2E2E2"></rect>
-<path d="M150 140 C 180 140, 196 128, 222 112" fill="none" stroke="#EA1D2C" stroke-width="2.5" stroke-dasharray="5 5" stroke-linecap="round"></path>
-<g transform="translate(226 100)"><circle r="22" fill="#EA1D2C"></circle><path d="M-7 -7 L7 7 M7 -7 L-7 7" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"></path></g>
-</svg></div>
-            <h4 style="margin: 8px 0 0; font-size: 22px; font-weight: 700; line-height: 1.2; letter-spacing: -0.015em; color: #1A1A1A">Abandono</h4>
-            <p style="margin: 0; font-size: 16px; line-height: 1.5; color: #717171">O fluxo interrompido antes de chegar ao fim.</p>
-          </div>
-        </div>
-      </div>
-
-      <div style="display: flex; flex-direction: column; gap: 12px">
-        <div style="display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr) minmax(0, 1.6fr); gap: 24px; align-items: center; padding: 0 20px">
-          <p style="margin: 0; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #717171">Fluxo</p>
-          <p style="margin: 0; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #717171">Principal sinal</p>
-          <p style="margin: 0; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #717171">Causa provável</p>
-        </div>
-        <div style="display: flex; flex-direction: column">
-          <div style="display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr) minmax(0, 1.6fr); gap: 24px; align-items: center; padding: 14px 20px; background: #FDE8EA; border-radius: 12px;">
-            <span style="font-size: 16px; font-weight: 700; color: #1A1A1A">Ativação do cartão</span>
-            <span style="display: flex; align-items: baseline; gap: 10px"><strong style="font-size: 26px; font-weight: 700; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; color: #EA1D2C">26,7%</strong><span style="font-size: 13px; color: #717171">abandono</span></span>
-            <span style="font-size: 16px; line-height: 1.45; color: #1A1A1A">Dificuldade para encontrar o número do cartão</span>
-          </div>
-          <div style="display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr) minmax(0, 1.6fr); gap: 24px; align-items: center; padding: 14px 20px; border-top: 1px solid #EBEBEB;">
-            <span style="font-size: 16px; font-weight: 700; color: #1A1A1A">Bloqueio e desbloqueio</span>
-            <span style="display: flex; align-items: baseline; gap: 10px"><strong style="font-size: 26px; font-weight: 700; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; color: #EA1D2C">20,0%</strong><span style="font-size: 13px; color: #717171">repetição de ações</span></span>
-            <span style="font-size: 16px; line-height: 1.45; color: #1A1A1A">Falta de feedback após a ação</span>
-          </div>
-          <div style="display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr) minmax(0, 1.6fr); gap: 24px; align-items: center; padding: 14px 20px; border-top: 1px solid #EBEBEB;">
-            <span style="font-size: 16px; font-weight: 700; color: #1A1A1A">Alteração de senha</span>
-            <span style="display: flex; align-items: baseline; gap: 10px"><strong style="font-size: 26px; font-weight: 700; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; color: #EA1D2C">36,7%</strong><span style="font-size: 13px; color: #717171">hesitação</span></span>
-            <span style="font-size: 16px; line-height: 1.45; color: #1A1A1A">Dificuldade com o número do cartão e a senha do app</span>
-          </div>
-          <div style="display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr) minmax(0, 1.6fr); gap: 24px; align-items: center; padding: 14px 20px; border-top: 1px solid #EBEBEB;">
-            <span style="font-size: 16px; font-weight: 700; color: #1A1A1A">Criação de cartão virtual</span>
-            <span style="display: flex; align-items: baseline; gap: 10px"><strong style="font-size: 26px; font-weight: 700; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; color: #EA1D2C">23,4%</strong><span style="font-size: 13px; color: #717171">hesitação</span></span>
-            <span style="font-size: 16px; line-height: 1.45; color: #1A1A1A">Dificuldade para encontrar a área de cartões virtuais</span>
-          </div>
-        </div>
-      </div>
-    </div>
-      </div>
-
-      <div class="parada" style=${v.parada5}>
-        <span style=${v.pilula}><span aria-hidden="true" style="display: flex; align-items: center; justify-content: center; width: 56px; height: 56px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V4M5 4h11l-2 4 2 4H5"></path></svg></span>Parada final</span>
-        <p style=${v.textoFinal}>Com essa sequência, foi possível definir com precisão o que precisava ser feito. <span style="color: #EA1D2C">O próximo passo foi priorizar as frentes de atuação e iniciar a construção da solução.</span></p>
-      </div>
-
-    </div>
-  </div>
-</div>
-`; };
-C.InvestigacaoHorizontal = InvestigacaoHorizontal;
-
-class Aprendizados extends DCLogic {
-  constructor(props) {
-    super(props);
-    this.state = { abertos: [false, false, false, false, false, false] };
-  }
-  renderVals() {
-    const itens = [
-      { titulo: 'Uma mudança obrigatória pode ser uma oportunidade', texto: 'Ir além do que a regulamentação pedia foi o que gerou o impacto real.' },
-      { titulo: 'Números mostram onde, comportamento mostra por quê', texto: 'Zendesk e Google Analytics dimensionaram o problema; o Clarity explicou as causas.' },
-      { titulo: 'O CX é uma fonte de pesquisa subestimada', texto: 'Quem atende as pessoas usuárias todos os dias já tem as primeiras hipóteses.' },
-      { titulo: 'Feedback é parte da experiência', texto: 'Ações sem confirmação geram repetição e contatos com o suporte.' },
-      { titulo: 'Priorizar junto é alinhar junto', texto: 'Fazer a MoSCoW com Produto e Engenharia acelerou as decisões.' },
-      { titulo: 'O que eu faria diferente hoje?', texto: 'Usaria IA para analisar os ~3.700 tickets e as 120 gravações de sessão, categorizando queixas e padrões em escala e liberando tempo para aprofundar as causas.', reflexao: true },
+    const s = this.state;
+    const B = (id) => '/assets/' + id + '.jpg';
+    const lista = [
+      ['acoes', 'dbc5bd9a5f198da629dee3c089a1a55e', 'Cartão físico com as ações Bloquear, Senha, Aproximação e Segunda via.'],
+      ['vazio', '61b5f9701b20a775b07fcb5f259ee0ca', 'Alterar senha: campos Senha do aplicativo, Seis últimos dígitos do código de ativação e Nova senha do cartão físico, vazios.'],
+      ['senhaApp', '3dd86d9a7a05078369fc6e2cacb80a31', 'Senha do aplicativo preenchida.'],
+      ['modal', '87011c4458c3bf64734f9bdd129221b9', 'Modal Código de ativação, mostrando onde fica o código no verso do cartão.'],
+      ['codigo', '93cf85c039f344b5ecc404d129d70b33', 'Seis últimos dígitos do código de ativação preenchidos.'],
+      ['novaSenha', '01548fa5e8586c2b927ca23bd7010ad8', 'Nova senha do cartão preenchida e botão Confirmar ativo.'],
+      ['sucesso', '04032f4b2ded861adccbe70603e46700', 'Cartão físico com o aviso Senha alterada com sucesso.'],
     ];
-    const abertos = this.state.abertos;
-    const total = abertos.filter(Boolean).length;
-    const todos = total === itens.length;
-    const abrir = (i) => () => {
-      const novo = abertos.slice();
-      novo[i] = true;
-      this.setState({ abertos: novo });
+    const telas = lista.map(([k, id, alt]) => ({
+      src: B(id), alt, oculta: k === s.tela ? 'false' : 'true',
+      style: 'opacity: ' + (k === s.tela ? 1 : 0) + ';',
+    }));
+    const go = (tela) => () => this.setState({ tela });
+    const hs = (label, x, y, w, h, fn) => ({ label, go: fn, style: 'left: ' + x + 'px; top: ' + y + 'px; width: ' + w + 'px; height: ' + h + 'px;' });
+    const voltar = (fn) => hs('Voltar', 22, 46, 48, 48, fn);
+    const info = hs('Onde achar o código de ativação', 302, 226, 48, 48, () => this.setState({ tela: 'modal', origem: s.tela }));
+    const map = {
+      acoes: [hs('Senha', 148, 488, 80, 100, go('vazio'))],
+      vazio: [voltar(go('acoes')), hs('Senha do aplicativo', 24, 128, 270, 64, go('senhaApp')), info],
+      senhaApp: [voltar(go('acoes')), hs('Seis últimos dígitos do código de ativação', 24, 236, 270, 62, go('codigo')), info],
+      modal: [hs('Entendi', 44, 619, 287, 50, go(s.origem))],
+      codigo: [voltar(go('acoes')), hs('Nova senha do cartão físico', 24, 383, 197, 50, go('novaSenha')), info],
+      novaSenha: [voltar(go('acoes')), hs('Confirmar', 24, 714, 327, 50, go('sucesso')), info],
+      sucesso: [hs('Voltar ao início', 97, 104, 181, 256, go('acoes'))],
     };
-    const proximo = abertos.indexOf(false);
-    return {
-      contador: total + ' de ' + itens.length,
-      botaoTexto: todos ? 'Recomeçar' : (total === 0 ? 'Revelar primeiro' : 'Próximo aprendizado'),
-      botaoIcone: todos ? 'M3 12a9 9 0 1 0 3-6.7L3 8M3 3v5h5' : 'M5 12h14M13 6l6 6-6 6',
-      botaoStyle: 'display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 22px; border-radius: 999px; font-size: 15px; font-weight: 700; cursor: pointer; ' + (todos ? 'border: 1px solid #E2E2E2; background: #FFFFFF; color: #1A1A1A;' : 'border: 0; background: #EA1D2C; color: #FFFFFF; box-shadow: 0 8px 20px rgba(234, 29, 44, 0.25);'),
-      acao: todos ? () => this.setState({ abertos: itens.map(() => false) }) : abrir(proximo),
-      cards: itens.map((it, i) => {
-        const r = !!it.reflexao;
-        const aberto = abertos[i];
-        return {
-          titulo: it.titulo, texto: it.texto,
-          num: r ? '?' : '0' + (i + 1),
-          aberto, fechado: !aberto,
-          rotulo: 'Revelar ' + (r ? 'o que eu faria diferente hoje' : 'aprendizado 0' + (i + 1)),
-          abrir: abrir(i),
-          cardStyle: 'flex: 1 1 auto; min-width: 0; box-sizing: border-box; display: flex; flex-direction: column; gap: 14px; padding: 28px 32px; border-radius: 20px; ' + (r ? 'background: #1A1A1A;' : 'background: #FFFFFF; border: 1px solid #EBEBEB;'),
-          numStyle: 'font-size: 14px; font-weight: 700; letter-spacing: 0.06em; font-variant-numeric: tabular-nums; color: ' + (r ? '#FF6B76' : '#EA1D2C') + ';',
-          tituloStyle: 'margin: 0; font-size: 24px; font-weight: 700; line-height: 1.2; letter-spacing: -0.015em; color: ' + (r ? '#FFFFFF' : '#1A1A1A') + ';',
-          textoStyle: 'margin: ' + (r ? '0' : 'auto 0 0') + '; font-size: 16px; line-height: 1.5; color: ' + (r ? 'rgba(255, 255, 255, 0.82)' : '#717171') + ';',
-        };
-      }),
-    };
+    return { telas, hotspots: map[s.tela] };
   }
 }
-Aprendizados.defaultProps = {};
-Aprendizados.prototype.tpl = function (v) { return html`
-<div style="width: 100%; box-sizing: border-box; background: #F7F7F7; color: #3E3E3E; font-family: Figtree, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif; -webkit-font-smoothing: antialiased; padding: 120px 40px">
-  <section style="width: 100%; max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 72px">
-
-    <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px">
-      <div style="flex: 1 1 640px; min-width: 0">
-        <${C.TituloSecao} numero="08" etapa="Aprendizados" titulo="O que eu aprendi com esse projeto?" />
-      </div>
-      <div style="display: flex; align-items: center; gap: 16px">
-        <span aria-live="polite" style="font-size: 14px; font-weight: 600; font-variant-numeric: tabular-nums; color: #A6A6A6">${v.contador}</span>
-        <button type="button" onClick=${v.acao} style=${v.botaoStyle}>${v.botaoTexto}<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d=${v.botaoIcone}></path></svg></button>
-      </div>
-    </div>
-
-    <ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-auto-rows: 240px; gap: 16px">
-      ${(v.cards || []).map((c) => html`
-        <li style="display: flex; min-width: 0">
-          ${(c.aberto) ? html`
-            <div class="revelado" style=${c.cardStyle}>
-              <span style=${c.numStyle}>${c.num}</span>
-              <h3 style=${c.tituloStyle}>${c.titulo}</h3>
-              <p style=${c.textoStyle}>${c.texto}</p>
-            </div>
-          ` : null}
-          ${(c.fechado) ? html`
-            <button type="button" class="oculto" aria-label=${c.rotulo} onClick=${c.abrir} style="flex: 1 1 auto; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; padding: 0; border: 1.5px dashed #D6D6D6; border-radius: 20px; background: transparent; color: #B4B4B4; cursor: pointer; transition: border-color 200ms ease, color 200ms ease">
-              <span style="font-size: 28px; font-weight: 800; letter-spacing: -0.02em; font-variant-numeric: tabular-nums">${c.num}</span>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>
-            </button>
-          ` : null}
-        </li>
-      `)}
-    </ol>
-
-  </section>
+PrototipoSenha.defaultProps = {};
+PrototipoSenha.prototype.tpl = function (v) { return html`
+<div style="position: relative; width: 375px; height: 812px; overflow: hidden; background: #FFFFFF; border-radius: 44px">
+  ${(v.telas || []).map((t) => html`
+    <img class="tela" src=${t.src} alt=${t.alt} aria-hidden=${t.oculta} style=${t.style} />
+  `)}
+  ${(v.hotspots || []).map((h) => html`
+    <button type="button" class="hs" aria-label=${h.label} onClick=${h.go} style=${h.style}></button>
+  `)}
 </div>
 `; };
-C.Aprendizados = Aprendizados;
+C.PrototipoSenha = PrototipoSenha;
+
+class PrototipoVirtual extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { tela: 'fisico' };
+    this.timer = null;
+  }
+  renderVals() {
+    const s = this.state;
+    const B = (id) => '/assets/' + id + '.jpg';
+    const lista = [
+      ['fisico', '097012a805641e6d01ae0077800f4aa7', 'Aba Cartão físico selecionada, com o cartão físico e as categorias.'],
+      ['vazio', 'aedf79617be8ba9e4a6d9fd25be8df2e', 'Aba Cartões virtuais sem nenhum cartão, com ilustração e o botão Criar novo cartão virtual.'],
+      ['criado', '0ac4f6cc3ae3d905f50959388191fb9d', 'Cartão virtual Voucher criado, com o aviso Cartão virtual criado com sucesso.'],
+      ['voucher', '0fcb8ea48de2e7804e685345810ac91f', 'Cartão virtual Voucher, com nome, número, CVV, validade e as categorias de voucher.'],
+      ['credito', '202990880074dce5a9db699e4b8dc38c', 'Cartão virtual Crédito, com nome, número, CVV, validade e as categorias de crédito.'],
+      ['modal', '607bf8f55befb0f2e5d3c37463f8c127', 'Bottom sheet Bloquear cartão virtual.'],
+      ['bloqueadoToast', 'cf81522431e00b738b8417ce4895b8d1', 'Cartão virtual com blur e o aviso Cartão bloqueado com sucesso.'],
+      ['bloqueado', '861fe26505c93aca2adec68f1b8984ad', 'Cartão virtual bloqueado, com o botão Desbloquear.'],
+      ['desbloqueado', '0dc8543ca1a2b1f6d8c74a5b83037535', 'Cartão virtual de volta ao normal, com o aviso Cartão desbloqueado com sucesso.'],
+    ];
+    const telas = lista.map(([k, id, alt]) => ({
+      src: B(id), alt, oculta: k === s.tela ? 'false' : 'true',
+      style: 'opacity: ' + (k === s.tela ? 1 : 0) + ';',
+    }));
+    const go = (tela, depois) => () => {
+      clearTimeout(this.timer);
+      this.setState({ tela });
+      if (depois) this.timer = setTimeout(() => { if (this.state.tela === tela) this.setState({ tela: depois }); }, 2600);
+    };
+    const hs = (label, x, y, w, h, fn) => ({ label, go: fn, style: 'left: ' + x + 'px; top: ' + y + 'px; width: ' + w + 'px; height: ' + h + 'px;' });
+    const abaFisico = hs('Cartão físico', 24, 36, 160, 44, go('fisico'));
+    const abaVirtual = (fn) => hs('Cartões virtuais', 192, 36, 160, 44, fn);
+    const verCredito = hs('Ver cartão de crédito', 300, 104, 75, 256, go('credito'));
+    const verVoucher = hs('Ver cartão voucher', 0, 104, 75, 256, go('voucher'));
+    const bloquear = hs('Bloquear', 30, 720, 86, 28, go('modal'));
+    const map = {
+      fisico: [abaVirtual(go('vazio'))],
+      vazio: [abaFisico, hs('Criar novo cartão virtual', 24, 476, 327, 50, go('criado', 'voucher'))],
+      criado: [abaFisico, verCredito, bloquear],
+      voucher: [abaFisico, verCredito, bloquear],
+      credito: [abaFisico, verVoucher],
+      modal: [hs('Bloquear', 24, 664, 327, 50, go('bloqueadoToast', 'bloqueado')), hs('Cancelar', 100, 724, 175, 44, go('voucher'))],
+      bloqueadoToast: [abaFisico, hs('Desbloquear', 24, 452, 327, 50, go('desbloqueado', 'voucher')), verCredito],
+      bloqueado: [abaFisico, hs('Desbloquear', 24, 452, 327, 50, go('desbloqueado', 'voucher')), verCredito],
+      desbloqueado: [abaFisico, verCredito, bloquear],
+    };
+    return { telas, hotspots: map[s.tela] };
+  }
+}
+PrototipoVirtual.defaultProps = {};
+PrototipoVirtual.prototype.tpl = function (v) { return html`
+<div style="position: relative; width: 375px; height: 812px; overflow: hidden; background: #FFFFFF; border-radius: 44px">
+  ${(v.telas || []).map((t) => html`
+    <img class="tela" src=${t.src} alt=${t.alt} aria-hidden=${t.oculta} style=${t.style} />
+  `)}
+  ${(v.hotspots || []).map((h) => html`
+    <button type="button" class="hs" aria-label=${h.label} onClick=${h.go} style=${h.style}></button>
+  `)}
+</div>
+`; };
+C.PrototipoVirtual = PrototipoVirtual;
 
 class PrototipoAtivacao extends DCLogic {
   constructor(props) {
@@ -611,68 +513,6 @@ PrototipoAtivacao.prototype.tpl = function (v) { return html`
 `; };
 C.PrototipoAtivacao = PrototipoAtivacao;
 
-class PrototipoVirtual extends DCLogic {
-  constructor(props) {
-    super(props);
-    this.state = { tela: 'fisico' };
-    this.timer = null;
-  }
-  renderVals() {
-    const s = this.state;
-    const B = (id) => '/assets/' + id + '.jpg';
-    const lista = [
-      ['fisico', '097012a805641e6d01ae0077800f4aa7', 'Aba Cartão físico selecionada, com o cartão físico e as categorias.'],
-      ['vazio', 'aedf79617be8ba9e4a6d9fd25be8df2e', 'Aba Cartões virtuais sem nenhum cartão, com ilustração e o botão Criar novo cartão virtual.'],
-      ['criado', '0ac4f6cc3ae3d905f50959388191fb9d', 'Cartão virtual Voucher criado, com o aviso Cartão virtual criado com sucesso.'],
-      ['voucher', '0fcb8ea48de2e7804e685345810ac91f', 'Cartão virtual Voucher, com nome, número, CVV, validade e as categorias de voucher.'],
-      ['credito', '202990880074dce5a9db699e4b8dc38c', 'Cartão virtual Crédito, com nome, número, CVV, validade e as categorias de crédito.'],
-      ['modal', '607bf8f55befb0f2e5d3c37463f8c127', 'Bottom sheet Bloquear cartão virtual.'],
-      ['bloqueadoToast', 'cf81522431e00b738b8417ce4895b8d1', 'Cartão virtual com blur e o aviso Cartão bloqueado com sucesso.'],
-      ['bloqueado', '861fe26505c93aca2adec68f1b8984ad', 'Cartão virtual bloqueado, com o botão Desbloquear.'],
-      ['desbloqueado', '0dc8543ca1a2b1f6d8c74a5b83037535', 'Cartão virtual de volta ao normal, com o aviso Cartão desbloqueado com sucesso.'],
-    ];
-    const telas = lista.map(([k, id, alt]) => ({
-      src: B(id), alt, oculta: k === s.tela ? 'false' : 'true',
-      style: 'opacity: ' + (k === s.tela ? 1 : 0) + ';',
-    }));
-    const go = (tela, depois) => () => {
-      clearTimeout(this.timer);
-      this.setState({ tela });
-      if (depois) this.timer = setTimeout(() => { if (this.state.tela === tela) this.setState({ tela: depois }); }, 2600);
-    };
-    const hs = (label, x, y, w, h, fn) => ({ label, go: fn, style: 'left: ' + x + 'px; top: ' + y + 'px; width: ' + w + 'px; height: ' + h + 'px;' });
-    const abaFisico = hs('Cartão físico', 24, 36, 160, 44, go('fisico'));
-    const abaVirtual = (fn) => hs('Cartões virtuais', 192, 36, 160, 44, fn);
-    const verCredito = hs('Ver cartão de crédito', 300, 104, 75, 256, go('credito'));
-    const verVoucher = hs('Ver cartão voucher', 0, 104, 75, 256, go('voucher'));
-    const bloquear = hs('Bloquear', 30, 720, 86, 28, go('modal'));
-    const map = {
-      fisico: [abaVirtual(go('vazio'))],
-      vazio: [abaFisico, hs('Criar novo cartão virtual', 24, 476, 327, 50, go('criado', 'voucher'))],
-      criado: [abaFisico, verCredito, bloquear],
-      voucher: [abaFisico, verCredito, bloquear],
-      credito: [abaFisico, verVoucher],
-      modal: [hs('Bloquear', 24, 664, 327, 50, go('bloqueadoToast', 'bloqueado')), hs('Cancelar', 100, 724, 175, 44, go('voucher'))],
-      bloqueadoToast: [abaFisico, hs('Desbloquear', 24, 452, 327, 50, go('desbloqueado', 'voucher')), verCredito],
-      bloqueado: [abaFisico, hs('Desbloquear', 24, 452, 327, 50, go('desbloqueado', 'voucher')), verCredito],
-      desbloqueado: [abaFisico, verCredito, bloquear],
-    };
-    return { telas, hotspots: map[s.tela] };
-  }
-}
-PrototipoVirtual.defaultProps = {};
-PrototipoVirtual.prototype.tpl = function (v) { return html`
-<div style="position: relative; width: 375px; height: 812px; overflow: hidden; background: #FFFFFF; border-radius: 44px">
-  ${(v.telas || []).map((t) => html`
-    <img class="tela" src=${t.src} alt=${t.alt} aria-hidden=${t.oculta} style=${t.style} />
-  `)}
-  ${(v.hotspots || []).map((h) => html`
-    <button type="button" class="hs" aria-label=${h.label} onClick=${h.go} style=${h.style}></button>
-  `)}
-</div>
-`; };
-C.PrototipoVirtual = PrototipoVirtual;
-
 class PrototipoBloqueio extends DCLogic {
   constructor(props) {
     super(props);
@@ -728,56 +568,6 @@ PrototipoBloqueio.prototype.tpl = function (v) { return html`
 </div>
 `; };
 C.PrototipoBloqueio = PrototipoBloqueio;
-
-class PrototipoSenha extends DCLogic {
-  constructor(props) {
-    super(props);
-    this.state = { tela: 'acoes', origem: 'vazio' };
-  }
-  renderVals() {
-    const s = this.state;
-    const B = (id) => '/assets/' + id + '.jpg';
-    const lista = [
-      ['acoes', 'dbc5bd9a5f198da629dee3c089a1a55e', 'Cartão físico com as ações Bloquear, Senha, Aproximação e Segunda via.'],
-      ['vazio', '61b5f9701b20a775b07fcb5f259ee0ca', 'Alterar senha: campos Senha do aplicativo, Seis últimos dígitos do código de ativação e Nova senha do cartão físico, vazios.'],
-      ['senhaApp', '3dd86d9a7a05078369fc6e2cacb80a31', 'Senha do aplicativo preenchida.'],
-      ['modal', '87011c4458c3bf64734f9bdd129221b9', 'Modal Código de ativação, mostrando onde fica o código no verso do cartão.'],
-      ['codigo', '93cf85c039f344b5ecc404d129d70b33', 'Seis últimos dígitos do código de ativação preenchidos.'],
-      ['novaSenha', '01548fa5e8586c2b927ca23bd7010ad8', 'Nova senha do cartão preenchida e botão Confirmar ativo.'],
-      ['sucesso', '04032f4b2ded861adccbe70603e46700', 'Cartão físico com o aviso Senha alterada com sucesso.'],
-    ];
-    const telas = lista.map(([k, id, alt]) => ({
-      src: B(id), alt, oculta: k === s.tela ? 'false' : 'true',
-      style: 'opacity: ' + (k === s.tela ? 1 : 0) + ';',
-    }));
-    const go = (tela) => () => this.setState({ tela });
-    const hs = (label, x, y, w, h, fn) => ({ label, go: fn, style: 'left: ' + x + 'px; top: ' + y + 'px; width: ' + w + 'px; height: ' + h + 'px;' });
-    const voltar = (fn) => hs('Voltar', 22, 46, 48, 48, fn);
-    const info = hs('Onde achar o código de ativação', 302, 226, 48, 48, () => this.setState({ tela: 'modal', origem: s.tela }));
-    const map = {
-      acoes: [hs('Senha', 148, 488, 80, 100, go('vazio'))],
-      vazio: [voltar(go('acoes')), hs('Senha do aplicativo', 24, 128, 270, 64, go('senhaApp')), info],
-      senhaApp: [voltar(go('acoes')), hs('Seis últimos dígitos do código de ativação', 24, 236, 270, 62, go('codigo')), info],
-      modal: [hs('Entendi', 44, 619, 287, 50, go(s.origem))],
-      codigo: [voltar(go('acoes')), hs('Nova senha do cartão físico', 24, 383, 197, 50, go('novaSenha')), info],
-      novaSenha: [voltar(go('acoes')), hs('Confirmar', 24, 714, 327, 50, go('sucesso')), info],
-      sucesso: [hs('Voltar ao início', 97, 104, 181, 256, go('acoes'))],
-    };
-    return { telas, hotspots: map[s.tela] };
-  }
-}
-PrototipoSenha.defaultProps = {};
-PrototipoSenha.prototype.tpl = function (v) { return html`
-<div style="position: relative; width: 375px; height: 812px; overflow: hidden; background: #FFFFFF; border-radius: 44px">
-  ${(v.telas || []).map((t) => html`
-    <img class="tela" src=${t.src} alt=${t.alt} aria-hidden=${t.oculta} style=${t.style} />
-  `)}
-  ${(v.hotspots || []).map((h) => html`
-    <button type="button" class="hs" aria-label=${h.label} onClick=${h.go} style=${h.style}></button>
-  `)}
-</div>
-`; };
-C.PrototipoSenha = PrototipoSenha;
 
 class Ideacao extends DCLogic {
   constructor(props) {
@@ -1119,158 +909,313 @@ Ideacao.prototype.tpl = function (v) { return html`
 `; };
 C.Ideacao = Ideacao;
 
-class Contexto extends DCLogic {
+class InvestigacaoHorizontal extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { ativa: 0 };
+  }
   renderVals() {
-    return {};
+    const ativa = this.state.ativa;
+    const base = 'position: relative; display: flex; flex-direction: column; ';
+    const op = (i) => 'opacity: ' + (i === ativa ? 1 : 0.2) + '; transition: opacity 400ms ease;';
+    const etapa = (i) => base + 'flex: 0 0 1200px; width: 1200px; padding-top: 104px; gap: 14px;';
+    const marca = (i) => 'position: absolute; left: 0; top: 0; z-index: 1; display: flex; align-items: center; justify-content: center; width: 56px; height: 56px; box-sizing: border-box; background: #FFFFFF; border-radius: 50%; font-size: 18px; font-weight: 700; font-variant-numeric: tabular-nums; transition: border-color 400ms ease, color 400ms ease; ' + (i === ativa ? 'border: 2px solid #EA1D2C; color: #EA1D2C;' : 'border: 2px solid #F8C9CE; color: #F4A3AA;');
+    const conteudo = (i) => 'display: flex; flex-direction: column; gap: 40px; ' + op(i);
+    const aoRolar = (e) => {
+      const el = (e && (e.currentTarget || e.target)) || document.querySelector('[data-trilha-inv]');
+      if (!el || !el.querySelectorAll) return;
+      const paradas = Array.from(el.querySelectorAll('.parada'));
+      if (!paradas.length) return;
+      const x0 = paradas[0].offsetLeft;
+      let idx = 0;
+      if (el.scrollLeft >= el.scrollWidth - el.clientWidth - 4) idx = paradas.length - 1;
+      else {
+        let melhor = Infinity;
+        paradas.forEach((p, i) => { const d = Math.abs(p.offsetLeft - x0 - el.scrollLeft); if (d < melhor) { melhor = d; idx = i; } });
+      }
+      if (idx !== this.state.ativa) this.setState({ ativa: idx });
+    };
+    const rolar = (dir) => () => {
+      const el = document.querySelector('[data-trilha-inv]');
+      if (!el) return;
+      const paradas = Array.from(el.querySelectorAll('.parada'));
+      const pos = paradas.map((p) => p.offsetLeft - paradas[0].offsetLeft);
+      const atual = el.scrollLeft;
+      let alvo;
+      if (dir > 0) alvo = pos.find((x) => x > atual + 8);
+      else alvo = pos.slice().reverse().find((x) => x < atual - 8);
+      if (alvo === undefined) alvo = dir > 0 ? el.scrollWidth : 0;
+      el.scrollTo({ left: Math.max(0, alvo) });
+    };
+    return {
+      anterior: rolar(-1), proxima: rolar(1), aoRolar,
+      parada1: etapa(0), parada2: etapa(1), parada3: etapa(2), parada4: etapa(3),
+      parada5: base + 'flex: 0 0 560px; width: 560px; align-items: flex-start; gap: 48px;',
+      marca1: marca(0), marca2: marca(1), marca3: marca(2), marca4: marca(3),
+      conteudo1: conteudo(0), conteudo2: conteudo(1), conteudo3: conteudo(2), conteudo4: conteudo(3),
+      pilula: 'position: relative; z-index: 1; display: inline-flex; align-items: center; gap: 4px; height: 56px; padding-right: 24px; border-radius: 999px; font-size: 16px; font-weight: 700; color: #FFFFFF; white-space: nowrap; transition: background-color 400ms ease, box-shadow 400ms ease; ' + (ativa === 4 ? 'background: #EA1D2C; box-shadow: 0 10px 24px rgba(234, 29, 44, 0.25);' : 'background: #F8C9CE; box-shadow: none;'),
+      textoFinal: 'margin: 0; font-size: 28px; font-weight: 600; line-height: 1.4; letter-spacing: -0.015em; color: #1A1A1A; ' + op(4),
+    };
   }
 }
-Contexto.defaultProps = {};
-Contexto.prototype.tpl = function (v) { return html`
-<div style="width: 100%; min-height: 960px; box-sizing: border-box; background: #FFFFFF; color: #3E3E3E; font-family: Figtree, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif; -webkit-font-smoothing: antialiased; padding: 120px 40px">
-  <section style="width: 100%; max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 56px">
+InvestigacaoHorizontal.defaultProps = {};
+InvestigacaoHorizontal.prototype.tpl = function (v) { return html`
+<div style="width: 100%; box-sizing: border-box; background: #FFFFFF; color: #3E3E3E; font-family: Figtree, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif; -webkit-font-smoothing: antialiased; padding: 120px 0; overflow: hidden">
+  <section style="width: 100%; max-width: 1200px; box-sizing: content-box; padding: 0 40px; margin: 0 auto; display: flex; flex-direction: column; gap: 56px">
 
-    <${C.TituloSecao} numero="01" etapa="Contexto" titulo="Por que o projeto começou?" subtitulo="Uma mudança regulatória obrigou a Caju a repensar seus cartões, e abriu espaço para olhar além dela." />
+    <${C.TituloSecao} numero="03" etapa="Investigação" titulo="Do mapeamento à causa de cada fricção" subtitulo="Cada etapa da investigação dependeu da anterior. Este é o caminho que percorri, parada por parada." />
 
-    <div style="display: flex; flex-wrap: wrap; align-items: stretch; gap: 16px">
-
-      <div style="flex: 1 1 240px; min-width: 0; display: flex; flex-direction: column; gap: 14px">
-        <p style="margin: 0; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #717171">O ponto de partida</p>
-        <div style="flex: 1; display: flex; flex-direction: column; gap: 20px; padding: 28px; background: #FFFFFF; border: 1px solid #EBEBEB; border-radius: 16px">
-          <span style="align-self: flex-start; padding: 6px 12px; background: #1A1A1A; color: #FFFFFF; border-radius: 8px; font-size: 13px; font-weight: 600">Regulamentação · 2022</span>
-          <h3 style="margin: 0; font-size: 26px; font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; color: #1A1A1A">Nova regulamentação do Banco Central</h3>
-          <p style="margin: 0; font-size: 16px; line-height: 1.55; color: #717171">Em 2022, a Caju começou a se preparar para mudanças importantes na operação dos seus cartões.</p>
-        </div>
+    <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px">
+      <p style="margin: 0; display: inline-flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 600; color: #A6A6A6"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>Role para o lado para seguir o caminho</p>
+      <div style="display: flex; gap: 8px">
+        <button type="button" class="seta-inv" aria-label="Parada anterior" onClick=${v.anterior} style="display: flex; align-items: center; justify-content: center; width: 48px; height: 48px; padding: 0; border: 1px solid #E2E2E2; border-radius: 50%; background: #FFFFFF; color: #1A1A1A; cursor: pointer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"></path></svg></button>
+        <button type="button" class="seta-inv" aria-label="Próxima parada" onClick=${v.proxima} style="display: flex; align-items: center; justify-content: center; width: 48px; height: 48px; padding: 0; border: 1px solid #E2E2E2; border-radius: 50%; background: #FFFFFF; color: #1A1A1A; cursor: pointer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button>
       </div>
-
-      <div aria-hidden="true" style="flex: 0 0 24px; display: flex; align-items: center; justify-content: center; padding-top: 30px">
-        <svg width="24" height="16" viewBox="0 0 24 16" fill="none"><path d="M0 8h21M15 2l6 6-6 6" stroke="#B5B5B5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-      </div>
-
-      <div style="flex: 1 1 240px; min-width: 0; display: flex; flex-direction: column; gap: 14px">
-        <p style="margin: 0; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #717171">Que previa</p>
-        <div style="flex: 1; display: flex; flex-direction: column; gap: 20px; padding: 28px; background: #F7F7F7; border-radius: 16px">
-          <p style="margin: 0; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #A6A6A6">Cartão</p>
-          <h3 style="margin: 0; font-size: 26px; font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; color: #1A1A1A">Substituição por um modelo panless</h3>
-          <p style="margin: 0; font-size: 16px; line-height: 1.55; color: #717171">Sem informações sensíveis impressas no cartão físico.</p>
-          <div style="margin-top: auto; display: flex; justify-content: center; padding-top: 8px">
-            <img src="/assets/b0ea6a8a37e0cb10c004df70a3bf54a4.svg" alt="Novo cartão Caju panless, na vertical, sem número, validade ou código impressos." style="display: block; width: 120px; height: auto; aspect-ratio: 251 / 353; filter: drop-shadow(0 12px 20px rgba(232, 5, 55, 0.25))" />
-          </div>
-        </div>
-      </div>
-
-      <div aria-hidden="true" style="flex: 0 0 24px; display: flex; align-items: center; justify-content: center; padding-top: 30px">
-        <svg width="24" height="16" viewBox="0 0 24 16" fill="none"><path d="M0 8h21M15 2l6 6-6 6" stroke="#B5B5B5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-      </div>
-
-      <div style="flex: 1 1 260px; min-width: 0; display: flex; flex-direction: column; gap: 14px">
-        <p style="margin: 0; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #717171">Que exigiria adaptar</p>
-        <div style="flex: 1; display: flex; flex-direction: column; gap: 20px; padding: 28px; background: #FFFFFF; border: 1px solid #EBEBEB; border-radius: 16px">
-          <h3 style="margin: 0; font-size: 26px; font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; color: #1A1A1A">Jornadas de ativação e gestão de cartões no app</h3>
-          <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px">
-            <li style="padding: 11px 14px; background: #F7F7F7; border-radius: 10px; font-size: 15px; font-weight: 500; color: #3E3E3E">Ativação do cartão físico</li>
-            <li style="padding: 11px 14px; background: #F7F7F7; border-radius: 10px; font-size: 15px; font-weight: 500; color: #3E3E3E">Criação dos cartões virtuais</li>
-            <li style="padding: 11px 14px; background: #F7F7F7; border-radius: 10px; font-size: 15px; font-weight: 500; color: #3E3E3E">Bloqueio e desbloqueio do físico</li>
-            <li style="padding: 11px 14px; background: #F7F7F7; border-radius: 10px; font-size: 15px; font-weight: 500; color: #3E3E3E">Bloqueio e desbloqueio dos virtuais</li>
-            <li style="padding: 11px 14px; background: #F7F7F7; border-radius: 10px; font-size: 15px; font-weight: 500; color: #3E3E3E">Alteração de senha</li>
-          </ul>
-        </div>
-      </div>
-
-      <div aria-hidden="true" style="flex: 0 0 24px; display: flex; align-items: center; justify-content: center; padding-top: 30px">
-        <svg width="24" height="16" viewBox="0 0 24 16" fill="none"><path d="M0 8h21M15 2l6 6-6 6" stroke="#EA1D2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-      </div>
-
-      <div style="flex: 1 1 220px; min-width: 0; display: flex; flex-direction: column; gap: 14px">
-        <p style="margin: 0; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #EA1D2C">E abriu espaço para</p>
-        <div style="flex: 1; display: flex; flex-direction: column; gap: 20px; padding: 28px; background: #EA1D2C; border-radius: 16px">
-          <p style="margin: 0; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #FFFFFF; opacity: 0.8">Oportunidade</p>
-          <h3 style="margin: 0; font-size: 30px; font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; color: #FFFFFF">Investigar problemas que já existiam</h3>
-          <p style="margin: auto 0 0; font-size: 16px; line-height: 1.55; color: #FFFFFF; opacity: 0.9">Ir além da adaptação obrigatória e atacar as fricções da gestão de cartões.</p>
-        </div>
-      </div>
-
     </div>
   </section>
-</div>
-`; };
-C.Contexto = Contexto;
 
-class Definicao extends DCLogic {
-  renderVals() {
-    return {};
-  }
-}
-Definicao.defaultProps = {};
-Definicao.prototype.tpl = function (v) { return html`
-<div style="width: 100%; box-sizing: border-box; background: #F7F7F7; color: #3E3E3E; font-family: Figtree, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif; -webkit-font-smoothing: antialiased; padding: 120px 40px">
-  <section style="width: 100%; max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 48px">
+  <div class="trilha-inv" data-trilha-inv tabindex="0" onScroll=${v.aoRolar} role="region" aria-label="Caminho da investigação, com rolagem horizontal" style="width: 100%; overflow-x: auto; overflow-y: hidden; margin-top: 40px">
+    <div style="position: relative; display: flex; align-items: flex-start; gap: 160px; width: max-content; box-sizing: border-box; padding: 0 var(--p) 32px">
+      <span aria-hidden="true" style="position: absolute; left: calc(var(--p) + 28px); right: calc(var(--p) + 560px - 28px); top: 27px; border-top: 2px dashed #F4A3AA"></span>
 
-    <${C.TituloSecao} numero="04" etapa="Definição" titulo="Priorizando o que entraria no projeto" subtitulo="Com as causas mapeadas, construí uma matriz MoSCoW junto com Produto e Engenharia." />
+      <div class="parada" style=${v.parada1}>
+        <span aria-hidden="true" style=${v.marca1}>01</span>
+        <div style=${v.conteudo1}>
+      <div style="display: flex; flex-direction: column; gap: 10px">
+        <h3 style="margin: 0; font-size: 28px; font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; color: #1A1A1A">Mapeamento da experiência atual</h3>
+        <p style="margin: 0; max-width: 640px; font-size: 18px; line-height: 1.5; color: #717171">Mapeei os principais fluxos relacionados à gestão de cartões dentro do aplicativo.</p>
+      </div>
 
-    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px">
-      <span style="margin-right: 4px; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #717171">Critérios</span>
-      <span style="padding: 7px 14px; background: #FFFFFF; border: 1px solid #EBEBEB; border-radius: 999px; font-size: 14px; font-weight: 600; color: #3E3E3E">Impacto na experiência</span><span style="padding: 7px 14px; background: #FFFFFF; border: 1px solid #EBEBEB; border-radius: 999px; font-size: 14px; font-weight: 600; color: #3E3E3E">Necessidade da mudança</span><span style="padding: 7px 14px; background: #FFFFFF; border: 1px solid #EBEBEB; border-radius: 999px; font-size: 14px; font-weight: 600; color: #3E3E3E">Esforço de implementação</span>
-    </div>
-
-    <div style="display: flex; flex-direction: column; gap: 16px">
-      <div style="display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 16px">
-        <div style="display: flex; flex-direction: column; gap: 22px; padding: 40px; background: #EA1D2C;  border-radius: 20px">
-          <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px">
-            <p style="margin: 0; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #FFFFFF">Must have</p>
-            <span style="font-size: 14px; font-weight: 500; color: rgba(255, 255, 255, 0.75)">Precisa ter</span>
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 48px">
+        <div style="flex: 1 1 680px; min-width: 0">
+          <div style="position: relative; width: 680px; height: 488px">
+          <svg aria-hidden="true" width="40" height="8" viewBox="0 0 40 8" preserveAspectRatio="none" style="position: absolute; left: 236px; top: 240px; width: 40px; height: 8px; overflow: visible; fill: none; stroke: #D6D6D6; stroke-width: 2; stroke-linecap: round"><path d="M 0 4 L 40 4"></path></svg>
+          <svg aria-hidden="true" width="8" height="384" viewBox="0 0 8 384" preserveAspectRatio="none" style="position: absolute; left: 272px; top: 52px; width: 8px; height: 384px; overflow: visible; fill: none; stroke: #D6D6D6; stroke-width: 2; stroke-linecap: round"><path d="M 4 0 L 4 384"></path></svg>
+          <svg role="img" aria-label="De Gestão de cartões para Ativação do cartão físico" width="39" height="8" viewBox="0 0 39 8" preserveAspectRatio="none" style="position: absolute; left: 276px; top: 48px; width: 39px; height: 8px; overflow: visible; fill: none; stroke: #D6D6D6; stroke-width: 2; stroke-linecap: round"><path d="M 0 4 L 39 4"></path></svg>
+          <svg role="img" aria-label="De Gestão de cartões para Criação dos cartões virtuais" width="39" height="8" viewBox="0 0 39 8" preserveAspectRatio="none" style="position: absolute; left: 276px; top: 144px; width: 39px; height: 8px; overflow: visible; fill: none; stroke: #D6D6D6; stroke-width: 2; stroke-linecap: round"><path d="M 0 4 L 39 4"></path></svg>
+          <svg role="img" aria-label="De Gestão de cartões para Bloqueio/desbloqueio do cartão físico" width="39" height="8" viewBox="0 0 39 8" preserveAspectRatio="none" style="position: absolute; left: 276px; top: 240px; width: 39px; height: 8px; overflow: visible; fill: none; stroke: #D6D6D6; stroke-width: 2; stroke-linecap: round"><path d="M 0 4 L 39 4"></path></svg>
+          <svg role="img" aria-label="De Gestão de cartões para Bloqueio/desbloqueio dos cartões virtuais" width="39" height="8" viewBox="0 0 39 8" preserveAspectRatio="none" style="position: absolute; left: 276px; top: 336px; width: 39px; height: 8px; overflow: visible; fill: none; stroke: #D6D6D6; stroke-width: 2; stroke-linecap: round"><path d="M 0 4 L 39 4"></path></svg>
+          <svg role="img" aria-label="De Gestão de cartões para Alteração de senha de transação" width="39" height="8" viewBox="0 0 39 8" preserveAspectRatio="none" style="position: absolute; left: 276px; top: 432px; width: 39px; height: 8px; overflow: visible; fill: none; stroke: #D6D6D6; stroke-width: 2; stroke-linecap: round"><path d="M 0 4 L 39 4"></path></svg>
+          <div style="position: absolute; left: 0px; top: 216px; width: 236px; height: 56px; box-sizing: border-box; padding: 0 20px; display: flex; align-items: center; justify-content: center; background: #1A1A1A; color: #FFFFFF; border-radius: 999px; font-size: 18px; font-weight: 700; box-shadow: 0 12px 28px rgba(26, 26, 26, 0.18)">Gestão de cartões</div>
+          <div style="position: absolute; left: 316px; top: 24px; width: 364px; height: 56px; box-sizing: border-box; padding: 0 22px; display: flex; align-items: center; gap: 12px; background: #FFFFFF; border: 1px solid #EBEBEB; border-radius: 999px; font-size: 17px; font-weight: 500; color: #1A1A1A; box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06)"><span style="font-size: 13px; font-weight: 700; color: #EA1D2C; font-variant-numeric: tabular-nums">01</span><span>Ativação do cartão físico</span></div>
+          <div style="position: absolute; left: 316px; top: 120px; width: 364px; height: 56px; box-sizing: border-box; padding: 0 22px; display: flex; align-items: center; gap: 12px; background: #FFFFFF; border: 1px solid #EBEBEB; border-radius: 999px; font-size: 17px; font-weight: 500; color: #1A1A1A; box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06)"><span style="font-size: 13px; font-weight: 700; color: #EA1D2C; font-variant-numeric: tabular-nums">02</span><span>Criação dos cartões virtuais</span></div>
+          <div style="position: absolute; left: 316px; top: 216px; width: 364px; height: 56px; box-sizing: border-box; padding: 0 22px; display: flex; align-items: center; gap: 12px; background: #FFFFFF; border: 1px solid #EBEBEB; border-radius: 999px; font-size: 17px; font-weight: 500; color: #1A1A1A; box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06)"><span style="font-size: 13px; font-weight: 700; color: #EA1D2C; font-variant-numeric: tabular-nums">03</span><span>Bloqueio/desbloqueio do cartão físico</span></div>
+          <div style="position: absolute; left: 316px; top: 312px; width: 364px; height: 56px; box-sizing: border-box; padding: 0 22px; display: flex; align-items: center; gap: 12px; background: #FFFFFF; border: 1px solid #EBEBEB; border-radius: 999px; font-size: 17px; font-weight: 500; color: #1A1A1A; box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06)"><span style="font-size: 13px; font-weight: 700; color: #EA1D2C; font-variant-numeric: tabular-nums">04</span><span>Bloqueio/desbloqueio dos cartões virtuais</span></div>
+          <div style="position: absolute; left: 316px; top: 408px; width: 364px; height: 56px; box-sizing: border-box; padding: 0 22px; display: flex; align-items: center; gap: 12px; background: #FFFFFF; border: 1px solid #EBEBEB; border-radius: 999px; font-size: 17px; font-weight: 500; color: #1A1A1A; box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06)"><span style="font-size: 13px; font-weight: 700; color: #EA1D2C; font-variant-numeric: tabular-nums">05</span><span>Alteração de senha de transação</span></div>
           </div>
-          <p style="margin: -6px 0 0; font-size: 30px; font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; color: #FFFFFF">Escopo principal do projeto</p>
-          <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px">
-            <li style="display: flex; align-items: baseline; gap: 12px; font-size: 20px; font-weight: 600; line-height: 1.4; color: #FFFFFF"><span aria-hidden="true" style="flex: 0 0 7px; width: 7px; height: 7px; border-radius: 50%; background: #FFFFFF; transform: translateY(-2px)"></span><span>Validação do novo card design</span></li>
-            <li style="display: flex; align-items: baseline; gap: 12px; font-size: 20px; font-weight: 600; line-height: 1.4; color: #FFFFFF"><span aria-hidden="true" style="flex: 0 0 7px; width: 7px; height: 7px; border-radius: 50%; background: #FFFFFF; transform: translateY(-2px)"></span><span>Refazer toda a experiência de ativação de cartões</span></li>
-            <li style="display: flex; align-items: baseline; gap: 12px; font-size: 20px; font-weight: 600; line-height: 1.4; color: #FFFFFF"><span aria-hidden="true" style="flex: 0 0 7px; width: 7px; height: 7px; border-radius: 50%; background: #FFFFFF; transform: translateY(-2px)"></span><span>Melhorar o bloqueio e desbloqueio do cartão físico</span></li>
-            <li style="display: flex; align-items: baseline; gap: 12px; font-size: 20px; font-weight: 600; line-height: 1.4; color: #FFFFFF"><span aria-hidden="true" style="flex: 0 0 7px; width: 7px; height: 7px; border-radius: 50%; background: #FFFFFF; transform: translateY(-2px)"></span><span>Refazer a experiência de criação de cartões virtuais</span></li>
-            <li style="display: flex; align-items: baseline; gap: 12px; font-size: 20px; font-weight: 600; line-height: 1.4; color: #FFFFFF"><span aria-hidden="true" style="flex: 0 0 7px; width: 7px; height: 7px; border-radius: 50%; background: #FFFFFF; transform: translateY(-2px)"></span><span>Melhorar o bloqueio e desbloqueio dos cartões virtuais</span></li>
-            <li style="display: flex; align-items: baseline; gap: 12px; font-size: 20px; font-weight: 600; line-height: 1.4; color: #FFFFFF"><span aria-hidden="true" style="flex: 0 0 7px; width: 7px; height: 7px; border-radius: 50%; background: #FFFFFF; transform: translateY(-2px)"></span><span>Melhorar a alteração de senha de transação</span></li>
-          </ul>
         </div>
-        <div style="display: flex; flex-direction: column; gap: 22px; padding: 40px; background: #FFFFFF; border: 2px solid #EA1D2C; border-radius: 20px">
-          <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px">
-            <p style="margin: 0; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #EA1D2C">Should have</p>
-            <span style="font-size: 14px; font-weight: 500; color: #717171">Deveria ter</span>
+
+        <div style="flex: 1 1 280px; min-width: 0; display: flex; flex-direction: column; gap: 24px; padding: 32px; background: #F7F7F7; border-radius: 20px">
+          <p style="margin: 0; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #EA1D2C">Resultado do mapeamento</p>
+          <div style="display: flex; align-items: baseline; gap: 14px">
+            <span style="font-size: 112px; font-weight: 700; line-height: 0.9; letter-spacing: -0.05em; color: #EA1D2C">5</span>
+            <span style="font-size: 22px; font-weight: 700; color: #1A1A1A">fluxos mapeados</span>
           </div>
-          <p style="margin: -6px 0 0; font-size: 30px; font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; color: #1A1A1A">Complementos da jornada</p>
-          <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px">
-            <li style="display: flex; align-items: baseline; gap: 12px; font-size: 20px; font-weight: 600; line-height: 1.4; color: #1A1A1A"><span aria-hidden="true" style="flex: 0 0 7px; width: 7px; height: 7px; border-radius: 50%; background: #EA1D2C; transform: translateY(-2px)"></span><span>Criar experiência de rastreio do cartão no app</span></li>
-            <li style="display: flex; align-items: baseline; gap: 12px; font-size: 20px; font-weight: 600; line-height: 1.4; color: #1A1A1A"><span aria-hidden="true" style="flex: 0 0 7px; width: 7px; height: 7px; border-radius: 50%; background: #EA1D2C; transform: translateY(-2px)"></span><span>Validação da nova carta berço</span></li>
-            <li style="display: flex; align-items: baseline; gap: 12px; font-size: 20px; font-weight: 600; line-height: 1.4; color: #1A1A1A"><span aria-hidden="true" style="flex: 0 0 7px; width: 7px; height: 7px; border-radius: 50%; background: #EA1D2C; transform: translateY(-2px)"></span><span>Modais sobre o cartão panless e o código de ativação</span></li>
-          </ul>
+          <span aria-hidden="true" style="display: block; height: 1px; background: #E2E2E2"></span>
+          <p style="margin: 0; font-size: 24px; font-weight: 700; line-height: 1.3; letter-spacing: -0.015em; color: #1A1A1A; text-wrap: pretty">A mudança não afetaria uma única tela, mas um conjunto de jornadas conectadas dentro do app.</p>
         </div>
       </div>
+    </div>
+      </div>
+
+      <div class="parada" style=${v.parada2}>
+        <span aria-hidden="true" style=${v.marca2}>02</span>
+        <div style=${v.conteudo2}>
+      <div style="display: flex; flex-direction: column; gap: 10px">
+        <h3 style="margin: 0; font-size: 28px; font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; color: #1A1A1A">Entrevistas com CX</h3>
+        <p style="margin: 0; max-width: 640px; font-size: 18px; line-height: 1.5; color: #717171">Entrevistei pontos focais do time de CX para entender quais fluxos concentravam mais dúvidas, reclamações e dificuldades.</p>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <p style="margin: 0; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #717171">Perguntas que nortearam as entrevistas</p>
+        <ol style="margin: 0; padding: 0; list-style: none; max-width: 900px">
+          <li style="display: flex; align-items: baseline; gap: 20px; padding: 20px 0">
+            <span style="flex: 0 0 auto; font-size: 14px; font-weight: 700; letter-spacing: 0.06em; font-variant-numeric: tabular-nums; color: #EA1D2C">01</span>
+            <span style="font-size: 20px; line-height: 1.45; color: #1A1A1A">Quais fluxos relacionados à gestão de cartões mais geram dúvidas, reclamações ou problemas entre as pessoas usuárias?</span>
+          </li>
+          <li style="border-top: 1px solid #EBEBEB; display: flex; align-items: baseline; gap: 20px; padding: 20px 0">
+            <span style="flex: 0 0 auto; font-size: 14px; font-weight: 700; letter-spacing: 0.06em; font-variant-numeric: tabular-nums; color: #EA1D2C">02</span>
+            <span style="font-size: 20px; line-height: 1.45; color: #1A1A1A">Quais são as principais queixas das pessoas usuárias?</span>
+          </li>
+          <li style="border-top: 1px solid #EBEBEB; display: flex; align-items: baseline; gap: 20px; padding: 20px 0">
+            <span style="flex: 0 0 auto; font-size: 14px; font-weight: 700; letter-spacing: 0.06em; font-variant-numeric: tabular-nums; color: #EA1D2C">03</span>
+            <span style="font-size: 20px; line-height: 1.45; color: #1A1A1A">Quais informações ou ações poderiam estar mais claras no app para reduzir essas dúvidas e contatos com o CX?</span>
+          </li>
+        </ol>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 20px">
+        <p style="margin: 0; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #717171">O que descobrimos</p>
+        <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px">
+          <div style="display: flex; flex-direction: column; gap: 16px; padding: 32px; background: #F7F7F7; border-radius: 20px">
+            <h4 style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #ea1d2c">Fluxos críticos</h4>
+            <p style="margin: 0; font-size: 18px; font-weight: 700; line-height: 1.5; color: #3E3E3E; text-wrap: pretty">Ativação, bloqueio/desbloqueio e cartão virtual concentravam a maior parte dos contatos.</p>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 16px; padding: 32px; background: #F7F7F7; border-radius: 20px">
+            <h4 style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #ea1d2c">Principais queixas</h4>
+            <p style="margin: 0; font-size: 18px; font-weight: 700; line-height: 1.5; color: #3E3E3E; text-wrap: pretty">Dificuldades com o número do cartão, não saber se o bloqueio funcionou e não achar os cartões virtuais.</p>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 16px; padding: 32px; background: #F7F7F7; border-radius: 20px">
+            <h4 style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #ea1d2c">Oportunidades no app</h4>
+            <p style="margin: 0; font-size: 18px; font-weight: 700; line-height: 1.5; color: #3E3E3E; text-wrap: pretty">Orientar onde encontrar as informações do cartão e confirmar o resultado de cada ação.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+      </div>
+
+      <div class="parada" style=${v.parada3}>
+        <span aria-hidden="true" style=${v.marca3}>03</span>
+        <div style=${v.conteudo3}>
+      <div style="display: flex; flex-direction: column; gap: 10px">
+        <h3 style="margin: 0; font-size: 28px; font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; color: #1A1A1A">Dimensionando o problema com dados</h3>
+        <p style="margin: 0; max-width: 640px; font-size: 18px; line-height: 1.5; color: #717171">Cruzei o volume de atendimentos com o funil de ativação para entender o tamanho de cada fricção.</p>
+      </div>
+
       <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px">
-        <div style="display: flex; flex-direction: column; gap: 22px; padding: 28px; background: #FFFFFF; border: 1px solid #EBEBEB; border-radius: 20px">
-          <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px">
-            <p style="margin: 0; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #A6A6A6">Could have</p>
-            <span style="font-size: 14px; font-weight: 500; color: #B5B5B5">Poderia ter</span>
+
+        <div style="display: flex; flex-direction: column; gap: 28px; padding: 40px; background: #F7F7F7; border-radius: 20px">
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px">
+            <p style="margin: 0; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #717171">Tickets de atendimento</p>
+            <span style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; background: #FFFFFF; border: 1px solid #EBEBEB; border-radius: 999px; font-size: 13px; font-weight: 600; color: #3E3E3E"><img src="/assets/67096d9bed4b70251ca2f7858f85df1e.svg" alt="" style="display: block; width: 14px; height: 14px; object-fit: contain" />Zendesk</span>
           </div>
-          <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px">
-            <li style="display: flex; align-items: baseline; gap: 12px; font-size: 16px; font-weight: 500; line-height: 1.4; color: #A6A6A6"><span aria-hidden="true" style="flex: 0 0 7px; width: 7px; height: 7px; border-radius: 50%; background: #CFCFCF; transform: translateY(-2px)"></span><span>Trazer as informações do cartão para o SponsorApp</span></li>
-            <li style="display: flex; align-items: baseline; gap: 12px; font-size: 16px; font-weight: 500; line-height: 1.4; color: #A6A6A6"><span aria-hidden="true" style="flex: 0 0 7px; width: 7px; height: 7px; border-radius: 50%; background: #CFCFCF; transform: translateY(-2px)"></span><span>Melhorias no Admin para identificar informações dos colaboradores</span></li>
-            <li style="display: flex; align-items: baseline; gap: 12px; font-size: 16px; font-weight: 500; line-height: 1.4; color: #A6A6A6"><span aria-hidden="true" style="flex: 0 0 7px; width: 7px; height: 7px; border-radius: 50%; background: #CFCFCF; transform: translateY(-2px)"></span><span>Comunicações sobre o novo arranjo e o novo cartão</span></li>
-          </ul>
+          <div style="display: flex; align-items: flex-end; gap: 20px">
+            <span style="font-size: 96px; font-weight: 700; line-height: 0.9; letter-spacing: -0.05em; font-variant-numeric: tabular-nums; color: #EA1D2C">17%</span>
+            <p style="margin: 0 0 6px; max-width: 260px; font-size: 18px; font-weight: 600; line-height: 1.35; color: #1A1A1A">dos atendimentos eram sobre gestão de cartões</p>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 14px">
+            <div role="img" aria-label="Barra de proporção: 17% de cerca de 22 mil atendimentos eram sobre gestão de cartões" style="display: flex; height: 16px; border-radius: 999px; overflow: hidden; background: #E2E2E2">
+              <span style="display: block; width: 17%; background: #EA1D2C"></span>
+            </div>
+            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; font-size: 15px; color: #3E3E3E">
+              <span style="display: inline-flex; align-items: center; gap: 8px"><span aria-hidden="true" style="width: 10px; height: 10px; border-radius: 50%; background: #EA1D2C"></span><strong style="color: #1A1A1A; font-variant-numeric: tabular-nums">~3.700</strong> sobre gestão de cartões</span>
+              <span style="display: inline-flex; align-items: center; gap: 8px"><span aria-hidden="true" style="width: 10px; height: 10px; border-radius: 50%; background: #CFCFCF"></span><strong style="color: #1A1A1A; font-variant-numeric: tabular-nums">~22 mil</strong> no total, em 3 meses</span>
+            </div>
+          </div>
         </div>
-        <div style="display: flex; flex-direction: column; gap: 22px; padding: 28px; background: #FFFFFF; border: 1px solid #EBEBEB; border-radius: 20px">
-          <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px">
-            <p style="margin: 0; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #A6A6A6">Won't have</p>
-            <span style="font-size: 14px; font-weight: 500; color: #B5B5B5">Não terá agora</span>
+
+        <div style="display: flex; flex-direction: column; gap: 28px; padding: 40px; background: #F7F7F7; border-radius: 20px">
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px">
+            <p style="margin: 0; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #717171">Funil de ativação de cartão</p>
+            <span style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; background: #FFFFFF; border: 1px solid #EBEBEB; border-radius: 999px; font-size: 13px; font-weight: 600; color: #3E3E3E"><img src="/assets/e21b5a5e8d9a9ed4048a94db3ae5c354.png" alt="" style="display: block; width: 14px; height: 14px; object-fit: contain" />Google Analytics</span>
           </div>
-          <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px">
-            <li style="display: flex; align-items: baseline; gap: 12px; font-size: 16px; font-weight: 500; line-height: 1.4; color: #A6A6A6"><span aria-hidden="true" style="flex: 0 0 7px; width: 7px; height: 7px; border-radius: 50%; background: #CFCFCF; transform: translateY(-2px)"></span><span>Programa de engajamento para a função voucher</span></li>
-            <li style="display: flex; align-items: baseline; gap: 12px; font-size: 16px; font-weight: 500; line-height: 1.4; color: #A6A6A6"><span aria-hidden="true" style="flex: 0 0 7px; width: 7px; height: 7px; border-radius: 50%; background: #CFCFCF; transform: translateY(-2px)"></span><span>Workshops com empresas sobre o novo arranjo e o cartão panless</span></li>
-          </ul>
+          <div style="display: flex; align-items: flex-end; gap: 20px">
+            <span style="font-size: 96px; font-weight: 700; line-height: 0.9; letter-spacing: -0.05em; font-variant-numeric: tabular-nums; color: #EA1D2C">12%</span>
+            <p style="margin: 0 0 6px; max-width: 260px; font-size: 18px; font-weight: 600; line-height: 1.35; color: #1A1A1A">abandonavam o fluxo de ativação de cartão</p>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 16px">
+            <div style="display: flex; flex-direction: column; gap: 8px">
+              <div style="display: flex; justify-content: space-between; font-size: 15px; color: #3E3E3E"><span>Iniciaram a ativação</span><strong style="color: #1A1A1A; font-variant-numeric: tabular-nums">100%</strong></div>
+              <div role="img" aria-label="100% das pessoas iniciavam a ativação" style="height: 16px; border-radius: 999px; background: #1A1A1A"></div>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 8px">
+              <div style="display: flex; justify-content: space-between; font-size: 15px; color: #3E3E3E"><span>Concluíram a ativação</span><span><strong style="color: #1A1A1A; font-variant-numeric: tabular-nums">88%</strong> <span style="color: #EA1D2C; font-weight: 700">· 12% abandonavam</span></span></div>
+              <div role="img" aria-label="88% concluíam a ativação e 12% abandonavam" style="display: flex; gap: 3px; height: 16px">
+                <span style="display: block; width: 88%; border-radius: 999px; background: #1A1A1A"></span>
+                <span style="display: block; flex: 1; border-radius: 999px; background: repeating-linear-gradient(135deg, #EA1D2C 0 4px, #FDE8EA 4px 8px)"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+      </div>
+
+      <div class="parada" style=${v.parada4}>
+        <span aria-hidden="true" style=${v.marca4}>04</span>
+        <div style=${v.conteudo4}>
+      <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px">
+        <div style="display: flex; flex-direction: column; gap: 10px">
+          <h3 style="margin: 0; font-size: 28px; font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; color: #1A1A1A">Analisando o comportamento por trás dos números</h3>
+          <p style="margin: 0; max-width: 640px; font-size: 18px; line-height: 1.5; color: #717171">Analisei 30 gravações de sessão de cada fluxo para identificar padrões de comportamento e pontos de fricção.</p>
+        </div>
+        <span style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; background: #FFFFFF; border: 1px solid #EBEBEB; border-radius: 999px; font-size: 13px; font-weight: 600; color: #3E3E3E"><img src="/assets/b536dcf5e0b40486746d7a3dcc757582.png" alt="" style="display: block; width: 14px; height: 14px; object-fit: contain" />Microsoft Clarity</span>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 20px">
+        <p style="margin: 0; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #717171">Sinais observados</p>
+        <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px">
+          <div style="display: flex; flex-direction: column; gap: 16px; padding: 28px; background: #F7F7F7; border-radius: 20px">
+            <div style="display: flex; align-items: center; justify-content: center; height: 216px; background: #FFFFFF; border-radius: 14px"><svg viewBox="0 0 260 224" width="100%" height="200" role="img" aria-label="Ilustração de hesitação: cursor parado e indo e voltando sobre o campo do número do cartão" style="display: block"><rect x="70" y="14" width="120" height="196" rx="22" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="3"></rect><rect x="112" y="24" width="36" height="8" rx="4" fill="#1A1A1A"></rect>
+<rect x="86" y="50" width="56" height="7" rx="3.5" fill="#E2E2E2"></rect><rect x="86" y="64" width="80" height="6" rx="3" fill="#EFEFEF"></rect>
+<rect x="86" y="88" width="88" height="30" rx="8" fill="#FFFFFF" stroke="#CFCFCF" stroke-width="2"></rect><rect x="94" y="100" width="44" height="6" rx="3" fill="#E2E2E2"></rect>
+<path d="M118 150 C 96 136, 150 128, 132 112 C 120 102, 156 98, 146 120" fill="none" stroke="#EA1D2C" stroke-width="2" stroke-dasharray="4 5" stroke-linecap="round"></path>
+<path d="M146 120 l0 22 l6 -6 l5 10 l5 -2 l-5 -10 l8 0 z" fill="#1A1A1A"></path>
+<rect x="86" y="178" width="88" height="20" rx="8" fill="#E2E2E2"></rect>
+<g transform="translate(196 54)"><circle r="26" fill="#EA1D2C"></circle><circle r="13" fill="none" stroke="#FFFFFF" stroke-width="2.5"></circle><path d="M0 -6 V0 L5 3" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"></path></g>
+</svg></div>
+            <h4 style="margin: 8px 0 0; font-size: 22px; font-weight: 700; line-height: 1.2; letter-spacing: -0.015em; color: #1A1A1A">Hesitação</h4>
+            <p style="margin: 0; font-size: 16px; line-height: 1.5; color: #717171">Pausas longas e cursor indo e voltando antes de agir.</p>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 16px; padding: 28px; background: #F7F7F7; border-radius: 20px">
+            <div style="display: flex; align-items: center; justify-content: center; height: 216px; background: #FFFFFF; border-radius: 14px"><svg viewBox="0 0 260 224" width="100%" height="200" role="img" aria-label="Ilustração de repetição de ações: o mesmo botão de bloquear tocado várias vezes" style="display: block"><rect x="70" y="14" width="120" height="196" rx="22" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="3"></rect><rect x="112" y="24" width="36" height="8" rx="4" fill="#1A1A1A"></rect>
+<rect x="86" y="50" width="56" height="7" rx="3.5" fill="#E2E2E2"></rect><rect x="86" y="64" width="80" height="6" rx="3" fill="#EFEFEF"></rect>
+<rect x="86" y="86" width="88" height="54" rx="10" fill="#F7F7F7"></rect>
+<rect x="96" y="104" width="40" height="18" rx="9" fill="#CFCFCF"></rect><circle cx="106" cy="113" r="7" fill="#FFFFFF"></circle>
+<circle cx="150" cy="113" r="9" fill="#EA1D2C" fill-opacity="0.18"></circle><circle cx="150" cy="113" r="18" fill="none" stroke="#EA1D2C" stroke-opacity="0.45" stroke-width="2"></circle><circle cx="150" cy="113" r="27" fill="none" stroke="#EA1D2C" stroke-opacity="0.25" stroke-width="2"></circle><circle cx="150" cy="113" r="5" fill="#EA1D2C"></circle>
+<rect x="86" y="178" width="88" height="20" rx="8" fill="#E2E2E2"></rect>
+<g font-family="Figtree, Arial, sans-serif" font-size="13" font-weight="700" fill="#FFFFFF"><g transform="translate(206 70)"><circle r="15" fill="#EA1D2C"></circle><text x="0" y="4.5" text-anchor="middle">1x</text></g><g transform="translate(222 108)"><circle r="15" fill="#EA1D2C"></circle><text x="0" y="4.5" text-anchor="middle">2x</text></g><g transform="translate(206 146)"><circle r="15" fill="#EA1D2C"></circle><text x="0" y="4.5" text-anchor="middle">3x</text></g></g>
+</svg></div>
+            <h4 style="margin: 8px 0 0; font-size: 22px; font-weight: 700; line-height: 1.2; letter-spacing: -0.015em; color: #1A1A1A">Repetição de ações</h4>
+            <p style="margin: 0; font-size: 16px; line-height: 1.5; color: #717171">O mesmo toque feito várias vezes, por falta de resposta.</p>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 16px; padding: 28px; background: #F7F7F7; border-radius: 20px">
+            <div style="display: flex; align-items: center; justify-content: center; height: 216px; background: #FFFFFF; border-radius: 14px"><svg viewBox="0 0 260 224" width="100%" height="200" role="img" aria-label="Ilustração de abandono: fluxo interrompido na metade, com a pessoa saindo do app" style="display: block"><rect x="70" y="14" width="120" height="196" rx="22" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="3"></rect><rect x="112" y="24" width="36" height="8" rx="4" fill="#1A1A1A"></rect>
+<g><circle cx="94" cy="54" r="6" fill="#1A1A1A"></circle><rect x="100" y="52" width="12" height="4" fill="#1A1A1A"></rect><circle cx="118" cy="54" r="6" fill="#1A1A1A"></circle><rect x="124" y="52" width="12" height="4" fill="#E2E2E2"></rect><circle cx="142" cy="54" r="6" fill="#FFFFFF" stroke="#CFCFCF" stroke-width="2"></circle><rect x="148" y="52" width="12" height="4" fill="#E2E2E2"></rect><circle cx="166" cy="54" r="6" fill="#FFFFFF" stroke="#CFCFCF" stroke-width="2"></circle></g>
+<rect x="86" y="78" width="70" height="7" rx="3.5" fill="#E2E2E2"></rect><rect x="86" y="94" width="88" height="30" rx="8" fill="#FFFFFF" stroke="#CFCFCF" stroke-width="2"></rect>
+<rect x="86" y="178" width="88" height="20" rx="8" fill="#E2E2E2"></rect>
+<path d="M150 140 C 180 140, 196 128, 222 112" fill="none" stroke="#EA1D2C" stroke-width="2.5" stroke-dasharray="5 5" stroke-linecap="round"></path>
+<g transform="translate(226 100)"><circle r="22" fill="#EA1D2C"></circle><path d="M-7 -7 L7 7 M7 -7 L-7 7" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"></path></g>
+</svg></div>
+            <h4 style="margin: 8px 0 0; font-size: 22px; font-weight: 700; line-height: 1.2; letter-spacing: -0.015em; color: #1A1A1A">Abandono</h4>
+            <p style="margin: 0; font-size: 16px; line-height: 1.5; color: #717171">O fluxo interrompido antes de chegar ao fim.</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 12px">
+        <div style="display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr) minmax(0, 1.6fr); gap: 24px; align-items: center; padding: 0 20px">
+          <p style="margin: 0; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #717171">Fluxo</p>
+          <p style="margin: 0; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #717171">Principal sinal</p>
+          <p style="margin: 0; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #717171">Causa provável</p>
+        </div>
+        <div style="display: flex; flex-direction: column">
+          <div style="display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr) minmax(0, 1.6fr); gap: 24px; align-items: center; padding: 14px 20px; background: #FDE8EA; border-radius: 12px;">
+            <span style="font-size: 16px; font-weight: 700; color: #1A1A1A">Ativação do cartão</span>
+            <span style="display: flex; align-items: baseline; gap: 10px"><strong style="font-size: 26px; font-weight: 700; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; color: #EA1D2C">26,7%</strong><span style="font-size: 13px; color: #717171">abandono</span></span>
+            <span style="font-size: 16px; line-height: 1.45; color: #1A1A1A">Dificuldade para encontrar o número do cartão</span>
+          </div>
+          <div style="display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr) minmax(0, 1.6fr); gap: 24px; align-items: center; padding: 14px 20px; border-top: 1px solid #EBEBEB;">
+            <span style="font-size: 16px; font-weight: 700; color: #1A1A1A">Bloqueio e desbloqueio</span>
+            <span style="display: flex; align-items: baseline; gap: 10px"><strong style="font-size: 26px; font-weight: 700; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; color: #EA1D2C">20,0%</strong><span style="font-size: 13px; color: #717171">repetição de ações</span></span>
+            <span style="font-size: 16px; line-height: 1.45; color: #1A1A1A">Falta de feedback após a ação</span>
+          </div>
+          <div style="display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr) minmax(0, 1.6fr); gap: 24px; align-items: center; padding: 14px 20px; border-top: 1px solid #EBEBEB;">
+            <span style="font-size: 16px; font-weight: 700; color: #1A1A1A">Alteração de senha</span>
+            <span style="display: flex; align-items: baseline; gap: 10px"><strong style="font-size: 26px; font-weight: 700; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; color: #EA1D2C">36,7%</strong><span style="font-size: 13px; color: #717171">hesitação</span></span>
+            <span style="font-size: 16px; line-height: 1.45; color: #1A1A1A">Dificuldade com o número do cartão e a senha do app</span>
+          </div>
+          <div style="display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr) minmax(0, 1.6fr); gap: 24px; align-items: center; padding: 14px 20px; border-top: 1px solid #EBEBEB;">
+            <span style="font-size: 16px; font-weight: 700; color: #1A1A1A">Criação de cartão virtual</span>
+            <span style="display: flex; align-items: baseline; gap: 10px"><strong style="font-size: 26px; font-weight: 700; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; color: #EA1D2C">23,4%</strong><span style="font-size: 13px; color: #717171">hesitação</span></span>
+            <span style="font-size: 16px; line-height: 1.45; color: #1A1A1A">Dificuldade para encontrar a área de cartões virtuais</span>
+          </div>
         </div>
       </div>
     </div>
+      </div>
 
-  </section>
+      <div class="parada" style=${v.parada5}>
+        <span style=${v.pilula}><span aria-hidden="true" style="display: flex; align-items: center; justify-content: center; width: 56px; height: 56px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V4M5 4h11l-2 4 2 4H5"></path></svg></span>Parada final</span>
+        <p style=${v.textoFinal}>Com essa sequência, foi possível definir com precisão o que precisava ser feito. <span style="color: #EA1D2C">O próximo passo foi priorizar as frentes de atuação e iniciar a construção da solução.</span></p>
+      </div>
+
+    </div>
+  </div>
 </div>
 `; };
-C.Definicao = Definicao;
+C.InvestigacaoHorizontal = InvestigacaoHorizontal;
 
 class Sobre extends DCLogic {
   constructor(props) {
@@ -1290,16 +1235,18 @@ class Sobre extends DCLogic {
       { name: 'Dock', period: '2021 – 2022', logo: '/assets/13ae191c642ec54a9426dcc99766bced.png' },
       { name: 'Caju', period: '2022 – 2025', logo: '/assets/eb627dab5ae1837c76d66a4f4a70940a.svg' },
       { name: 'Pier', period: '2025 – 2026', logo: '/assets/ea95a3b7b315da0215057eb27f2244ce.svg', logoH: 24 },
-      { name: 'Próximo desafio', period: 'Aguardando…', placeholder: '?', next: true },
+      { name: 'iFood', period: 'Desbloqueando…', logo: '/assets/b94476d7f8d993ee49857d3b0edd2cd1.svg', locked: true, next: true },
     ].map((j) => ({
       ...j,
-      hasLogo: !!j.logo,
+      hasLogo: !!j.logo && !j.locked,
+      locked: !!j.locked,
       logoStyle: 'display: block; width: auto; height: ' + (j.logoH || 36) + 'px;',
-      noLogo: !j.logo,
+      noLogo: !j.logo && !j.locked,
       placeholderStyle: j.next ? nextBox : logoBox,
-      dotStyle: 'display: block; width: 10px; height: 10px; margin: 18px 0 22px; border-radius: 50%; position: relative; z-index: 1; ' + (j.next ? 'background: #FFFFFF; border: 2px solid #D6D6D6; box-sizing: border-box;' : 'background: #1A1A1A;'),
-      nameStyle: 'margin: 0 0 6px; font-size: 17px; font-weight: 700; color: ' + (j.next ? '#B5B5B5' : '#1A1A1A') + ';',
-      periodStyle: 'margin: 0; font-size: 15px; font-variant-numeric: tabular-nums; color: ' + (j.next ? '#B5B5B5' : '#717171') + ';',
+      dotStyle: 'display: block; width: 10px; height: 10px; margin: 18px 0 22px; border-radius: 50%; position: relative; z-index: 1; ' + (j.next ? 'background: #FFFFFF; border: 2px solid #EA1D2C; box-sizing: border-box;' : 'background: #1A1A1A;'),
+      dotClass: j.next ? 'desbloqueio-ponto' : '',
+      nameStyle: 'margin: 0 0 6px; font-size: 17px; font-weight: 700; color: ' + (j.next ? '#8A8A8A' : '#1A1A1A') + ';',
+      periodStyle: 'margin: 0; font-size: 15px; font-variant-numeric: tabular-nums; color: ' + (j.next ? '#EA1D2C' : '#717171') + '; font-weight: ' + (j.next ? 600 : 400) + ';',
     }));
     const tools = [
       { name: 'Claude', ai: true, logo: '/assets/1e05a277ca60ba1be42af4801cd59c40.png' },
@@ -1346,7 +1293,7 @@ Sobre.prototype.tpl = function (v) { return html`
       ${(v.isPro) ? html`
         <div style="display: flex; flex-direction: column; gap: 56px">
 
-          <p style="margin: 0; max-width: 860px; font-size: 24px; line-height: 1.5; color: #3E3E3E; text-wrap: pretty"><strong style="color: #1A1A1A">Product Designer</strong> há mais de <strong style="color: #1A1A1A">6 anos</strong>, com foco em <strong style="color: #1A1A1A">produtos digitais centrados na pessoa usuária</strong> e forte atuação em <strong style="color: #1A1A1A">plataformas desktop</strong>.</p>
+          <p style="margin: 0; max-width: 860px; font-size: 24px; line-height: 1.5; color: #3E3E3E; text-wrap: pretty"><strong style="color: #1A1A1A">Product Designer</strong> há <strong style="color: #1A1A1A">7 anos</strong>, com foco em <strong style="color: #1A1A1A">produtos digitais centrados na pessoa usuária</strong> e forte atuação em <strong style="color: #1A1A1A">mercados regulados</strong>, sempre atuando com <strong style="color: #1A1A1A">times multidisciplinares</strong>.</p>
 
           <div style="display: flex; flex-direction: column; gap: 28px">
             <p style="margin: 0; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #717171">Minha jornada até aqui</p>
@@ -1361,10 +1308,19 @@ Sobre.prototype.tpl = function (v) { return html`
                     ${(j.noLogo) ? html`
                       <span style=${j.placeholderStyle}>${j.placeholder}</span>
                     ` : null}
+                    ${(j.locked) ? html`
+                      <span style="position: relative; display: inline-flex; align-items: center; justify-content: center; height: 48px; padding: 0 16px; border: 1.5px dashed #F4A3AA; border-radius: 12px; background: #FFFFFF">
+                        <img src=${j.logo} alt=${j.name} style="display: block; width: auto; height: 26px; filter: grayscale(1); opacity: 0.35" />
+                        <span aria-hidden="true" style="position: absolute; right: -10px; top: -10px; display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: #EA1D2C; color: #FFFFFF; box-shadow: 0 4px 10px rgba(234, 29, 44, 0.3)"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 7.5-2"></path></svg></span>
+                      </span>
+                    ` : null}
                   </div>
-                  <span style=${j.dotStyle}></span>
+                  <span class=${j.dotClass} style=${j.dotStyle}></span>
                   <p style=${j.nameStyle}>${j.name}</p>
                   <p style=${j.periodStyle}>${j.period}</p>
+                  ${(j.locked) ? html`
+                    <span aria-hidden="true" style="display: block; position: relative; width: 72px; height: 4px; margin-top: 10px; overflow: hidden; border-radius: 999px; background: #F4D6D9"><span class="desbloqueio-barra" style="position: absolute; left: 0; top: 0; bottom: 0; width: 40%; border-radius: 999px; background: #EA1D2C"></span></span>
+                  ` : null}
                 </div>
               `)}
             </div>
@@ -1454,38 +1410,6 @@ Sobre.prototype.tpl = function (v) { return html`
 `; };
 C.Sobre = Sobre;
 
-class Agradecimento extends DCLogic {
-  renderVals() {
-    return {};
-  }
-}
-Agradecimento.defaultProps = {};
-Agradecimento.prototype.tpl = function (v) { return html`
-<footer style="width: 100%; min-height: 860px; box-sizing: border-box; display: flex; flex-direction: column; background: #1A1A1A; color: #FFFFFF; font-family: Figtree, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif; -webkit-font-smoothing: antialiased; padding: 96px 40px 80px">
-  <div style="flex: 1 1 auto; width: 100%; max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column">
-
-    <div style="flex: 1 1 auto; display: flex; flex-direction: column; justify-content: center; gap: 24px; padding: 64px 0">
-      <h2 style="margin: 0; font-size: 152px; font-weight: 800; line-height: 0.95; letter-spacing: -0.05em; color: #FFFFFF">Muito obrigado!</h2>
-      <p style="margin: 0; font-size: 28px; font-weight: 500; line-height: 1.3; color: rgba(255, 255, 255, 0.88)">Ficou alguma dúvida?</p>
-    </div>
-
-    <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; padding-top: 40px; border-top: 1px solid rgba(255, 255, 255, 0.2)">
-      <div style="display: flex; flex-direction: column; gap: 6px">
-        <p style="margin: 0; font-size: 26px; font-weight: 700; letter-spacing: -0.01em; color: #FFFFFF">Arthur Magalhães</p>
-        <p style="margin: 0; font-size: 17px; color: rgba(255, 255, 255, 0.8)">Product Designer</p>
-      </div>
-      <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px">
-        <li><a class="contato" href="https://www.linkedin.com/in/arthuramagalhaes/" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border: 1px solid rgba(255, 255, 255, 0.85); border-radius: 999px; color: #FFFFFF; font-size: 15px; font-weight: 500; text-decoration: none">linkedin.com/in/arthuramagalhaes/</a></li>
-        <li><a class="contato" href="mailto:arthurmagalhaes84@gmail.com" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border: 1px solid rgba(255, 255, 255, 0.85); border-radius: 999px; color: #FFFFFF; font-size: 15px; font-weight: 500; text-decoration: none">arthurmagalhaes84@gmail.com</a></li>
-        <li><a class="contato" href="tel:+5534991534072" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border: 1px solid rgba(255, 255, 255, 0.85); border-radius: 999px; color: #FFFFFF; font-size: 15px; font-weight: 500; text-decoration: none">+55 (34) 99153-4072</a></li>
-      </ul>
-    </div>
-
-  </div>
-</footer>
-`; };
-C.Agradecimento = Agradecimento;
-
 class Main extends DCLogic {
   renderVals() {
     return { detail: this.props.detail ?? '#EA1D2C' };
@@ -1526,30 +1450,6 @@ Main.prototype.tpl = function (v) { return html`
 </div>
 `; };
 C.Main = Main;
-
-class TituloSecao extends DCLogic {
-  renderVals() {
-    const subtitulo = this.props.subtitulo ?? '';
-    return {
-      numero: this.props.numero ?? '01',
-      etapa: this.props.etapa ?? 'Contexto',
-      titulo: this.props.titulo ?? 'Por que o projeto começou?',
-      subtitulo,
-      temSubtitulo: subtitulo.length > 0,
-    };
-  }
-}
-TituloSecao.defaultProps = {"numero": "01", "etapa": "Contexto", "titulo": "Por que o projeto começou?", "subtitulo": ""};
-TituloSecao.prototype.tpl = function (v) { return html`
-<header style="width: 100%; display: flex; flex-direction: column; gap: 16px; font-family: Figtree, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif; color: #1A1A1A">
-  <p style="display: flex; align-items: center; gap: 10px; margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #EA1D2C"><span style="font-variant-numeric: tabular-nums">${v.numero}</span><span aria-hidden="true" style="display: inline-block; flex: 0 0 5px; width: 5px; height: 5px; border-radius: 50%; background: #EA1D2C"></span>${v.etapa}</p>
-  <h2 style="margin: 0; max-width: 900px; font-size: 48px; font-weight: 700; line-height: 1.1; letter-spacing: -0.03em; text-wrap: balance; color: #1A1A1A">${v.titulo}</h2>
-  ${(v.temSubtitulo) ? html`
-    <p style="margin: 0; max-width: 680px; font-size: 20px; line-height: 1.5; color: #717171; text-wrap: pretty">${v.subtitulo}</p>
-  ` : null}
-</header>
-`; };
-C.TituloSecao = TituloSecao;
 
 class Resultados extends DCLogic {
   renderVals() {
@@ -1604,6 +1504,116 @@ Resultados.prototype.tpl = function (v) { return html`
 </div>
 `; };
 C.Resultados = Resultados;
+
+class TituloSecao extends DCLogic {
+  renderVals() {
+    const subtitulo = this.props.subtitulo ?? '';
+    return {
+      numero: this.props.numero ?? '01',
+      etapa: this.props.etapa ?? 'Contexto',
+      titulo: this.props.titulo ?? 'Por que o projeto começou?',
+      subtitulo,
+      temSubtitulo: subtitulo.length > 0,
+    };
+  }
+}
+TituloSecao.defaultProps = {"numero": "01", "etapa": "Contexto", "titulo": "Por que o projeto começou?", "subtitulo": ""};
+TituloSecao.prototype.tpl = function (v) { return html`
+<header style="width: 100%; display: flex; flex-direction: column; gap: 16px; font-family: Figtree, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif; color: #1A1A1A">
+  <p style="display: flex; align-items: center; gap: 10px; margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #EA1D2C"><span style="font-variant-numeric: tabular-nums">${v.numero}</span><span aria-hidden="true" style="display: inline-block; flex: 0 0 5px; width: 5px; height: 5px; border-radius: 50%; background: #EA1D2C"></span>${v.etapa}</p>
+  <h2 style="margin: 0; max-width: 900px; font-size: 48px; font-weight: 700; line-height: 1.1; letter-spacing: -0.03em; text-wrap: balance; color: #1A1A1A">${v.titulo}</h2>
+  ${(v.temSubtitulo) ? html`
+    <p style="margin: 0; max-width: 680px; font-size: 20px; line-height: 1.5; color: #717171; text-wrap: pretty">${v.subtitulo}</p>
+  ` : null}
+</header>
+`; };
+C.TituloSecao = TituloSecao;
+
+class Aprendizados extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { abertos: [false, false, false, false] };
+  }
+  renderVals() {
+    const itens = [
+      { titulo: 'Uma mudança obrigatória pode ser uma oportunidade', texto: 'Ir além do que a regulamentação pedia foi o que gerou o impacto real.' },
+      { titulo: 'Números mostram onde, comportamento mostra por quê', texto: 'Zendesk e Google Analytics dimensionaram o problema; o Clarity explicou as causas.' },
+      { titulo: 'O CX é uma fonte de pesquisa subestimada', texto: 'Quem atende as pessoas usuárias todos os dias já tem as primeiras hipóteses.' },
+      { titulo: 'O que eu faria diferente hoje?', texto: 'Usaria IA para analisar os ~3.700 tickets e as 120 gravações de sessão, categorizando queixas e padrões em escala e liberando tempo para aprofundar as causas. Também usaria IA na construção das interfaces.', reflexao: true },
+    ];
+    const abertos = this.state.abertos;
+    const total = abertos.filter(Boolean).length;
+    const todos = total === itens.length;
+    const abrir = (i) => () => {
+      const novo = abertos.slice();
+      novo[i] = true;
+      this.setState({ abertos: novo });
+    };
+    const proximo = abertos.indexOf(false);
+    return {
+      contador: total + ' de ' + itens.length,
+      botaoTexto: todos ? 'Recomeçar' : (total === 0 ? 'Revelar primeiro' : 'Próximo aprendizado'),
+      botaoIcone: todos ? 'M3 12a9 9 0 1 0 3-6.7L3 8M3 3v5h5' : 'M5 12h14M13 6l6 6-6 6',
+      botaoStyle: 'display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 22px; border-radius: 999px; font-size: 15px; font-weight: 700; cursor: pointer; ' + (todos ? 'border: 1px solid #E2E2E2; background: #FFFFFF; color: #1A1A1A;' : 'border: 0; background: #EA1D2C; color: #FFFFFF; box-shadow: 0 8px 20px rgba(234, 29, 44, 0.25);'),
+      acao: todos ? () => this.setState({ abertos: itens.map(() => false) }) : abrir(proximo),
+      cards: itens.map((it, i) => {
+        const r = !!it.reflexao;
+        const aberto = abertos[i];
+        const liStyle = 'display: flex; min-width: 0;' + (r ? ' grid-column: 1 / -1;' : '');
+        return {
+          titulo: it.titulo, texto: it.texto, liStyle,
+          num: r ? '?' : '0' + (i + 1),
+          aberto, fechado: !aberto,
+          rotulo: 'Revelar ' + (r ? 'o que eu faria diferente hoje' : 'aprendizado 0' + (i + 1)),
+          abrir: abrir(i),
+          cardStyle: 'flex: 1 1 auto; min-width: 0; box-sizing: border-box; display: flex; flex-direction: column; gap: 14px; padding: 28px 32px; border-radius: 20px; ' + (r ? 'background: #1A1A1A;' : 'background: #FFFFFF; border: 1px solid #EBEBEB;'),
+          numStyle: 'font-size: 14px; font-weight: 700; letter-spacing: 0.06em; font-variant-numeric: tabular-nums; color: ' + (r ? '#FF6B76' : '#EA1D2C') + ';',
+          tituloStyle: 'margin: 0; font-size: 24px; font-weight: 700; line-height: 1.2; letter-spacing: -0.015em; color: ' + (r ? '#FFFFFF' : '#1A1A1A') + ';',
+          textoStyle: 'margin: ' + (r ? '0' : 'auto 0 0') + '; font-size: 16px; line-height: 1.5; color: ' + (r ? 'rgba(255, 255, 255, 0.82)' : '#717171') + ';',
+        };
+      }),
+    };
+  }
+}
+Aprendizados.defaultProps = {};
+Aprendizados.prototype.tpl = function (v) { return html`
+<div style="width: 100%; box-sizing: border-box; background: #F7F7F7; color: #3E3E3E; font-family: Figtree, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif; -webkit-font-smoothing: antialiased; padding: 120px 40px">
+  <section style="width: 100%; max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 72px">
+
+    <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px">
+      <div style="flex: 1 1 640px; min-width: 0">
+        <${C.TituloSecao} numero="08" etapa="Aprendizados" titulo="O que eu aprendi com esse projeto?" />
+      </div>
+      <div style="display: flex; align-items: center; gap: 16px">
+        <span aria-live="polite" style="font-size: 14px; font-weight: 600; font-variant-numeric: tabular-nums; color: #A6A6A6">${v.contador}</span>
+        <button type="button" onClick=${v.acao} style=${v.botaoStyle}>${v.botaoTexto}<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d=${v.botaoIcone}></path></svg></button>
+      </div>
+    </div>
+
+    <ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-auto-rows: 240px; gap: 16px">
+      ${(v.cards || []).map((c) => html`
+        <li style=${c.liStyle}>
+          ${(c.aberto) ? html`
+            <div class="revelado" style=${c.cardStyle}>
+              <span style=${c.numStyle}>${c.num}</span>
+              <h3 style=${c.tituloStyle}>${c.titulo}</h3>
+              <p style=${c.textoStyle}>${c.texto}</p>
+            </div>
+          ` : null}
+          ${(c.fechado) ? html`
+            <button type="button" class="oculto" aria-label=${c.rotulo} onClick=${c.abrir} style="flex: 1 1 auto; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; padding: 0; border: 1.5px dashed #D6D6D6; border-radius: 20px; background: transparent; color: #B4B4B4; cursor: pointer; transition: border-color 200ms ease, color 200ms ease">
+              <span style="font-size: 28px; font-weight: 800; letter-spacing: -0.02em; font-variant-numeric: tabular-nums">${c.num}</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>
+            </button>
+          ` : null}
+        </li>
+      `)}
+    </ol>
+
+  </section>
+</div>
+`; };
+C.Aprendizados = Aprendizados;
 
 class PaginaHorizontal extends DCLogic {
   constructor(props) {
