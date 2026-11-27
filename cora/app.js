@@ -194,6 +194,60 @@ Sobre.prototype.tpl = function (v) { return html`
 `; };
 C.Sobre = Sobre;
 
+class Resultados extends DCLogic {
+  renderVals() {
+    const dados = [
+      { label: 'Ativação', valor: '−4,5 p.p.', texto: 'na taxa de abandono da ativação de cartões (12% → 7,5%)', altura: 380 },
+      { label: 'Atendimento', valor: '−30,5%', texto: 'nos tickets relacionados à gestão de cartões', altura: 520, destaque: true },
+      { label: 'Suporte', valor: '~1.000', texto: 'atendimentos de suporte a menos', altura: 300 },
+    ];
+    return {
+      colunas: dados.map((d, i) => {
+        const on = !!d.destaque;
+        const atraso = (i * 120) + 'ms';
+        return {
+          label: d.label, valor: d.valor, texto: d.texto,
+          coluna: 'display: flex; flex-direction: column; justify-content: space-between; box-sizing: border-box; height: ' + d.altura + 'px; padding: 32px; border-radius: 20px 20px 0 0; animation-delay: ' + atraso + '; background: ' + (on ? '#FE3E6D' : '#F4F4F4') + ';',
+          rotulo: 'margin: 0; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; animation-delay: ' + (i * 120 + 500) + 'ms; color: ' + (on ? 'rgba(255, 255, 255, 0.8)' : '#8A8A8A') + ';',
+          blocoTexto: 'display: flex; flex-direction: column; gap: 10px; animation-delay: ' + (i * 120 + 560) + 'ms;',
+          numero: 'margin: 0; font-size: ' + (on ? 84 : 60) + 'px; font-weight: 800; line-height: 1; letter-spacing: -0.04em; font-variant-numeric: tabular-nums; white-space: nowrap; color: ' + (on ? '#FFFFFF' : '#1A1A1A') + ';',
+          desc: 'margin: 0; max-width: 300px; font-size: 17px; line-height: 1.45; color: ' + (on ? '#FFFFFF' : '#717171') + ';',
+        };
+      }),
+    };
+  }
+}
+Resultados.defaultProps = {};
+Resultados.prototype.tpl = function (v) { return html`
+<div style="width: 100%; box-sizing: border-box; background: #FFFFFF; color: #3E3E3E; font-family: Figtree, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif; -webkit-font-smoothing: antialiased; padding: 120px 40px">
+  <section style="width: 100%; max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 72px">
+
+    <${C.TituloSecao} numero="07" etapa="Resultados" titulo="Resultados após o lançamento" subtitulo="Três meses após o lançamento, medidos com os mesmos indicadores que apontaram o problema." />
+
+    <div style="display: flex; flex-direction: column; gap: 40px">
+      <div role="list" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: end; gap: 16px; height: 520px; border-bottom: 2px solid #E2E2E2">
+        ${(v.colunas || []).map((c) => html`
+          <div role="listitem" class="coluna" style=${c.coluna}>
+            <p class="coluna-conteudo" style=${c.rotulo}>${c.label}</p>
+            <div class="coluna-conteudo" style=${c.blocoTexto}>
+              <p style=${c.numero}>${c.valor}</p>
+              <p style=${c.desc}>${c.texto}</p>
+            </div>
+          </div>
+        `)}
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 12px; padding: 32px; border: 1px solid #EBEBEB; border-radius: 20px">
+        <p style="margin: 0; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #FE3E6D">Conclusão</p>
+        <p style="margin: 0; max-width: 980px; font-size: 20px; line-height: 1.5; color: #3E3E3E">Ao ir além da adaptação exigida pelo BACEN e atacar as fricções que mais pesavam na experiência, o projeto trouxe ganhos dos dois lados: <strong style="font-weight: 700; color: #1A1A1A">mais pessoas concluindo a ativação do cartão na primeira tentativa</strong> e <strong style="font-weight: 700; color: #1A1A1A">menos dúvidas chegando ao atendimento</strong>.</p>
+      </div>
+    </div>
+
+  </section>
+</div>
+`; };
+C.Resultados = Resultados;
+
 class Contexto extends DCLogic {
   renderVals() {
     return {};
@@ -269,6 +323,205 @@ Contexto.prototype.tpl = function (v) { return html`
 </div>
 `; };
 C.Contexto = Contexto;
+
+class Main extends DCLogic {
+  renderVals() {
+    return { detail: this.props.detail ?? '#FE3E6D' };
+  }
+}
+Main.defaultProps = {"detail": "#FE3E6D"};
+Main.prototype.tpl = function (v) { return html`
+<div style="width: 100%; min-height: 860px; box-sizing: border-box; background: #EEF2F7; color: #3E3E3E; font-family: Figtree, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif; -webkit-font-smoothing: antialiased; padding: 80px 40px 0; overflow: hidden">
+  <section style="width: 100%; max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 48px">
+
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 20px; text-align: center">
+      <p style="display: inline-flex; align-items: center; gap: 8px; margin: 0 0 8px; padding: 8px 16px; background: #FFFFFF; border: 1px solid #EBEBEB; border-radius: 999px; font-size: 15px; font-weight: 500; line-height: 1; color: #717171">Preparado para o processo seletivo da <img src="/assets/9eecb366644753baa9315618cb2706c6.svg" alt="Cora" style="display: block; height: 18px; width: auto; transform: translateY(2px)" /></p>
+      <h1 style="margin: 0; max-width: 940px; font-size: 72px; font-weight: 700; line-height: 1.05; letter-spacing: -0.03em; text-wrap: balance; color: #1A1A1A; width: 1074px">Melhorias nos fluxos de gestão de cartões</h1>
+      <p style="margin: 0; font-size: 19px; line-height: 1.5; color: #717171; text-wrap: balance">Pesquisa qualitativa e quantitativa para reduzir o atrito na ativação e no uso dos cartões Caju.</p>
+    </div>
+
+    <div style="width: 100%; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px 40px">
+
+      <div style="flex: 0 0 auto; display: flex; flex-direction: column; gap: 8px; padding: 16px 20px; margin-bottom: 72px; box-sizing: border-box; background: #FFFFFF; border: 1px solid #EBEBEB; border-radius: 12px; text-align: left">
+        <p style="margin: 0; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #717171">ATENDIMENTO</p>
+        <p style="margin: 0; font-size: 36px; font-weight: 700; line-height: 1; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; white-space: nowrap; color: ${v.detail}">−30,5%</p>
+        <p style="margin: 0; font-size: 13px; line-height: 1.4; white-space: nowrap; color: #3E3E3E">nos tickets sobre gestão de cartões</p>
+      </div>
+
+      <figure style="flex: 0 1 520px; min-width: 0; margin: 0; height: 520px; overflow: hidden; -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 55%, transparent 100%); mask-image: linear-gradient(to bottom, #000 0%, #000 55%, transparent 100%)">
+        <img src="/assets/013b586f9d31414bbcdf02ee19e9f55a.png" alt="Dois iPhones com o app da Caju: à esquerda, a tela de escolha do cartão recebido; à direita, o cartão físico ativado com código, validade e categorias de benefício." style="display: block; width: 100%; height: auto; aspect-ratio: 1122 / 1402" />
+      </figure>
+
+      <div style="flex: 0 0 auto; display: flex; flex-direction: column; gap: 8px; padding: 16px 20px; margin-bottom: 72px; box-sizing: border-box; background: #FFFFFF; border: 1px solid #EBEBEB; border-radius: 12px; text-align: left">
+        <p style="margin: 0; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #717171">ATIVAÇÃO DE CARTÕES</p>
+        <p style="margin: 0; font-size: 36px; font-weight: 700; line-height: 1; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; white-space: nowrap; color: ${v.detail}">−4,5 p.p.</p>
+        <p style="margin: 0; font-size: 13px; line-height: 1.4; white-space: nowrap; color: #3E3E3E">na taxa de abandono de ativação</p>
+      </div>
+
+    </div>
+
+  </section>
+</div>
+`; };
+C.Main = Main;
+
+class Desafio extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+Desafio.defaultProps = {};
+Desafio.prototype.tpl = function (v) { return html`
+<div style="width: 100%; box-sizing: border-box; background: #EEF2F7; color: #3E3E3E; font-family: Figtree, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif; -webkit-font-smoothing: antialiased; padding: 120px 40px">
+  <section style="width: 100%; max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 56px">
+
+    <${C.TituloSecao} numero="02" etapa="Desafio e Responsabilidades" titulo="O que precisava ser resolvido, e como eu atuei" subtitulo="" />
+
+    <div style="display: flex; flex-direction: column; gap: 20px; padding: 56px; background: #FFFFFF; border-radius: 20px">
+      <p style="margin: 0; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #717171">O desafio</p>
+      <p style="margin: 0; max-width: 1000px; font-size: 40px; font-weight: 700; line-height: 1.2; letter-spacing: -0.025em; text-wrap: balance; color: #1A1A1A">Como <span style="color: #FE3E6D">adaptar as jornadas de cartão</span> ao novo modelo panless e, ao mesmo tempo, <span style="color: #FE3E6D">reduzir as fricções que já existiam</span> na gestão de cartões?</p>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 28px">
+      <p style="margin: 0; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #717171">Minha atuação · da investigação à análise dos resultados</p>
+      <div style="overflow-x: auto">
+        <div style="min-width: 980px; display: flex; flex-direction: column; gap: 32px">
+          <div style="display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 12px">
+          <div style="grid-column: 1 / span 3; padding: 14px 20px; background: #FFFFFF; border-radius: 10px; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #717171">Investigação</div>
+          <div style="grid-column: 4 / span 1; padding: 14px 20px; background: #FFFFFF; border-radius: 10px; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #717171">Definição</div>
+          <div style="grid-column: 5 / span 2; padding: 14px 20px; background: #FFFFFF; border-radius: 10px; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #717171">Ideação e testes</div>
+          <div style="grid-column: 7 / span 1; padding: 14px 20px; background: #FFE6EC; border-radius: 10px; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #FE3E6D">Impacto</div>
+          </div>
+          <div style="position: relative; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 0">
+            <span aria-hidden="true" style="position: absolute; left: 14px; right: 0; top: 13px; height: 2px; background: #DCDCDC"></span>
+          <div style="display: flex; flex-direction: column; gap: 10px; padding-right: 16px">
+            <span aria-hidden="true" style="position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; background: #1A1A1A"><span style="width: 10px; height: 10px; border-radius: 50%; background: #FFFFFF"></span></span>
+            <p style="margin: 12px 0 0; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; font-variant-numeric: tabular-nums; color: #A6A6A6">01</p>
+            <h4 style="margin: 0; font-size: 20px; font-weight: 700; line-height: 1.2; letter-spacing: -0.01em; color: #1A1A1A">Mapeamento</h4>
+            <p style="margin: 0; font-size: 15px; line-height: 1.45; color: #717171">Fluxos de gestão de cartões no app</p>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 10px; padding-right: 16px">
+            <span aria-hidden="true" style="position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; background: #1A1A1A"><span style="width: 10px; height: 10px; border-radius: 50%; background: #FFFFFF"></span></span>
+            <p style="margin: 12px 0 0; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; font-variant-numeric: tabular-nums; color: #A6A6A6">02</p>
+            <h4 style="margin: 0; font-size: 20px; font-weight: 700; line-height: 1.2; letter-spacing: -0.01em; color: #1A1A1A">Entrevistas CX</h4>
+            <p style="margin: 0; font-size: 15px; line-height: 1.45; color: #717171">Dúvidas, reclamações e dificuldades</p>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 10px; padding-right: 16px">
+            <span aria-hidden="true" style="position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; background: #1A1A1A"><span style="width: 10px; height: 10px; border-radius: 50%; background: #FFFFFF"></span></span>
+            <p style="margin: 12px 0 0; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; font-variant-numeric: tabular-nums; color: #A6A6A6">03</p>
+            <h4 style="margin: 0; font-size: 20px; font-weight: 700; line-height: 1.2; letter-spacing: -0.01em; color: #1A1A1A">Análise de dados</h4>
+            <p style="margin: 0; font-size: 15px; line-height: 1.45; color: #717171">Zendesk, Google Analytics e Clarity</p>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 10px; padding-right: 16px">
+            <span aria-hidden="true" style="position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; background: #1A1A1A"><span style="width: 10px; height: 10px; border-radius: 50%; background: #FFFFFF"></span></span>
+            <p style="margin: 12px 0 0; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; font-variant-numeric: tabular-nums; color: #A6A6A6">04</p>
+            <h4 style="margin: 0; font-size: 20px; font-weight: 700; line-height: 1.2; letter-spacing: -0.01em; color: #1A1A1A">Priorização</h4>
+            <p style="margin: 0; font-size: 15px; line-height: 1.45; color: #717171">Matriz MoSCoW com Produto e Engenharia</p>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 10px; padding-right: 16px">
+            <span aria-hidden="true" style="position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; background: #1A1A1A"><span style="width: 10px; height: 10px; border-radius: 50%; background: #FFFFFF"></span></span>
+            <p style="margin: 12px 0 0; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; font-variant-numeric: tabular-nums; color: #A6A6A6">05</p>
+            <h4 style="margin: 0; font-size: 20px; font-weight: 700; line-height: 1.2; letter-spacing: -0.01em; color: #1A1A1A">UI Design</h4>
+            <p style="margin: 0; font-size: 15px; line-height: 1.45; color: #717171">Nova experiência dos fluxos de cartões</p>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 10px; padding-right: 16px">
+            <span aria-hidden="true" style="position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; background: #1A1A1A"><span style="width: 10px; height: 10px; border-radius: 50%; background: #FFFFFF"></span></span>
+            <p style="margin: 12px 0 0; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; font-variant-numeric: tabular-nums; color: #A6A6A6">06</p>
+            <h4 style="margin: 0; font-size: 20px; font-weight: 700; line-height: 1.2; letter-spacing: -0.01em; color: #1A1A1A">Testes</h4>
+            <p style="margin: 0; font-size: 15px; line-height: 1.45; color: #717171">Já em produção com colaboradores Caju</p>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 10px; padding-right: 16px">
+            <span aria-hidden="true" style="position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; background: #FE3E6D"><span style="width: 10px; height: 10px; border-radius: 50%; background: #FFFFFF"></span></span>
+            <p style="margin: 12px 0 0; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; font-variant-numeric: tabular-nums; color: #FE3E6D">07</p>
+            <h4 style="margin: 0; font-size: 20px; font-weight: 700; line-height: 1.2; letter-spacing: -0.01em; color: #1A1A1A">Resultados</h4>
+            <p style="margin: 0; font-size: 15px; line-height: 1.45; color: #717171">Análise pós-lançamento</p>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+</div>
+`; };
+C.Desafio = Desafio;
+
+class Definicao extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+Definicao.defaultProps = {};
+Definicao.prototype.tpl = function (v) { return html`
+<div style="width: 100%; box-sizing: border-box; background: #EEF2F7; color: #3E3E3E; font-family: Figtree, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif; -webkit-font-smoothing: antialiased; padding: 120px 40px">
+  <section style="width: 100%; max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 48px">
+
+    <${C.TituloSecao} numero="04" etapa="Definição" titulo="Priorizando o que entraria no projeto" subtitulo="Com as causas mapeadas, transformei cada uma em uma frente de solução e priorizei junto com Produto e Engenharia numa matriz MoSCoW." />
+
+    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px">
+      <span style="margin-right: 4px; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #717171">Critérios</span>
+      <span style="padding: 7px 14px; background: #FFFFFF; border: 1px solid #EBEBEB; border-radius: 999px; font-size: 14px; font-weight: 600; color: #3E3E3E">Impacto na experiência</span><span style="padding: 7px 14px; background: #FFFFFF; border: 1px solid #EBEBEB; border-radius: 999px; font-size: 14px; font-weight: 600; color: #3E3E3E">Necessidade da mudança</span><span style="padding: 7px 14px; background: #FFFFFF; border: 1px solid #EBEBEB; border-radius: 999px; font-size: 14px; font-weight: 600; color: #3E3E3E">Esforço de implementação</span>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 16px">
+      <div style="display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 16px">
+        <div style="display: flex; flex-direction: column; gap: 22px; padding: 40px; background: #FE3E6D;  border-radius: 20px">
+          <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px">
+            <p style="margin: 0; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #FFFFFF">Must have</p>
+            <span style="font-size: 14px; font-weight: 500; color: rgba(255, 255, 255, 0.75)">Precisa ter</span>
+          </div>
+          <p style="margin: -6px 0 0; font-size: 30px; font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; color: #FFFFFF">Escopo principal do projeto</p>
+          <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px">
+            <li style="display: flex; align-items: baseline; gap: 12px; font-size: 20px; font-weight: 600; line-height: 1.4; color: #FFFFFF"><span aria-hidden="true" style="flex: 0 0 7px; width: 7px; height: 7px; border-radius: 50%; background: #FFFFFF; transform: translateY(-2px)"></span><span>Validação do novo card design</span></li>
+            <li style="display: flex; align-items: baseline; gap: 12px; font-size: 20px; font-weight: 600; line-height: 1.4; color: #FFFFFF"><span aria-hidden="true" style="flex: 0 0 7px; width: 7px; height: 7px; border-radius: 50%; background: #FFFFFF; transform: translateY(-2px)"></span><span>Refazer toda a experiência de ativação de cartões</span></li>
+            <li style="display: flex; align-items: baseline; gap: 12px; font-size: 20px; font-weight: 600; line-height: 1.4; color: #FFFFFF"><span aria-hidden="true" style="flex: 0 0 7px; width: 7px; height: 7px; border-radius: 50%; background: #FFFFFF; transform: translateY(-2px)"></span><span>Melhorar o bloqueio e desbloqueio do cartão físico</span></li>
+            <li style="display: flex; align-items: baseline; gap: 12px; font-size: 20px; font-weight: 600; line-height: 1.4; color: #FFFFFF"><span aria-hidden="true" style="flex: 0 0 7px; width: 7px; height: 7px; border-radius: 50%; background: #FFFFFF; transform: translateY(-2px)"></span><span>Refazer a experiência de criação de cartões virtuais</span></li>
+            <li style="display: flex; align-items: baseline; gap: 12px; font-size: 20px; font-weight: 600; line-height: 1.4; color: #FFFFFF"><span aria-hidden="true" style="flex: 0 0 7px; width: 7px; height: 7px; border-radius: 50%; background: #FFFFFF; transform: translateY(-2px)"></span><span>Melhorar o bloqueio e desbloqueio dos cartões virtuais</span></li>
+            <li style="display: flex; align-items: baseline; gap: 12px; font-size: 20px; font-weight: 600; line-height: 1.4; color: #FFFFFF"><span aria-hidden="true" style="flex: 0 0 7px; width: 7px; height: 7px; border-radius: 50%; background: #FFFFFF; transform: translateY(-2px)"></span><span>Melhorar a alteração de senha de transação</span></li>
+          </ul>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 22px; padding: 40px; background: #FFFFFF; border: 2px solid #FE3E6D; border-radius: 20px">
+          <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px">
+            <p style="margin: 0; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #FE3E6D">Should have</p>
+            <span style="font-size: 14px; font-weight: 500; color: #717171">Deveria ter</span>
+          </div>
+          <p style="margin: -6px 0 0; font-size: 30px; font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; color: #1A1A1A">Complementos da jornada</p>
+          <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px">
+            <li style="display: flex; align-items: baseline; gap: 12px; font-size: 20px; font-weight: 600; line-height: 1.4; color: #1A1A1A"><span aria-hidden="true" style="flex: 0 0 7px; width: 7px; height: 7px; border-radius: 50%; background: #FE3E6D; transform: translateY(-2px)"></span><span>Criar experiência de rastreio do cartão no app</span></li>
+            <li style="display: flex; align-items: baseline; gap: 12px; font-size: 20px; font-weight: 600; line-height: 1.4; color: #1A1A1A"><span aria-hidden="true" style="flex: 0 0 7px; width: 7px; height: 7px; border-radius: 50%; background: #FE3E6D; transform: translateY(-2px)"></span><span>Validação da nova carta berço</span></li>
+            <li style="display: flex; align-items: baseline; gap: 12px; font-size: 20px; font-weight: 600; line-height: 1.4; color: #1A1A1A"><span aria-hidden="true" style="flex: 0 0 7px; width: 7px; height: 7px; border-radius: 50%; background: #FE3E6D; transform: translateY(-2px)"></span><span>Modais sobre o cartão panless e o código de ativação</span></li>
+          </ul>
+        </div>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px">
+        <div style="display: flex; flex-direction: column; gap: 22px; padding: 28px; background: #FFFFFF; border: 1px solid #EBEBEB; border-radius: 20px">
+          <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px">
+            <p style="margin: 0; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #A6A6A6">Could have</p>
+            <span style="font-size: 14px; font-weight: 500; color: #B5B5B5">Poderia ter</span>
+          </div>
+          <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px">
+            <li style="display: flex; align-items: baseline; gap: 12px; font-size: 16px; font-weight: 500; line-height: 1.4; color: #A6A6A6"><span aria-hidden="true" style="flex: 0 0 7px; width: 7px; height: 7px; border-radius: 50%; background: #CFCFCF; transform: translateY(-2px)"></span><span>Trazer as informações do cartão para o SponsorApp</span></li>
+            <li style="display: flex; align-items: baseline; gap: 12px; font-size: 16px; font-weight: 500; line-height: 1.4; color: #A6A6A6"><span aria-hidden="true" style="flex: 0 0 7px; width: 7px; height: 7px; border-radius: 50%; background: #CFCFCF; transform: translateY(-2px)"></span><span>Melhorias no Admin para identificar informações dos colaboradores</span></li>
+            <li style="display: flex; align-items: baseline; gap: 12px; font-size: 16px; font-weight: 500; line-height: 1.4; color: #A6A6A6"><span aria-hidden="true" style="flex: 0 0 7px; width: 7px; height: 7px; border-radius: 50%; background: #CFCFCF; transform: translateY(-2px)"></span><span>Comunicações sobre o novo arranjo e o novo cartão</span></li>
+          </ul>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 22px; padding: 28px; background: #FFFFFF; border: 1px solid #EBEBEB; border-radius: 20px">
+          <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px">
+            <p style="margin: 0; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #A6A6A6">Won't have</p>
+            <span style="font-size: 14px; font-weight: 500; color: #B5B5B5">Não terá agora</span>
+          </div>
+          <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px">
+            <li style="display: flex; align-items: baseline; gap: 12px; font-size: 16px; font-weight: 500; line-height: 1.4; color: #A6A6A6"><span aria-hidden="true" style="flex: 0 0 7px; width: 7px; height: 7px; border-radius: 50%; background: #CFCFCF; transform: translateY(-2px)"></span><span>Programa de engajamento para a função voucher</span></li>
+            <li style="display: flex; align-items: baseline; gap: 12px; font-size: 16px; font-weight: 500; line-height: 1.4; color: #A6A6A6"><span aria-hidden="true" style="flex: 0 0 7px; width: 7px; height: 7px; border-radius: 50%; background: #CFCFCF; transform: translateY(-2px)"></span><span>Workshops com empresas sobre o novo arranjo e o cartão panless</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </section>
+</div>
+`; };
+C.Definicao = Definicao;
 
 class Aprendizados extends DCLogic {
   constructor(props) {
@@ -388,232 +641,6 @@ Agradecimento.prototype.tpl = function (v) { return html`
 `; };
 C.Agradecimento = Agradecimento;
 
-class Testes extends DCLogic {
-  renderVals() {
-    const base = 'position: relative; display: flex; flex-direction: column; gap: 40px; min-height: 240px; box-sizing: border-box; padding: 28px; border-radius: 20px; ';
-    const etapas = [
-      { titulo: 'Colaboradores', texto: 'Todas as pessoas da Caju participaram como usuárias.',
-        icone: 'M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75' },
-      { titulo: 'Tarefas reais', texto: 'Cada pessoa executou os fluxos no próprio cartão.',
-        icone: 'M3 7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2zM3 10h18M7 15h4' },
-      { titulo: 'Canal no Slack', texto: 'As inconsistências eram reportadas em um canal dedicado.',
-        icone: 'M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2zM8 9h8M8 13h5' },
-      { titulo: 'Correções', texto: 'Os ajustes foram feitos antes da abertura para todos os usuários.',
-        icone: 'M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94z' },
-    ];
-    return {
-      etapas: etapas.map((e, i) => {
-        const destaque = i === etapas.length - 1;
-        return Object.assign({}, e, {
-          num: '0' + (i + 1),
-          iconeStyle: 'display: flex; align-items: center; justify-content: center; width: 48px; height: 48px; border-radius: 14px; color: #FE3E6D; background: ' + (destaque ? '#FFFFFF' : '#FFE8EE') + ';',
-          card: base + (destaque ? 'background: #FFE8EE; border: 1px solid #FFC9D6;' : 'background: #FFFFFF; border: 1px solid #EBEBEB;'),
-        });
-      }),
-    };
-  }
-}
-Testes.defaultProps = {};
-Testes.prototype.tpl = function (v) { return html`
-<div style="width: 100%; box-sizing: border-box; background: #EEF2F7; color: #3E3E3E; font-family: Figtree, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif; -webkit-font-smoothing: antialiased; padding: 120px 40px">
-  <section style="width: 100%; max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 72px">
-
-    <${C.TituloSecao} numero="06" etapa="Testes" titulo="Testes em produção" subtitulo="Como o prazo era definido pela regulamentação do BACEN, validamos direto no ambiente real, com todos os colaboradores da Caju." />
-
-    <ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px">
-      ${(v.etapas || []).map((e) => html`
-        <li style=${e.card}>
-          <div style="display: flex; align-items: center; justify-content: space-between">
-            <span style=${e.iconeStyle}>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d=${e.icone}></path></svg>
-            </span>
-            <span style="font-size: 14px; font-weight: 700; letter-spacing: 0.06em; font-variant-numeric: tabular-nums; color: #FE3E6D">${e.num}</span>
-          </div>
-          <div style="display: flex; flex-direction: column; gap: 8px">
-            <h3 style="margin: 0; font-size: 22px; font-weight: 700; line-height: 1.2; letter-spacing: -0.015em; color: #1A1A1A">${e.titulo}</h3>
-            <p style="margin: 0; font-size: 16px; line-height: 1.5; color: #717171">${e.texto}</p>
-          </div>
-        </li>
-      `)}
-    </ol>
-
-  </section>
-</div>
-`; };
-C.Testes = Testes;
-
-class Definicao extends DCLogic {
-  renderVals() {
-    return {};
-  }
-}
-Definicao.defaultProps = {};
-Definicao.prototype.tpl = function (v) { return html`
-<div style="width: 100%; box-sizing: border-box; background: #EEF2F7; color: #3E3E3E; font-family: Figtree, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif; -webkit-font-smoothing: antialiased; padding: 120px 40px">
-  <section style="width: 100%; max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 48px">
-
-    <${C.TituloSecao} numero="04" etapa="Definição" titulo="Priorizando o que entraria no projeto" subtitulo="Com as causas mapeadas, transformei cada uma em uma frente de solução e priorizei junto com Produto e Engenharia numa matriz MoSCoW." />
-
-    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px">
-      <span style="margin-right: 4px; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #717171">Critérios</span>
-      <span style="padding: 7px 14px; background: #FFFFFF; border: 1px solid #EBEBEB; border-radius: 999px; font-size: 14px; font-weight: 600; color: #3E3E3E">Impacto na experiência</span><span style="padding: 7px 14px; background: #FFFFFF; border: 1px solid #EBEBEB; border-radius: 999px; font-size: 14px; font-weight: 600; color: #3E3E3E">Necessidade da mudança</span><span style="padding: 7px 14px; background: #FFFFFF; border: 1px solid #EBEBEB; border-radius: 999px; font-size: 14px; font-weight: 600; color: #3E3E3E">Esforço de implementação</span>
-    </div>
-
-    <div style="display: flex; flex-direction: column; gap: 16px">
-      <div style="display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 16px">
-        <div style="display: flex; flex-direction: column; gap: 22px; padding: 40px; background: #FE3E6D;  border-radius: 20px">
-          <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px">
-            <p style="margin: 0; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #FFFFFF">Must have</p>
-            <span style="font-size: 14px; font-weight: 500; color: rgba(255, 255, 255, 0.75)">Precisa ter</span>
-          </div>
-          <p style="margin: -6px 0 0; font-size: 30px; font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; color: #FFFFFF">Escopo principal do projeto</p>
-          <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px">
-            <li style="display: flex; align-items: baseline; gap: 12px; font-size: 20px; font-weight: 600; line-height: 1.4; color: #FFFFFF"><span aria-hidden="true" style="flex: 0 0 7px; width: 7px; height: 7px; border-radius: 50%; background: #FFFFFF; transform: translateY(-2px)"></span><span>Validação do novo card design</span></li>
-            <li style="display: flex; align-items: baseline; gap: 12px; font-size: 20px; font-weight: 600; line-height: 1.4; color: #FFFFFF"><span aria-hidden="true" style="flex: 0 0 7px; width: 7px; height: 7px; border-radius: 50%; background: #FFFFFF; transform: translateY(-2px)"></span><span>Refazer toda a experiência de ativação de cartões</span></li>
-            <li style="display: flex; align-items: baseline; gap: 12px; font-size: 20px; font-weight: 600; line-height: 1.4; color: #FFFFFF"><span aria-hidden="true" style="flex: 0 0 7px; width: 7px; height: 7px; border-radius: 50%; background: #FFFFFF; transform: translateY(-2px)"></span><span>Melhorar o bloqueio e desbloqueio do cartão físico</span></li>
-            <li style="display: flex; align-items: baseline; gap: 12px; font-size: 20px; font-weight: 600; line-height: 1.4; color: #FFFFFF"><span aria-hidden="true" style="flex: 0 0 7px; width: 7px; height: 7px; border-radius: 50%; background: #FFFFFF; transform: translateY(-2px)"></span><span>Refazer a experiência de criação de cartões virtuais</span></li>
-            <li style="display: flex; align-items: baseline; gap: 12px; font-size: 20px; font-weight: 600; line-height: 1.4; color: #FFFFFF"><span aria-hidden="true" style="flex: 0 0 7px; width: 7px; height: 7px; border-radius: 50%; background: #FFFFFF; transform: translateY(-2px)"></span><span>Melhorar o bloqueio e desbloqueio dos cartões virtuais</span></li>
-            <li style="display: flex; align-items: baseline; gap: 12px; font-size: 20px; font-weight: 600; line-height: 1.4; color: #FFFFFF"><span aria-hidden="true" style="flex: 0 0 7px; width: 7px; height: 7px; border-radius: 50%; background: #FFFFFF; transform: translateY(-2px)"></span><span>Melhorar a alteração de senha de transação</span></li>
-          </ul>
-        </div>
-        <div style="display: flex; flex-direction: column; gap: 22px; padding: 40px; background: #FFFFFF; border: 2px solid #FE3E6D; border-radius: 20px">
-          <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px">
-            <p style="margin: 0; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #FE3E6D">Should have</p>
-            <span style="font-size: 14px; font-weight: 500; color: #717171">Deveria ter</span>
-          </div>
-          <p style="margin: -6px 0 0; font-size: 30px; font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; color: #1A1A1A">Complementos da jornada</p>
-          <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px">
-            <li style="display: flex; align-items: baseline; gap: 12px; font-size: 20px; font-weight: 600; line-height: 1.4; color: #1A1A1A"><span aria-hidden="true" style="flex: 0 0 7px; width: 7px; height: 7px; border-radius: 50%; background: #FE3E6D; transform: translateY(-2px)"></span><span>Criar experiência de rastreio do cartão no app</span></li>
-            <li style="display: flex; align-items: baseline; gap: 12px; font-size: 20px; font-weight: 600; line-height: 1.4; color: #1A1A1A"><span aria-hidden="true" style="flex: 0 0 7px; width: 7px; height: 7px; border-radius: 50%; background: #FE3E6D; transform: translateY(-2px)"></span><span>Validação da nova carta berço</span></li>
-            <li style="display: flex; align-items: baseline; gap: 12px; font-size: 20px; font-weight: 600; line-height: 1.4; color: #1A1A1A"><span aria-hidden="true" style="flex: 0 0 7px; width: 7px; height: 7px; border-radius: 50%; background: #FE3E6D; transform: translateY(-2px)"></span><span>Modais sobre o cartão panless e o código de ativação</span></li>
-          </ul>
-        </div>
-      </div>
-      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px">
-        <div style="display: flex; flex-direction: column; gap: 22px; padding: 28px; background: #FFFFFF; border: 1px solid #EBEBEB; border-radius: 20px">
-          <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px">
-            <p style="margin: 0; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #A6A6A6">Could have</p>
-            <span style="font-size: 14px; font-weight: 500; color: #B5B5B5">Poderia ter</span>
-          </div>
-          <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px">
-            <li style="display: flex; align-items: baseline; gap: 12px; font-size: 16px; font-weight: 500; line-height: 1.4; color: #A6A6A6"><span aria-hidden="true" style="flex: 0 0 7px; width: 7px; height: 7px; border-radius: 50%; background: #CFCFCF; transform: translateY(-2px)"></span><span>Trazer as informações do cartão para o SponsorApp</span></li>
-            <li style="display: flex; align-items: baseline; gap: 12px; font-size: 16px; font-weight: 500; line-height: 1.4; color: #A6A6A6"><span aria-hidden="true" style="flex: 0 0 7px; width: 7px; height: 7px; border-radius: 50%; background: #CFCFCF; transform: translateY(-2px)"></span><span>Melhorias no Admin para identificar informações dos colaboradores</span></li>
-            <li style="display: flex; align-items: baseline; gap: 12px; font-size: 16px; font-weight: 500; line-height: 1.4; color: #A6A6A6"><span aria-hidden="true" style="flex: 0 0 7px; width: 7px; height: 7px; border-radius: 50%; background: #CFCFCF; transform: translateY(-2px)"></span><span>Comunicações sobre o novo arranjo e o novo cartão</span></li>
-          </ul>
-        </div>
-        <div style="display: flex; flex-direction: column; gap: 22px; padding: 28px; background: #FFFFFF; border: 1px solid #EBEBEB; border-radius: 20px">
-          <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px">
-            <p style="margin: 0; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #A6A6A6">Won't have</p>
-            <span style="font-size: 14px; font-weight: 500; color: #B5B5B5">Não terá agora</span>
-          </div>
-          <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px">
-            <li style="display: flex; align-items: baseline; gap: 12px; font-size: 16px; font-weight: 500; line-height: 1.4; color: #A6A6A6"><span aria-hidden="true" style="flex: 0 0 7px; width: 7px; height: 7px; border-radius: 50%; background: #CFCFCF; transform: translateY(-2px)"></span><span>Programa de engajamento para a função voucher</span></li>
-            <li style="display: flex; align-items: baseline; gap: 12px; font-size: 16px; font-weight: 500; line-height: 1.4; color: #A6A6A6"><span aria-hidden="true" style="flex: 0 0 7px; width: 7px; height: 7px; border-radius: 50%; background: #CFCFCF; transform: translateY(-2px)"></span><span>Workshops com empresas sobre o novo arranjo e o cartão panless</span></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-  </section>
-</div>
-`; };
-C.Definicao = Definicao;
-
-class Main extends DCLogic {
-  renderVals() {
-    return { detail: this.props.detail ?? '#FE3E6D' };
-  }
-}
-Main.defaultProps = {"detail": "#FE3E6D"};
-Main.prototype.tpl = function (v) { return html`
-<div style="width: 100%; min-height: 860px; box-sizing: border-box; background: #EEF2F7; color: #3E3E3E; font-family: Figtree, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif; -webkit-font-smoothing: antialiased; padding: 80px 40px 0; overflow: hidden">
-  <section style="width: 100%; max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 48px">
-
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 20px; text-align: center">
-      <p style="display: inline-flex; align-items: center; gap: 8px; margin: 0 0 8px; padding: 8px 16px; background: #FFFFFF; border: 1px solid #EBEBEB; border-radius: 999px; font-size: 15px; font-weight: 500; line-height: 1; color: #717171">Preparado para o processo seletivo da <img src="/assets/9eecb366644753baa9315618cb2706c6.svg" alt="Cora" style="display: block; height: 18px; width: auto; transform: translateY(2px)" /></p>
-      <h1 style="margin: 0; max-width: 940px; font-size: 72px; font-weight: 700; line-height: 1.05; letter-spacing: -0.03em; text-wrap: balance; color: #1A1A1A; width: 1074px">Melhorias nos fluxos de gestão de cartões</h1>
-      <p style="margin: 0; font-size: 19px; line-height: 1.5; color: #717171; text-wrap: balance">Pesquisa qualitativa e quantitativa para reduzir o atrito na ativação e no uso dos cartões Caju.</p>
-    </div>
-
-    <div style="width: 100%; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px 40px">
-
-      <div style="flex: 0 0 auto; display: flex; flex-direction: column; gap: 8px; padding: 16px 20px; margin-bottom: 72px; box-sizing: border-box; background: #FFFFFF; border: 1px solid #EBEBEB; border-radius: 12px; text-align: left">
-        <p style="margin: 0; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #717171">ATENDIMENTO</p>
-        <p style="margin: 0; font-size: 36px; font-weight: 700; line-height: 1; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; white-space: nowrap; color: ${v.detail}">−30,5%</p>
-        <p style="margin: 0; font-size: 13px; line-height: 1.4; white-space: nowrap; color: #3E3E3E">nos tickets sobre gestão de cartões</p>
-      </div>
-
-      <figure style="flex: 0 1 520px; min-width: 0; margin: 0; height: 520px; overflow: hidden; -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 55%, transparent 100%); mask-image: linear-gradient(to bottom, #000 0%, #000 55%, transparent 100%)">
-        <img src="/assets/013b586f9d31414bbcdf02ee19e9f55a.png" alt="Dois iPhones com o app da Caju: à esquerda, a tela de escolha do cartão recebido; à direita, o cartão físico ativado com código, validade e categorias de benefício." style="display: block; width: 100%; height: auto; aspect-ratio: 1122 / 1402" />
-      </figure>
-
-      <div style="flex: 0 0 auto; display: flex; flex-direction: column; gap: 8px; padding: 16px 20px; margin-bottom: 72px; box-sizing: border-box; background: #FFFFFF; border: 1px solid #EBEBEB; border-radius: 12px; text-align: left">
-        <p style="margin: 0; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #717171">ATIVAÇÃO DE CARTÕES</p>
-        <p style="margin: 0; font-size: 36px; font-weight: 700; line-height: 1; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; white-space: nowrap; color: ${v.detail}">−4,5 p.p.</p>
-        <p style="margin: 0; font-size: 13px; line-height: 1.4; white-space: nowrap; color: #3E3E3E">na taxa de abandono de ativação</p>
-      </div>
-
-    </div>
-
-  </section>
-</div>
-`; };
-C.Main = Main;
-
-class Resultados extends DCLogic {
-  renderVals() {
-    const dados = [
-      { label: 'Ativação', valor: '−4,5 p.p.', texto: 'na taxa de abandono da ativação de cartões (12% → 7,5%)', altura: 380 },
-      { label: 'Atendimento', valor: '−30,5%', texto: 'nos tickets relacionados à gestão de cartões', altura: 520, destaque: true },
-      { label: 'Suporte', valor: '~1.000', texto: 'atendimentos de suporte a menos', altura: 300 },
-    ];
-    return {
-      colunas: dados.map((d, i) => {
-        const on = !!d.destaque;
-        const atraso = (i * 120) + 'ms';
-        return {
-          label: d.label, valor: d.valor, texto: d.texto,
-          coluna: 'display: flex; flex-direction: column; justify-content: space-between; box-sizing: border-box; height: ' + d.altura + 'px; padding: 32px; border-radius: 20px 20px 0 0; animation-delay: ' + atraso + '; background: ' + (on ? '#FE3E6D' : '#F4F4F4') + ';',
-          rotulo: 'margin: 0; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; animation-delay: ' + (i * 120 + 500) + 'ms; color: ' + (on ? 'rgba(255, 255, 255, 0.8)' : '#8A8A8A') + ';',
-          blocoTexto: 'display: flex; flex-direction: column; gap: 10px; animation-delay: ' + (i * 120 + 560) + 'ms;',
-          numero: 'margin: 0; font-size: ' + (on ? 84 : 60) + 'px; font-weight: 800; line-height: 1; letter-spacing: -0.04em; font-variant-numeric: tabular-nums; white-space: nowrap; color: ' + (on ? '#FFFFFF' : '#1A1A1A') + ';',
-          desc: 'margin: 0; max-width: 300px; font-size: 17px; line-height: 1.45; color: ' + (on ? '#FFFFFF' : '#717171') + ';',
-        };
-      }),
-    };
-  }
-}
-Resultados.defaultProps = {};
-Resultados.prototype.tpl = function (v) { return html`
-<div style="width: 100%; box-sizing: border-box; background: #FFFFFF; color: #3E3E3E; font-family: Figtree, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif; -webkit-font-smoothing: antialiased; padding: 120px 40px">
-  <section style="width: 100%; max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 72px">
-
-    <${C.TituloSecao} numero="07" etapa="Resultados" titulo="Resultados após o lançamento" subtitulo="Três meses após o lançamento, medidos com os mesmos indicadores que apontaram o problema." />
-
-    <div style="display: flex; flex-direction: column; gap: 40px">
-      <div role="list" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: end; gap: 16px; height: 520px; border-bottom: 2px solid #E2E2E2">
-        ${(v.colunas || []).map((c) => html`
-          <div role="listitem" class="coluna" style=${c.coluna}>
-            <p class="coluna-conteudo" style=${c.rotulo}>${c.label}</p>
-            <div class="coluna-conteudo" style=${c.blocoTexto}>
-              <p style=${c.numero}>${c.valor}</p>
-              <p style=${c.desc}>${c.texto}</p>
-            </div>
-          </div>
-        `)}
-      </div>
-
-      <div style="display: flex; flex-direction: column; gap: 12px; padding: 32px; border: 1px solid #EBEBEB; border-radius: 20px">
-        <p style="margin: 0; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #FE3E6D">Conclusão</p>
-        <p style="margin: 0; max-width: 980px; font-size: 20px; line-height: 1.5; color: #3E3E3E">Ao ir além da adaptação exigida pelo BACEN e atacar as fricções que mais pesavam na experiência, o projeto trouxe ganhos dos dois lados: <strong style="font-weight: 700; color: #1A1A1A">mais pessoas concluindo a ativação do cartão na primeira tentativa</strong> e <strong style="font-weight: 700; color: #1A1A1A">menos dúvidas chegando ao atendimento</strong>.</p>
-      </div>
-    </div>
-
-  </section>
-</div>
-`; };
-C.Resultados = Resultados;
-
 class InvestigacaoHorizontal extends DCLogic {
   constructor(props) {
     super(props);
@@ -655,11 +682,11 @@ class InvestigacaoHorizontal extends DCLogic {
     return {
       anterior: rolar(-1), proxima: rolar(1), aoRolar,
       parada1: etapa(0), parada2: etapa(1), parada3: etapa(2), parada4: etapa(3),
-      parada5: base + 'flex: 0 0 560px; width: 560px; align-items: flex-start; gap: 48px;',
+      parada5: base + 'flex: 0 0 1200px; width: 1200px; align-items: flex-start; gap: 48px;',
       marca1: marca(0), marca2: marca(1), marca3: marca(2), marca4: marca(3),
       conteudo1: conteudo(0), conteudo2: conteudo(1), conteudo3: conteudo(2), conteudo4: conteudo(3),
       pilula: 'position: relative; z-index: 1; display: inline-flex; align-items: center; gap: 4px; height: 56px; padding-right: 24px; border-radius: 999px; font-size: 16px; font-weight: 700; color: #FFFFFF; white-space: nowrap; transition: background-color 400ms ease, box-shadow 400ms ease; ' + (ativa === 4 ? 'background: #FE3E6D; box-shadow: 0 10px 24px rgba(254, 62, 109, 0.25);' : 'background: #FFC9D6; box-shadow: none;'),
-      textoFinal: 'margin: 0; font-size: 28px; font-weight: 600; line-height: 1.4; letter-spacing: -0.015em; color: #1A1A1A; ' + op(4),
+      textoFinal: 'display: flex; flex-direction: column; gap: 40px; width: 100%; ' + op(4),
     };
   }
 }
@@ -679,7 +706,7 @@ InvestigacaoHorizontal.prototype.tpl = function (v) { return html`
     </div>
   <div class="trilha-inv" data-trilha-inv tabindex="0" onScroll=${v.aoRolar} role="region" aria-label="Caminho da investigação, com rolagem horizontal" style="width: 100%; overflow-x: auto; overflow-y: hidden">
     <div style="position: relative; display: flex; align-items: flex-start; gap: 160px; width: max-content; box-sizing: border-box; padding: 0 var(--p) 32px">
-      <span aria-hidden="true" style="position: absolute; left: calc(var(--p) + 28px); right: calc(var(--p) + 560px - 28px); top: 27px; border-top: 2px dashed #FFA3BA"></span>
+      <span aria-hidden="true" style="position: absolute; left: calc(var(--p) + 28px); right: calc(var(--p) + 1200px - 28px); top: 27px; border-top: 2px dashed #FFA3BA"></span>
 
       <div class="parada" style=${v.parada1}>
         <span aria-hidden="true" style=${v.marca1}>01</span>
@@ -913,7 +940,50 @@ InvestigacaoHorizontal.prototype.tpl = function (v) { return html`
 
       <div class="parada" style=${v.parada5}>
         <span style=${v.pilula}><span aria-hidden="true" style="display: flex; align-items: center; justify-content: center; width: 56px; height: 56px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V4M5 4h11l-2 4 2 4H5"></path></svg></span>Parada final</span>
-        <p style=${v.textoFinal}>Com essa sequência, foi possível definir com precisão o que precisava ser feito. <span style="color: #FE3E6D">O próximo passo foi priorizar as frentes de atuação e iniciar a construção da solução.</span></p>
+        <div style=${v.textoFinal}>
+      <div style="display: flex; flex-direction: column; gap: 10px">
+        <h3 style="margin: 0; font-size: 28px; font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; color: #1A1A1A">Expectativas e indicadores do projeto</h3>
+        <p style="margin: 0; max-width: 720px; font-size: 18px; line-height: 1.5; color: #717171">O que o projeto precisava entregar e como saberíamos que deu certo.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 20px">
+        <p style="margin: 0; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #717171">Expectativas</p>
+        <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px">
+          <div style="display: flex; flex-direction: column; gap: 28px; padding: 36px 32px; box-sizing: border-box; background: #1A1A1A; border-radius: 24px">
+            <h4 style="margin: 0; font-size: 34px; font-weight: 700; line-height: 1.15; letter-spacing: -0.025em; color: #FFFFFF">Adaptar sem criar barreiras</h4>
+            <p style="margin: 0; font-size: 18px; line-height: 1.55; color: rgba(255, 255, 255, 0.92)">Cartão <mark style="padding: 1px 4px; border-radius: 4px; background: #FE3E6D; color: #FFFFFF">panless</mark> no app, sem novos obstáculos.</p>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 28px; padding: 36px 32px; box-sizing: border-box; background: #FE3E6D; border-radius: 24px">
+            <h4 style="margin: 0; font-size: 34px; font-weight: 700; line-height: 1.15; letter-spacing: -0.025em; color: #FFFFFF">Autonomia na gestão</h4>
+            <p style="margin: 0; font-size: 18px; line-height: 1.55; color: rgba(255, 255, 255, 0.92)">Gestão do cartão resolvida no app, <mark style="padding: 1px 4px; border-radius: 4px; background: #C21F4F; color: #FFFFFF">sem atendimento</mark>.</p>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 28px; padding: 36px 32px; box-sizing: border-box; background: #82203B; border-radius: 24px">
+            <h4 style="margin: 0; font-size: 34px; font-weight: 700; line-height: 1.15; letter-spacing: -0.025em; color: #FFFFFF">Clareza em cada etapa</h4>
+            <p style="margin: 0; font-size: 18px; line-height: 1.55; color: rgba(255, 255, 255, 0.92)"><mark style="padding: 1px 4px; border-radius: 4px; background: #FE3E6D; color: #FFFFFF">Feedback imediato</mark> a cada ação.</p>
+          </div>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 20px">
+        <p style="margin: 0; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #717171">Indicadores de sucesso</p>
+        <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px">
+          <div style="display: flex; flex-direction: column; gap: 20px; padding: 36px 32px; background: #EEF2F7; border-radius: 24px">
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px">
+              <span style="font-size: 56px; font-weight: 700; line-height: 1; letter-spacing: -0.04em; font-variant-numeric: tabular-nums; color: #1A1A1A">01</span>
+              <span style="display: inline-flex; align-items: center; padding: 8px 14px; border-radius: 999px; font-size: 14px; font-weight: 700; white-space: nowrap; background: #FE3E6D; color: #FFFFFF">Expectativa realista</span>
+            </div>
+            <h4 style="margin: 8px 0 0; font-size: 24px; font-weight: 700; line-height: 1.2; letter-spacing: -0.015em; color: #1A1A1A">Contatos no atendimento</h4>
+            <p style="margin: 0; font-size: 18px; line-height: 1.55; color: #717171">Muitas fricções que podíamos resolver.</p>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 20px; padding: 36px 32px; background: #EEF2F7; border-radius: 24px">
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px">
+              <span style="font-size: 56px; font-weight: 700; line-height: 1; letter-spacing: -0.04em; font-variant-numeric: tabular-nums; color: #1A1A1A">02</span>
+              <span style="display: inline-flex; align-items: center; padding: 8px 14px; border-radius: 999px; font-size: 14px; font-weight: 700; white-space: nowrap; background: #FFFFFF; color: #FE3E6D; box-shadow: inset 0 0 0 2px #FE3E6D">Expectativa conservadora</span>
+            </div>
+            <h4 style="margin: 8px 0 0; font-size: 24px; font-weight: 700; line-height: 1.2; letter-spacing: -0.015em; color: #1A1A1A">Abandono nos fluxos</h4>
+            <p style="margin: 0; font-size: 18px; line-height: 1.55; color: #717171">Uma etapa a mais na escolha do cartão.</p>
+          </div>
+        </div>
+      </div>
+        </div>
       </div>
 
     </div>
@@ -923,148 +993,59 @@ InvestigacaoHorizontal.prototype.tpl = function (v) { return html`
 `; };
 C.InvestigacaoHorizontal = InvestigacaoHorizontal;
 
-class Desafio extends DCLogic {
+class Testes extends DCLogic {
   renderVals() {
-    return {};
+    const base = 'position: relative; display: flex; flex-direction: column; gap: 40px; min-height: 240px; box-sizing: border-box; padding: 28px; border-radius: 20px; ';
+    const etapas = [
+      { titulo: 'Colaboradores', texto: 'Todas as pessoas da Caju participaram como usuárias.',
+        icone: 'M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75' },
+      { titulo: 'Tarefas reais', texto: 'Cada pessoa executou os fluxos no próprio cartão.',
+        icone: 'M3 7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2zM3 10h18M7 15h4' },
+      { titulo: 'Canal no Slack', texto: 'As inconsistências eram reportadas em um canal dedicado.',
+        icone: 'M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2zM8 9h8M8 13h5' },
+      { titulo: 'Correções', texto: 'Os ajustes foram feitos antes da abertura para todos os usuários.',
+        icone: 'M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94z' },
+    ];
+    return {
+      etapas: etapas.map((e, i) => {
+        const destaque = i === etapas.length - 1;
+        return Object.assign({}, e, {
+          num: '0' + (i + 1),
+          iconeStyle: 'display: flex; align-items: center; justify-content: center; width: 48px; height: 48px; border-radius: 14px; color: #FE3E6D; background: ' + (destaque ? '#FFFFFF' : '#FFE8EE') + ';',
+          card: base + (destaque ? 'background: #FFE8EE; border: 1px solid #FFC9D6;' : 'background: #FFFFFF; border: 1px solid #EBEBEB;'),
+        });
+      }),
+    };
   }
 }
-Desafio.defaultProps = {};
-Desafio.prototype.tpl = function (v) { return html`
+Testes.defaultProps = {};
+Testes.prototype.tpl = function (v) { return html`
 <div style="width: 100%; box-sizing: border-box; background: #EEF2F7; color: #3E3E3E; font-family: Figtree, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif; -webkit-font-smoothing: antialiased; padding: 120px 40px">
-  <section style="width: 100%; max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 56px">
+  <section style="width: 100%; max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 72px">
 
-    <${C.TituloSecao} numero="02" etapa="Desafio e Responsabilidades" titulo="O que precisava ser resolvido, e como eu atuei" subtitulo="" />
+    <${C.TituloSecao} numero="06" etapa="Testes" titulo="Testes em produção" subtitulo="Como o prazo era definido pela regulamentação do BACEN, validamos direto no ambiente real, com todos os colaboradores da Caju." />
 
-    <div style="display: flex; flex-direction: column; gap: 20px; padding: 56px; background: #FFFFFF; border-radius: 20px">
-      <p style="margin: 0; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #717171">O desafio</p>
-      <p style="margin: 0; max-width: 1000px; font-size: 40px; font-weight: 700; line-height: 1.2; letter-spacing: -0.025em; text-wrap: balance; color: #1A1A1A">Como <span style="color: #FE3E6D">adaptar as jornadas de cartão</span> ao novo modelo panless e, ao mesmo tempo, <span style="color: #FE3E6D">reduzir as fricções que já existiam</span> na gestão de cartões?</p>
-    </div>
-
-    <div style="display: flex; flex-direction: column; gap: 28px">
-      <p style="margin: 0; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #717171">Minha atuação · da investigação à análise dos resultados</p>
-      <div style="overflow-x: auto">
-        <div style="min-width: 980px; display: flex; flex-direction: column; gap: 32px">
-          <div style="display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 12px">
-          <div style="grid-column: 1 / span 3; padding: 14px 20px; background: #FFFFFF; border-radius: 10px; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #717171">Investigação</div>
-          <div style="grid-column: 4 / span 1; padding: 14px 20px; background: #FFFFFF; border-radius: 10px; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #717171">Definição</div>
-          <div style="grid-column: 5 / span 2; padding: 14px 20px; background: #FFFFFF; border-radius: 10px; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #717171">Ideação e testes</div>
-          <div style="grid-column: 7 / span 1; padding: 14px 20px; background: #FFE6EC; border-radius: 10px; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #FE3E6D">Impacto</div>
+    <ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px">
+      ${(v.etapas || []).map((e) => html`
+        <li style=${e.card}>
+          <div style="display: flex; align-items: center; justify-content: space-between">
+            <span style=${e.iconeStyle}>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d=${e.icone}></path></svg>
+            </span>
+            <span style="font-size: 14px; font-weight: 700; letter-spacing: 0.06em; font-variant-numeric: tabular-nums; color: #FE3E6D">${e.num}</span>
           </div>
-          <div style="position: relative; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 0">
-            <span aria-hidden="true" style="position: absolute; left: 14px; right: 0; top: 13px; height: 2px; background: #DCDCDC"></span>
-          <div style="display: flex; flex-direction: column; gap: 10px; padding-right: 16px">
-            <span aria-hidden="true" style="position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; background: #1A1A1A"><span style="width: 10px; height: 10px; border-radius: 50%; background: #FFFFFF"></span></span>
-            <p style="margin: 12px 0 0; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; font-variant-numeric: tabular-nums; color: #A6A6A6">01</p>
-            <h4 style="margin: 0; font-size: 20px; font-weight: 700; line-height: 1.2; letter-spacing: -0.01em; color: #1A1A1A">Mapeamento</h4>
-            <p style="margin: 0; font-size: 15px; line-height: 1.45; color: #717171">Fluxos de gestão de cartões no app</p>
+          <div style="display: flex; flex-direction: column; gap: 8px">
+            <h3 style="margin: 0; font-size: 22px; font-weight: 700; line-height: 1.2; letter-spacing: -0.015em; color: #1A1A1A">${e.titulo}</h3>
+            <p style="margin: 0; font-size: 16px; line-height: 1.5; color: #717171">${e.texto}</p>
           </div>
-          <div style="display: flex; flex-direction: column; gap: 10px; padding-right: 16px">
-            <span aria-hidden="true" style="position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; background: #1A1A1A"><span style="width: 10px; height: 10px; border-radius: 50%; background: #FFFFFF"></span></span>
-            <p style="margin: 12px 0 0; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; font-variant-numeric: tabular-nums; color: #A6A6A6">02</p>
-            <h4 style="margin: 0; font-size: 20px; font-weight: 700; line-height: 1.2; letter-spacing: -0.01em; color: #1A1A1A">Entrevistas CX</h4>
-            <p style="margin: 0; font-size: 15px; line-height: 1.45; color: #717171">Dúvidas, reclamações e dificuldades</p>
-          </div>
-          <div style="display: flex; flex-direction: column; gap: 10px; padding-right: 16px">
-            <span aria-hidden="true" style="position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; background: #1A1A1A"><span style="width: 10px; height: 10px; border-radius: 50%; background: #FFFFFF"></span></span>
-            <p style="margin: 12px 0 0; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; font-variant-numeric: tabular-nums; color: #A6A6A6">03</p>
-            <h4 style="margin: 0; font-size: 20px; font-weight: 700; line-height: 1.2; letter-spacing: -0.01em; color: #1A1A1A">Análise de dados</h4>
-            <p style="margin: 0; font-size: 15px; line-height: 1.45; color: #717171">Zendesk, Google Analytics e Clarity</p>
-          </div>
-          <div style="display: flex; flex-direction: column; gap: 10px; padding-right: 16px">
-            <span aria-hidden="true" style="position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; background: #1A1A1A"><span style="width: 10px; height: 10px; border-radius: 50%; background: #FFFFFF"></span></span>
-            <p style="margin: 12px 0 0; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; font-variant-numeric: tabular-nums; color: #A6A6A6">04</p>
-            <h4 style="margin: 0; font-size: 20px; font-weight: 700; line-height: 1.2; letter-spacing: -0.01em; color: #1A1A1A">Priorização</h4>
-            <p style="margin: 0; font-size: 15px; line-height: 1.45; color: #717171">Matriz MoSCoW com Produto e Engenharia</p>
-          </div>
-          <div style="display: flex; flex-direction: column; gap: 10px; padding-right: 16px">
-            <span aria-hidden="true" style="position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; background: #1A1A1A"><span style="width: 10px; height: 10px; border-radius: 50%; background: #FFFFFF"></span></span>
-            <p style="margin: 12px 0 0; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; font-variant-numeric: tabular-nums; color: #A6A6A6">05</p>
-            <h4 style="margin: 0; font-size: 20px; font-weight: 700; line-height: 1.2; letter-spacing: -0.01em; color: #1A1A1A">UI Design</h4>
-            <p style="margin: 0; font-size: 15px; line-height: 1.45; color: #717171">Nova experiência dos fluxos de cartões</p>
-          </div>
-          <div style="display: flex; flex-direction: column; gap: 10px; padding-right: 16px">
-            <span aria-hidden="true" style="position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; background: #1A1A1A"><span style="width: 10px; height: 10px; border-radius: 50%; background: #FFFFFF"></span></span>
-            <p style="margin: 12px 0 0; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; font-variant-numeric: tabular-nums; color: #A6A6A6">06</p>
-            <h4 style="margin: 0; font-size: 20px; font-weight: 700; line-height: 1.2; letter-spacing: -0.01em; color: #1A1A1A">Testes</h4>
-            <p style="margin: 0; font-size: 15px; line-height: 1.45; color: #717171">Já em produção com colaboradores Caju</p>
-          </div>
-          <div style="display: flex; flex-direction: column; gap: 10px; padding-right: 16px">
-            <span aria-hidden="true" style="position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; background: #FE3E6D"><span style="width: 10px; height: 10px; border-radius: 50%; background: #FFFFFF"></span></span>
-            <p style="margin: 12px 0 0; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; font-variant-numeric: tabular-nums; color: #FE3E6D">07</p>
-            <h4 style="margin: 0; font-size: 20px; font-weight: 700; line-height: 1.2; letter-spacing: -0.01em; color: #1A1A1A">Resultados</h4>
-            <p style="margin: 0; font-size: 15px; line-height: 1.45; color: #717171">Análise pós-lançamento</p>
-          </div>
-          </div>
-        </div>
-      </div>
-    </div>
+        </li>
+      `)}
+    </ol>
 
   </section>
 </div>
 `; };
-C.Desafio = Desafio;
-
-class PrototipoVirtual extends DCLogic {
-  constructor(props) {
-    super(props);
-    this.state = { tela: 'fisico' };
-    this.timer = null;
-  }
-  renderVals() {
-    const s = this.state;
-    const B = (id) => '/assets/' + id + '.jpg';
-    const lista = [
-      ['fisico', '097012a805641e6d01ae0077800f4aa7', 'Aba Cartão físico selecionada, com o cartão físico e as categorias.'],
-      ['vazio', 'aedf79617be8ba9e4a6d9fd25be8df2e', 'Aba Cartões virtuais sem nenhum cartão, com ilustração e o botão Criar novo cartão virtual.'],
-      ['criado', '0ac4f6cc3ae3d905f50959388191fb9d', 'Cartão virtual Voucher criado, com o aviso Cartão virtual criado com sucesso.'],
-      ['voucher', '0fcb8ea48de2e7804e685345810ac91f', 'Cartão virtual Voucher, com nome, número, CVV, validade e as categorias de voucher.'],
-      ['credito', '202990880074dce5a9db699e4b8dc38c', 'Cartão virtual Crédito, com nome, número, CVV, validade e as categorias de crédito.'],
-      ['modal', '607bf8f55befb0f2e5d3c37463f8c127', 'Bottom sheet Bloquear cartão virtual.'],
-      ['bloqueadoToast', 'cf81522431e00b738b8417ce4895b8d1', 'Cartão virtual com blur e o aviso Cartão bloqueado com sucesso.'],
-      ['bloqueado', '861fe26505c93aca2adec68f1b8984ad', 'Cartão virtual bloqueado, com o botão Desbloquear.'],
-      ['desbloqueado', '0dc8543ca1a2b1f6d8c74a5b83037535', 'Cartão virtual de volta ao normal, com o aviso Cartão desbloqueado com sucesso.'],
-    ];
-    const telas = lista.map(([k, id, alt]) => ({
-      src: B(id), alt, oculta: k === s.tela ? 'false' : 'true',
-      style: 'opacity: ' + (k === s.tela ? 1 : 0) + ';',
-    }));
-    const go = (tela, depois) => () => {
-      clearTimeout(this.timer);
-      this.setState({ tela });
-      if (depois) this.timer = setTimeout(() => { if (this.state.tela === tela) this.setState({ tela: depois }); }, 2600);
-    };
-    const hs = (label, x, y, w, h, fn) => ({ label, go: fn, style: 'left: ' + x + 'px; top: ' + y + 'px; width: ' + w + 'px; height: ' + h + 'px;' });
-    const abaFisico = hs('Cartão físico', 24, 36, 160, 44, go('fisico'));
-    const abaVirtual = (fn) => hs('Cartões virtuais', 192, 36, 160, 44, fn);
-    const verCredito = hs('Ver cartão de crédito', 300, 104, 75, 256, go('credito'));
-    const verVoucher = hs('Ver cartão voucher', 0, 104, 75, 256, go('voucher'));
-    const bloquear = hs('Bloquear', 30, 720, 86, 28, go('modal'));
-    const map = {
-      fisico: [abaVirtual(go('vazio'))],
-      vazio: [abaFisico, hs('Criar novo cartão virtual', 24, 476, 327, 50, go('criado', 'voucher'))],
-      criado: [abaFisico, verCredito, bloquear],
-      voucher: [abaFisico, verCredito, bloquear],
-      credito: [abaFisico, verVoucher],
-      modal: [hs('Bloquear', 24, 664, 327, 50, go('bloqueadoToast', 'bloqueado')), hs('Cancelar', 100, 724, 175, 44, go('voucher'))],
-      bloqueadoToast: [abaFisico, hs('Desbloquear', 24, 452, 327, 50, go('desbloqueado', 'voucher')), verCredito],
-      bloqueado: [abaFisico, hs('Desbloquear', 24, 452, 327, 50, go('desbloqueado', 'voucher')), verCredito],
-      desbloqueado: [abaFisico, verCredito, bloquear],
-    };
-    return { telas, hotspots: map[s.tela] };
-  }
-}
-PrototipoVirtual.defaultProps = {};
-PrototipoVirtual.prototype.tpl = function (v) { return html`
-<div style="position: relative; width: 375px; height: 812px; overflow: hidden; background: #FFFFFF; border-radius: 44px">
-  ${(v.telas || []).map((t) => html`
-    <img class="tela" src=${t.src} alt=${t.alt} aria-hidden=${t.oculta} style=${t.style} />
-  `)}
-  ${(v.hotspots || []).map((h) => html`
-    <button type="button" class="hs" aria-label=${h.label} onClick=${h.go} style=${h.style}></button>
-  `)}
-</div>
-`; };
-C.PrototipoVirtual = PrototipoVirtual;
+C.Testes = Testes;
 
 class PrototipoAtivacao extends DCLogic {
   constructor(props) {
@@ -1143,62 +1124,6 @@ PrototipoAtivacao.prototype.tpl = function (v) { return html`
 `; };
 C.PrototipoAtivacao = PrototipoAtivacao;
 
-class PrototipoBloqueio extends DCLogic {
-  constructor(props) {
-    super(props);
-    this.state = { tela: 'cartao' };
-    this.timer = null;
-  }
-  renderVals() {
-    const s = this.state;
-    const B = (id) => '/assets/' + id + '.jpg';
-    const lista = [
-      ['cartao', '7c40159632ec6e664ab07bd2df026fc0', 'Cartão físico ativo, com as ações Bloquear, Senha, Aproximação e Segunda via.'],
-      ['modal', '43ef021bc42ec750a458dbfede6c38d8', 'Bottom sheet Bloquear cartão, pedindo confirmação.'],
-      ['bloqueadoToast', '4055973200fb482667056097a24822c9', 'Cartão com blur e cadeado, e o aviso Cartão bloqueado com sucesso.'],
-      ['bloqueado', '13e2870c71f3b9749741fe6643204217', 'Cartão bloqueado, com os botões Desbloquear e Solicitar segunda via.'],
-      ['sheet', 'd50302f3ba34bdd626852dc727202e8e', 'Bottom sheet pedindo os 6 últimos dígitos do código de ativação.'],
-      ['sheetOk', '8ec912e72522244826299402c88a115f', 'Os 6 dígitos preenchidos e o botão Confirmar ativo.'],
-      ['desbloqueado', 'b64a0f1479a7dff7812bd85522b27d43', 'Cartão de volta ao normal, com o aviso Cartão desbloqueado com sucesso.'],
-    ];
-    const telas = lista.map(([k, id, alt]) => ({
-      src: B(id), alt, oculta: k === s.tela ? 'false' : 'true',
-      style: 'opacity: ' + (k === s.tela ? 1 : 0) + ';',
-    }));
-    const go = (tela, depois) => () => {
-      clearTimeout(this.timer);
-      this.setState({ tela });
-      if (depois) this.timer = setTimeout(() => { if (this.state.tela === tela) this.setState({ tela: depois }); }, 2600);
-    };
-    const hs = (label, x, y, w, h, fn) => ({ label, go: fn, style: 'left: ' + x + 'px; top: ' + y + 'px; width: ' + w + 'px; height: ' + h + 'px;' });
-    const bloquear = hs('Bloquear', 34, 484, 80, 100, go('modal'));
-    const desbloquear = hs('Desbloquear', 24, 452, 327, 50, go('sheet'));
-    const fechar = hs('Fechar', 24, 278, 44, 44, go('bloqueado'));
-    const map = {
-      cartao: [bloquear],
-      modal: [hs('Bloquear', 24, 664, 327, 50, go('bloqueadoToast', 'bloqueado')), hs('Cancelar', 100, 724, 175, 44, go('cartao'))],
-      bloqueadoToast: [desbloquear],
-      bloqueado: [desbloquear],
-      sheet: [fechar, hs('Digitar os 6 dígitos', 24, 542, 327, 50, go('sheetOk'))],
-      sheetOk: [fechar, hs('Confirmar', 24, 666, 327, 50, go('desbloqueado', 'cartao'))],
-      desbloqueado: [hs('Voltar ao cartão', 97, 104, 181, 256, go('cartao'))],
-    };
-    return { telas, hotspots: map[s.tela] };
-  }
-}
-PrototipoBloqueio.defaultProps = {};
-PrototipoBloqueio.prototype.tpl = function (v) { return html`
-<div style="position: relative; width: 375px; height: 812px; overflow: hidden; background: #FFFFFF; border-radius: 44px">
-  ${(v.telas || []).map((t) => html`
-    <img class="tela" src=${t.src} alt=${t.alt} aria-hidden=${t.oculta} style=${t.style} />
-  `)}
-  ${(v.hotspots || []).map((h) => html`
-    <button type="button" class="hs" aria-label=${h.label} onClick=${h.go} style=${h.style}></button>
-  `)}
-</div>
-`; };
-C.PrototipoBloqueio = PrototipoBloqueio;
-
 class PrototipoSenha extends DCLogic {
   constructor(props) {
     super(props);
@@ -1272,6 +1197,124 @@ TituloSecao.prototype.tpl = function (v) { return html`
 </header>
 `; };
 C.TituloSecao = TituloSecao;
+
+class PrototipoBloqueio extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { tela: 'cartao' };
+    this.timer = null;
+  }
+  renderVals() {
+    const s = this.state;
+    const B = (id) => '/assets/' + id + '.jpg';
+    const lista = [
+      ['cartao', '7c40159632ec6e664ab07bd2df026fc0', 'Cartão físico ativo, com as ações Bloquear, Senha, Aproximação e Segunda via.'],
+      ['modal', '43ef021bc42ec750a458dbfede6c38d8', 'Bottom sheet Bloquear cartão, pedindo confirmação.'],
+      ['bloqueadoToast', '4055973200fb482667056097a24822c9', 'Cartão com blur e cadeado, e o aviso Cartão bloqueado com sucesso.'],
+      ['bloqueado', '13e2870c71f3b9749741fe6643204217', 'Cartão bloqueado, com os botões Desbloquear e Solicitar segunda via.'],
+      ['sheet', 'd50302f3ba34bdd626852dc727202e8e', 'Bottom sheet pedindo os 6 últimos dígitos do código de ativação.'],
+      ['sheetOk', '8ec912e72522244826299402c88a115f', 'Os 6 dígitos preenchidos e o botão Confirmar ativo.'],
+      ['desbloqueado', 'b64a0f1479a7dff7812bd85522b27d43', 'Cartão de volta ao normal, com o aviso Cartão desbloqueado com sucesso.'],
+    ];
+    const telas = lista.map(([k, id, alt]) => ({
+      src: B(id), alt, oculta: k === s.tela ? 'false' : 'true',
+      style: 'opacity: ' + (k === s.tela ? 1 : 0) + ';',
+    }));
+    const go = (tela, depois) => () => {
+      clearTimeout(this.timer);
+      this.setState({ tela });
+      if (depois) this.timer = setTimeout(() => { if (this.state.tela === tela) this.setState({ tela: depois }); }, 2600);
+    };
+    const hs = (label, x, y, w, h, fn) => ({ label, go: fn, style: 'left: ' + x + 'px; top: ' + y + 'px; width: ' + w + 'px; height: ' + h + 'px;' });
+    const bloquear = hs('Bloquear', 34, 484, 80, 100, go('modal'));
+    const desbloquear = hs('Desbloquear', 24, 452, 327, 50, go('sheet'));
+    const fechar = hs('Fechar', 24, 278, 44, 44, go('bloqueado'));
+    const map = {
+      cartao: [bloquear],
+      modal: [hs('Bloquear', 24, 664, 327, 50, go('bloqueadoToast', 'bloqueado')), hs('Cancelar', 100, 724, 175, 44, go('cartao'))],
+      bloqueadoToast: [desbloquear],
+      bloqueado: [desbloquear],
+      sheet: [fechar, hs('Digitar os 6 dígitos', 24, 542, 327, 50, go('sheetOk'))],
+      sheetOk: [fechar, hs('Confirmar', 24, 666, 327, 50, go('desbloqueado', 'cartao'))],
+      desbloqueado: [hs('Voltar ao cartão', 97, 104, 181, 256, go('cartao'))],
+    };
+    return { telas, hotspots: map[s.tela] };
+  }
+}
+PrototipoBloqueio.defaultProps = {};
+PrototipoBloqueio.prototype.tpl = function (v) { return html`
+<div style="position: relative; width: 375px; height: 812px; overflow: hidden; background: #FFFFFF; border-radius: 44px">
+  ${(v.telas || []).map((t) => html`
+    <img class="tela" src=${t.src} alt=${t.alt} aria-hidden=${t.oculta} style=${t.style} />
+  `)}
+  ${(v.hotspots || []).map((h) => html`
+    <button type="button" class="hs" aria-label=${h.label} onClick=${h.go} style=${h.style}></button>
+  `)}
+</div>
+`; };
+C.PrototipoBloqueio = PrototipoBloqueio;
+
+class PrototipoVirtual extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { tela: 'fisico' };
+    this.timer = null;
+  }
+  renderVals() {
+    const s = this.state;
+    const B = (id) => '/assets/' + id + '.jpg';
+    const lista = [
+      ['fisico', '097012a805641e6d01ae0077800f4aa7', 'Aba Cartão físico selecionada, com o cartão físico e as categorias.'],
+      ['vazio', 'aedf79617be8ba9e4a6d9fd25be8df2e', 'Aba Cartões virtuais sem nenhum cartão, com ilustração e o botão Criar novo cartão virtual.'],
+      ['criado', '0ac4f6cc3ae3d905f50959388191fb9d', 'Cartão virtual Voucher criado, com o aviso Cartão virtual criado com sucesso.'],
+      ['voucher', '0fcb8ea48de2e7804e685345810ac91f', 'Cartão virtual Voucher, com nome, número, CVV, validade e as categorias de voucher.'],
+      ['credito', '202990880074dce5a9db699e4b8dc38c', 'Cartão virtual Crédito, com nome, número, CVV, validade e as categorias de crédito.'],
+      ['modal', '607bf8f55befb0f2e5d3c37463f8c127', 'Bottom sheet Bloquear cartão virtual.'],
+      ['bloqueadoToast', 'cf81522431e00b738b8417ce4895b8d1', 'Cartão virtual com blur e o aviso Cartão bloqueado com sucesso.'],
+      ['bloqueado', '861fe26505c93aca2adec68f1b8984ad', 'Cartão virtual bloqueado, com o botão Desbloquear.'],
+      ['desbloqueado', '0dc8543ca1a2b1f6d8c74a5b83037535', 'Cartão virtual de volta ao normal, com o aviso Cartão desbloqueado com sucesso.'],
+    ];
+    const telas = lista.map(([k, id, alt]) => ({
+      src: B(id), alt, oculta: k === s.tela ? 'false' : 'true',
+      style: 'opacity: ' + (k === s.tela ? 1 : 0) + ';',
+    }));
+    const go = (tela, depois) => () => {
+      clearTimeout(this.timer);
+      this.setState({ tela });
+      if (depois) this.timer = setTimeout(() => { if (this.state.tela === tela) this.setState({ tela: depois }); }, 2600);
+    };
+    const hs = (label, x, y, w, h, fn) => ({ label, go: fn, style: 'left: ' + x + 'px; top: ' + y + 'px; width: ' + w + 'px; height: ' + h + 'px;' });
+    const abaFisico = hs('Cartão físico', 24, 36, 160, 44, go('fisico'));
+    const abaVirtual = (fn) => hs('Cartões virtuais', 192, 36, 160, 44, fn);
+    const verCredito = hs('Ver cartão de crédito', 300, 104, 75, 256, go('credito'));
+    const verVoucher = hs('Ver cartão voucher', 0, 104, 75, 256, go('voucher'));
+    const bloquear = hs('Bloquear', 30, 720, 86, 28, go('modal'));
+    const map = {
+      fisico: [abaVirtual(go('vazio'))],
+      vazio: [abaFisico, hs('Criar novo cartão virtual', 24, 476, 327, 50, go('criado', 'voucher'))],
+      criado: [abaFisico, verCredito, bloquear],
+      voucher: [abaFisico, verCredito, bloquear],
+      credito: [abaFisico, verVoucher],
+      modal: [hs('Bloquear', 24, 664, 327, 50, go('bloqueadoToast', 'bloqueado')), hs('Cancelar', 100, 724, 175, 44, go('voucher'))],
+      bloqueadoToast: [abaFisico, hs('Desbloquear', 24, 452, 327, 50, go('desbloqueado', 'voucher')), verCredito],
+      bloqueado: [abaFisico, hs('Desbloquear', 24, 452, 327, 50, go('desbloqueado', 'voucher')), verCredito],
+      desbloqueado: [abaFisico, verCredito, bloquear],
+    };
+    return { telas, hotspots: map[s.tela] };
+  }
+}
+PrototipoVirtual.defaultProps = {};
+PrototipoVirtual.prototype.tpl = function (v) { return html`
+<div style="position: relative; width: 375px; height: 812px; overflow: hidden; background: #FFFFFF; border-radius: 44px">
+  ${(v.telas || []).map((t) => html`
+    <img class="tela" src=${t.src} alt=${t.alt} aria-hidden=${t.oculta} style=${t.style} />
+  `)}
+  ${(v.hotspots || []).map((h) => html`
+    <button type="button" class="hs" aria-label=${h.label} onClick=${h.go} style=${h.style}></button>
+  `)}
+</div>
+`; };
+C.PrototipoVirtual = PrototipoVirtual;
 
 class Ideacao extends DCLogic {
   constructor(props) {
